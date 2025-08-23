@@ -23,14 +23,8 @@ public class UserController {
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
      */
-    @Value( "${user.name.length.min}" )
-    private int userNameLengthMin;
-
     @Value( "${user.name.length.max}" )
     private int userNameLengthMax;
-
-    @Value( "${user.email.length.min}" )
-    private int userEmailLengthMin;
 
     @Value( "${user.email.length.max}" )
     private int userEmailLengthMax;
@@ -63,9 +57,7 @@ public class UserController {
 
         // Add the attributes to the view model so it can be accessed in the view.
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "Create User");
-        viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MIN, userNameLengthMin);
         viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MAX, userNameLengthMax);
-        viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MIN, userEmailLengthMin);
         viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MAX, userEmailLengthMax);
         viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MIN, userAgeLimitMin);
         viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MAX, userAgeLimitMax);
