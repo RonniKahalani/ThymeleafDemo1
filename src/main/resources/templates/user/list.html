@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title th:text="${pageTitle}"></title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <!-- Latest compiled and minified CSS -->
@@ -24,31 +24,19 @@
 
 </head>
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-
-            <span id="title" th:if="${pageTitle}" class="row">
-                <span class="bi-stars me-4 col-sm"></span><span th:text="${pageTitle}" class="col-11"></span>
-            </span>
-    </a>
-
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/form" class="nav-link">Create User</a></li>
-        <li class="nav-item"><a href="/users" class="nav-link">List Users</a></li>
-    </ul>
-</header>
-
+<header th:insert="~{/fragments/fragments :: header}"
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"></header>
 <main>
     <div class="container">
 
-        <h2>Users in Database</h2>
-        <table>
+        <h2>Users</h2>
+        <table class="user-list">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
+                <th class="user-id">Id</th>
+                <th class="user-name">Name</th>
+                <th class="user-email">Email</th>
+                <th class="user-age">Age</th>
             </tr>
             </thead>
             <tbody>
@@ -63,9 +51,7 @@
     </div>
 
 </main>
-<footer>
-    Copyright &copy; 2025 Your Company Name
-</footer>
+<footer th:insert="~{/fragments/fragments :: footer}"></footer>
 </body>
 </html>
 

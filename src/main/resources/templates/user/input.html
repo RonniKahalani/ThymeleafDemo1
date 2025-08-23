@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Create User</title>
+    <title th:text="${pageTitle}"></title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <!-- Latest compiled and minified CSS -->
@@ -24,49 +24,50 @@
 
 </head>
 <body>
-<header class="border-bottom">
-    <span id="title" th:if="${pageTitle}" class="row">
-        <span class="bi-stars col-sm"></span><span th:text="${pageTitle}" class="col-11"></span>
-    </span>
-
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/form" class="nav-link">Create User</a></li>
-        <li class="nav-item"><a href="/users" class="nav-link">List Users</a></li>
-    </ul>
-</header>
+<header th:insert="~{/fragments/fragments :: header}"
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"></header>
 <main>
     <div class="container m-4 p-4">
         <form th:action="@{/submit}" th:object="${user}" method="post" class="form">
 
             <h2>Enter User Data</h2>
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter name" required/>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="form-control" th:min="${userNameLengthMin}" th:max="${userNameLengthMax}" th:field="*{name}" placeholder="Enter name" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" th:min="${userEmailLengthMin}" th:max="${userEmailLengthMax}" th:field="*{email}" aria-describedby="emailHelp"
+                               placeholder="Enter email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <!-- <input type="number" id="age" min="18" max="130" th:field="*{age}" required /> -->
+                        <input type="number" id="age" class="form-control" th:min="${userAgeLimitMin}" th:max="${userAgeLimitMax}"
+                               th:field="*{age}"
+                               placeholder="Enter age" required/>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    kjhkjhkjhkjhkjh
+                </div>
             </div>
 
-            <div class="form-group">
-
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                       placeholder="Enter email" required>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
 
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <!-- <input type="number" id="age" min="18" max="130" th:field="*{age}" required /> -->
-                <input type="number" id="age" class="form-control" th:min="${ageLimitMin}" th:max="${ageLimitMax}" th:field="*{age}"
-                       placeholder="Enter age" required/>
-            </div>
-
-            <button type="submit" class="btn btn-primary text-end">Submit</button>
         </form>
     </div>
 </main>
-<footer>
-    Copyright &copy; 2025 Your Company Name
-</footer>
+<footer th:insert="~{/fragments/fragments :: footer}"></footer>
 </body>
 </html>

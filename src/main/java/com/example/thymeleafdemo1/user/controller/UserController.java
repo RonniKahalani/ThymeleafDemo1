@@ -2,6 +2,7 @@ package com.example.thymeleafdemo1.user.controller;
 
 import com.example.thymeleafdemo1.user.model.User;
 import com.example.thymeleafdemo1.user.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,27 @@ import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
 
 @Controller
 public class UserController {
+
+    /**
+     * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
+     */
+    @Value( "${user.name.length.min}" )
+    private int userNameLengthMin;
+
+    @Value( "${user.name.length.max}" )
+    private int userNameLengthMax;
+
+    @Value( "${user.email.length.min}" )
+    private int userEmailLengthMin;
+
+    @Value( "${user.email.length.max}" )
+    private int userEmailLengthMax;
+
+    @Value( "${user.age.limit.min}" )
+    private int userAgeLimitMin;
+
+    @Value( "${user.age.limit.max}" )
+    private int userAgeLimitMax;
 
     // Reference to the UserService for handling user-related operations
     private final UserService userService;
@@ -37,12 +59,16 @@ public class UserController {
     public String showInputForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User( "", "", 0);
+        User user = new User( "", "", userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "Create User");
-        viewModel.addAttribute(VIEW_ATTR_AGE_LIMIT_MIN, 18);
-        viewModel.addAttribute(VIEW_ATTR_AGE_LIMIT_MAX, 130);
+        viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MIN, userNameLengthMin);
+        viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MAX, userNameLengthMax);
+        viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MIN, userEmailLengthMin);
+        viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MAX, userEmailLengthMax);
+        viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MIN, userAgeLimitMin);
+        viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MAX, userAgeLimitMax);
         viewModel.addAttribute(VIEW_ATTR_USER, user);
 
         // Return the name of the view to be rendered.
