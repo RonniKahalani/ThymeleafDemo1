@@ -22,8 +22,8 @@ public class HomeController {
      * @return the name of the template to render
      */
     @RequestMapping("/")
-    public String index(Model model) {
-        model.addAttribute(VIEW_ATTR_PAGE_TITLE, APP_NAME);
+    public String index(Model viewModel) {
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, APP_NAME);
         return VIEW_HOME;
     }
 }
