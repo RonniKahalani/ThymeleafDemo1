@@ -1,0 +1,1 @@
+alert("Hi there! This is a test alert from core.js.");

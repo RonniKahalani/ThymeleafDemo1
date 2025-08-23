@@ -1,5 +1,6 @@
 package com.example.thymeleafdemo1.home.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    @Value("${spring.application.name}")
+    private String WELCOME_MSG;
     /**
      * This is the controller that handles the root URL and returns the start page.
      * The Thymeleaf template engine will look for a file named "input.html" in the templates directory.
@@ -15,7 +18,7 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("message", "Welcome to the Thymeleaf Demo!");
+        model.addAttribute("message", WELCOME_MSG);
         return "home/index";
     }
 

@@ -2,12 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="../../js/core.js"></script>
+
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+
 </head>
 <body>
 
 <div th:if="${message}">
-    <h1 th:text="${message}">Welcome to the Thymeleaf Example</h1>
+    <h1 th:text="${message}"></h1>
 </div>
     <a href="/form">User Form</a>
 </body>
