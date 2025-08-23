@@ -1,26 +1,70 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Submission Result</title>
+
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+
+    <!-- Our own Thymeleaf CSS and JS -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <script defer src="/js/core.js"></script>
+
 </head>
 <body>
-<h2>Users in Database</h2>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.age}"></td>
-    </tr>
-    </tbody>
-</table>
-<a th:href="@{/form}">Back to Form</a>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+            <span id="title" th:if="${pageTitle}" class="row">
+                <span class="bi-stars me-4 col-sm"></span><span th:text="${pageTitle}" class="col-11"></span>
+            </span>
+    </a>
+
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/form" class="nav-link">Create User</a></li>
+        <li class="nav-item"><a href="/users" class="nav-link">List Users</a></li>
+    </ul>
+</header>
+
+<main>
+    <div class="container">
+
+        <h2>Users in Database</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.age}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+<footer>
+    Copyright &copy; 2025 Your Company Name
+</footer>
 </body>
 </html>
+

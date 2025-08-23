@@ -15,19 +15,38 @@
     <!-- Latest compiled JavaScript -->
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
+
     <!-- Our own Thymeleaf CSS and JS -->
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <script defer src="/js/core.js"></script>
 
 </head>
 <body>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 
-<div th:if="${message}">
-    <h1 th:text="${message}"></h1>
-</div>
+            <span id="title" th:if="${pageTitle}" class="row">
+                <span class="bi-stars me-4 col-sm"></span><span th:text="${pageTitle}" class="col-11"></span>
+            </span>
+    </a>
 
-<button id="btnAddUser" class="btn-primary btn-small btn">Create User</button>
-<button id="btnListUsers">List Users</button>
-<button id="btnHome">Home</button>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/form" class="nav-link">Create User</a></li>
+        <li class="nav-item"><a href="/users" class="nav-link">List Users</a></li>
+    </ul>
+</header>
+
+<main>
+    <div class="container">
+        <h2>Welcome to the Thymeleaf Demo!</h2>
+    </div>
+</main>
+
+<footer>
+    Copyright &copy; 2025 Your Company Name
+</footer>
 </body>
 </html>

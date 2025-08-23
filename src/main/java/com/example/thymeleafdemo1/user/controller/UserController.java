@@ -44,10 +44,14 @@ public class UserController {
         // Create a new User object with default values.
         User user = new User( "", 0);
 
-        // Add the user object to the view model so it can be accessed in the view.
+        // Add the page title to the view model so it can be accessed in the view.
+        viewModel.addAttribute("pageTitle", "Create User");
+
+        // Add age limits to the view model so it can be accessed in the view.
         viewModel.addAttribute("ageLimitMin", 18);
         viewModel.addAttribute("ageLimitMax", 130);
 
+        // Add the user object to the view model so it can be accessed in the view.
         viewModel.addAttribute(VIEW_ATTR_USER, user);
         viewModel.addAttribute(VIEW_ATTR_USER, user);
 
@@ -93,6 +97,8 @@ public class UserController {
      * @return the name of the view to be rendered
      */
     private String listAllUsers(Model viewModel) {
+
+        viewModel.addAttribute("pageTitle", "User Listing");
 
         // Fetch all users to display on the result page
         viewModel.addAttribute(VIEW_ATTR_USERS, userService.getAllUsers());

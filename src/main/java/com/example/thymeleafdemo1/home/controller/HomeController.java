@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @Value("${spring.application.name}")
-    private String WELCOME_MSG;
+    private String APP_NAME;
     /**
      * This is the controller that handles the root URL and returns the start page.
      * The Thymeleaf template engine will look for a file named "input.html" in the templates directory.
@@ -18,7 +18,7 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("message", WELCOME_MSG);
+        model.addAttribute("pageTitle", APP_NAME);
         return "home/index";
     }
 
