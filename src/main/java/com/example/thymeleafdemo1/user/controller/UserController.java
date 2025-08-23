@@ -8,21 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
+
 /*
- * This is the controller that handles the form display and submission.
- * The Thymeleaf template engine will look for a html files in the templates directory.
+ * This is the controller that handles the user form display and submission.
  *
  * @return the name of the template to render
  */
 
 @Controller
 public class UserController {
-
-    private final String VIEW_INPUT = "user/input"; // Refers to input.html
-    private final String VIEW_LIST = "user/list"; // Refers to list.html
-
-    private final String VIEW_ATTR_USER = "user";
-    private final String VIEW_ATTR_USERS = "users";
 
     // Reference to the UserService for handling user-related operations
     private final UserService userService;
@@ -42,17 +37,12 @@ public class UserController {
     public String showInputForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User( "", 0);
+        User user = new User( "", "", 0);
 
-        // Add the page title to the view model so it can be accessed in the view.
-        viewModel.addAttribute("pageTitle", "Create User");
-
-        // Add age limits to the view model so it can be accessed in the view.
-        viewModel.addAttribute("ageLimitMin", 18);
-        viewModel.addAttribute("ageLimitMax", 130);
-
-        // Add the user object to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_USER, user);
+        // Add the attributes to the view model so it can be accessed in the view.
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "Create User");
+        viewModel.addAttribute(VIEW_ATTR_AGE_LIMIT_MIN, 18);
+        viewModel.addAttribute(VIEW_ATTR_AGE_LIMIT_MAX, 130);
         viewModel.addAttribute(VIEW_ATTR_USER, user);
 
         // Return the name of the view to be rendered.
@@ -98,9 +88,7 @@ public class UserController {
      */
     private String listAllUsers(Model viewModel) {
 
-        viewModel.addAttribute("pageTitle", "User Listing");
-
-        // Fetch all users to display on the result page
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "User Listing");
         viewModel.addAttribute(VIEW_ATTR_USERS, userService.getAllUsers());
 
         // Return the name of the view to be rendered.

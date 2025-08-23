@@ -5,6 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import static com.example.thymeleafdemo1.ThymeleafDemo1Application.VIEW_ATTR_PAGE_TITLE;
+import static com.example.thymeleafdemo1.ThymeleafDemo1Application.VIEW_HOME;
+
+/**
+ * This is the controller that handles the root URL and returns the start page.
+ */
 @Controller
 public class HomeController {
 
@@ -12,14 +18,12 @@ public class HomeController {
     private String APP_NAME;
     /**
      * This is the controller that handles the root URL and returns the start page.
-     * The Thymeleaf template engine will look for a file named "input.html" in the templates directory.
      *
      * @return the name of the template to render
      */
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("pageTitle", APP_NAME);
-        return "home/index";
+        model.addAttribute(VIEW_ATTR_PAGE_TITLE, APP_NAME);
+        return VIEW_HOME;
     }
-
 }

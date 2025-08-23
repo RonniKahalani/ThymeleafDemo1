@@ -42,7 +42,7 @@
             <h2>Enter User Data</h2>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" class="" th:field="*{name}" placeholder="Enter name" required/>
+                <input type="text" id="name" class="form-control" th:field="*{name}" placeholder="Enter name" required/>
             </div>
 
             <div class="form-group">
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label for="age">Age:</label>
                 <!-- <input type="number" id="age" min="18" max="130" th:field="*{age}" required /> -->
-                <input type="number" id="age" th:min="${ageLimitMin}" th:max="${ageLimitMax}" th:field="*{age}"
+                <input type="number" id="age" class="form-control" th:min="${ageLimitMin}" th:max="${ageLimitMax}" th:field="*{age}"
                        placeholder="Enter age" required/>
             </div>
 

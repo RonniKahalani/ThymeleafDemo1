@@ -14,6 +14,7 @@ public class User {
 
     private Long id;
     private String name;
+    private String email;
     private int age;
 
     /**
@@ -23,8 +24,9 @@ public class User {
      * @param name the name of the user
      * @param age  the age of the user
      */
-    public User(String name, int age) {
+    public User(String name, String email, int age) {
         this.name = name;
+        this.email = email;
         this.age = age;
     }
 }
