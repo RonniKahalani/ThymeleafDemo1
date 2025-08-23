@@ -1,0 +1,1 @@
+# Thymeleaf is a modern server-side Java template engine for web and standalone environments. It allows you to create dynamic web pages using HTML, XML, and other formats.
