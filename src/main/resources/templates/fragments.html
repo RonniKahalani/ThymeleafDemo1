@@ -1,5 +1,5 @@
 <div th:fragment="header">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+  <a href="/static" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 
             <span id="title" th:if="${pageTitle}" class="row">
                 <span class="bi-stars me-4 col-sm"></span><span th:text="${pageTitle}" class="col-11"></span>
@@ -7,7 +7,7 @@
   </a>
 
   <ul class="nav nav-pills">
-    <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+    <li class="nav-item"><a href="/static" class="nav-link active" aria-current="page">Home</a></li>
     <li class="nav-item"><a href="/form" class="nav-link">Create User</a></li>
     <li class="nav-item"><a href="/users" class="nav-link">List Users</a></li>
   </ul>

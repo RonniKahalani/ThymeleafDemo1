@@ -3,6 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${pageTitle}"></title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -24,8 +25,7 @@
 
 </head>
 <body>
-<header th:insert="~{/fragments/fragments :: header}"
-        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"></header>
+<header th:insert="~{/fragments :: header}"></header>
 <main>
     <div class="container">
 
@@ -51,7 +51,7 @@
     </div>
 
 </main>
-<footer th:insert="~{/fragments/fragments :: footer}"></footer>
+<footer th:insert="~{/fragments :: footer}"></footer>
 </body>
 </html>
 

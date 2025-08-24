@@ -3,6 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${pageTitle}"></title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -24,7 +25,7 @@
 
 </head>
 <body>
-<header th:insert="~{/fragments/fragments :: header}"
+<header th:insert="~{/fragments :: header}"
         class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"></header>
 <main>
     <div class="container m-4 p-4">
@@ -59,7 +60,9 @@
 
                     </td>
                     <td class="input-desc">
-                            Using the links in the top navigation bar, you can view the list of users or create new users.
+                        <p>Using the links in the top navigation bar, you can view the list of users or create new users.</p>
+                        <h3>Form</h3>
+                        <p>This form has two text input fields (Name and Email) and one number field (Age). All fields are validated in the browser, before sending the request to the server.</p>
                     </td>
                 </tr>
                 </tbody>
@@ -72,6 +75,6 @@
         </form>
     </div>
 </main>
-<footer th:insert="~{/fragments/fragments :: footer}"></footer>
+<footer th:insert="~{/fragments :: footer}"></footer>
 </body>
 </html>

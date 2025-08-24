@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${pageTitle}"></title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -22,13 +23,52 @@
     <script defer src="/js/core.js"></script>
 </head>
 <body>
-<header th:insert="~{/fragments/fragments :: header}"
-        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"></header>
+<header th:insert="~{/fragments :: header}"></header>
 <main>
     <div class="container">
-        <h2>Welcome to the Thymeleaf Demo!</h2>
+        <h2>Welcome to the Spring Thymeleaf Demo!</h2>
+        <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
+            entry and a list of users.</p>
+
+        <table>
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td class="mvc-column">
+                    <h3>Model</h3>
+                    <p>Includes service-, repository- and entity classes.</p>
+                    <h4>Service</h4>
+                    <ul><li>Handles business logic and has access to data repositories.</li></ul>
+                    <h4>Repository</h4>
+                    <ul><li>Handles access to data entities.</li></ul>
+                    <h4>Entity</h4>
+                    <ul><li>Represents a database object (row in a database table).</li></ul>
+                </td>
+                <td class="mvc-column">
+                    <h3>View</h3>
+                    <p>Includes HTML-, CSS- and javaScript files.</p>
+                    <h4>HTML</h4>
+                    <ul><li>Handles business logic and has access to data repositories.</li></ul>
+                    <h4>CSS</h4>
+                    <ul><li>Handles access to data entities.</li></ul>
+                    <h4>Javascript</h4>
+                    <ul><li>Represents a database object (row in a database table).</li></ul>
+                </td>
+                <td class="mvc-column">
+                    <h3>Controller</h3>
+                    <p>Delegate valid incoming web requests to views.</p>
+                    <h4>Delegate</h4>
+                    <ul><li>Validates and delegates the requests to the targeted service.</li></ul>
+                    <h4>View</h4>
+                    <ul><li>Returns a path to a proper view (html page) and shares, data supplied by the service, with the view, by
+                        adding view model attributes.</li></ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
 </main>
-<footer th:insert="~{/fragments/fragments :: footer}"></footer>
+<footer th:insert="~{/fragments :: footer}"></footer>
 </body>
 </html>

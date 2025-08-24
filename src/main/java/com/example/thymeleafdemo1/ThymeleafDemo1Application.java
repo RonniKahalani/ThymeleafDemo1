@@ -12,14 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ThymeleafDemo1Application {
 
     /**
-     * The view names used in the application.
+     * The view names used in the application. Refers to html pages/views (without the html extension).
      */
-    public final static String VIEW_HOME = "home/index"; // Refers to index.html
-    public final static String VIEW_INPUT = "user/input"; // Refers to input.html
-    public final static String VIEW_LIST = "user/list"; // Refers to list.html
+    public final static String VIEW_HOME = "home/index";
+    public final static String VIEW_INPUT = "user/input";
+    public final static String VIEW_LIST = "user/list";
 
     /**
-     * The view model attributes used in the application.
+     * The view model attributes used in the application, to parse data to a view model.
      */
     public final static String VIEW_ATTR_PAGE_TITLE = "pageTitle";
     public final static String VIEW_ATTR_USER_NAME_LENGTH_MAX = "userNameLengthMax";
