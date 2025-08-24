@@ -1,74 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head th:include="~{/fragments :: head}">
     <title th:text="${pageTitle}"></title>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- Bootstrap Font Icon CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
-
-    <!-- Our own Thymeleaf CSS and JS -->
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <script defer src="/js/core.js"></script>
 </head>
 <body>
-<header th:insert="~{/fragments :: header}"></header>
+<header th:include="~{/fragments :: header}"></header>
 <main>
     <div class="container">
         <h2>Welcome to the Spring Thymeleaf Demo!</h2>
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
-
-        <table>
-            <thead></thead>
-            <tbody>
-            <tr>
-                <td class="mvc-column">
-                    <h3>Model</h3>
-                    <p>Includes service-, repository- and entity classes.</p>
-                    <h4>Service</h4>
-                    <ul><li>Handles business logic and has access to data repositories.</li></ul>
-                    <h4>Repository</h4>
-                    <ul><li>Handles access to data entities.</li></ul>
-                    <h4>Entity</h4>
-                    <ul><li>Represents a database object (row in a database table).</li></ul>
-                </td>
-                <td class="mvc-column">
-                    <h3>View</h3>
-                    <p>Includes HTML-, CSS- and javaScript files.</p>
-                    <h4>HTML</h4>
-                    <ul><li>Handles business logic and has access to data repositories.</li></ul>
-                    <h4>CSS</h4>
-                    <ul><li>Handles access to data entities.</li></ul>
-                    <h4>Javascript</h4>
-                    <ul><li>Represents a database object (row in a database table).</li></ul>
-                </td>
-                <td class="mvc-column">
-                    <h3>Controller</h3>
-                    <p>Delegate valid incoming web requests to views.</p>
-                    <h4>Delegate</h4>
-                    <ul><li>Validates and delegates the requests to the targeted service.</li></ul>
-                    <h4>View</h4>
-                    <ul><li>Returns a path to a proper view (html page) and shares, data supplied by the service, with the view, by
-                        adding view model attributes.</li></ul>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
+        <div class="m-2 p-2">
+            <div class="mvc-column">
+                <h3>Model - Business Logic & Data</h3>
+                <p>Includes services-, repositories- and entity classes.</p>
+                <b>Service - Encapsulates business logic</b>
+                <ul>
+                    <li>Handles business logic and has access to data entities, via repositories, and returns a response to the requesting controller.</li>
+                </ul>
+                <b>Repository - Encapsulates data</b>
+                <ul>
+                    <li>Handles creating, saving and finding data entities, from a database. Only the repository knows about the database implementation.</li>
+                </ul>
+                <b>Entity - Is the data</b>
+                <ul>
+                    <li>Represents a database object (row) in a database table).</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="mvc-column">
+                <h3>View - Presents a User Interface (UI)</h3>
+                <p>Includes HTML-, CSS- and javaScript files.</p>
+                <b>HTML - Structures the view</b>
+                <ul>
+                    <li>Handles business logic and has access to data repositories.</li>
+                </ul>
+                <b>CSS - Styles the view</b>
+                <ul>
+                    <li>Handles access to data entities.</li>
+                </ul>
+                <b>Javascript - Programmatic interaction with views</b>
+                <ul>
+                    <li>Represents a database object (row in a database table).</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="mvc-column">
+                <h3>Controller - The servant and delegator</h3>
+                <p>Gets incoming web requests from views and response with a result view.</p>
+                <b>Delegate - Gets requests from a UI view</b>
+                <ul>
+                    <li>Validates and delegates the requests to the targeted service.</li>
+                </ul>
+                <b>Response - Gets response data from their controller request</b>
+                <ul>
+                    <li>Returns a path to a proper view (html page) and shares, data supplied by the service, with the
+                        view, by
+                        adding view model attributes.
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </main>
-<footer th:insert="~{/fragments :: footer}"></footer>
+<footer th:include="~{/fragments :: footer}"></footer>
 </body>
 </html>
