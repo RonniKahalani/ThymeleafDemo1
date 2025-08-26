@@ -34,10 +34,14 @@ public class UserController {
     @Value( "${user.age.limit.max}" )
     private int userAgeLimitMax;
 
-    // Reference to the UserService for handling user-related operations
+    /**
+     * Reference to the UserService for handling user-related operations
+     * In the old days we would use something like this, regarding dependency injection, but now you use implicit constructor injection.
+     * @Autowired
+     */
     private final UserService userService;
 
-    // Constructor injection for UserService
+    // Constructor-based dependency injection for UserService
     public UserController(UserService userService) {
         this.userService = userService;
     }
