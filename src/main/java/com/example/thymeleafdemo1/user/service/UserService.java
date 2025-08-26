@@ -18,11 +18,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getAllUsers() {
+    public List<User> findAll() {
         return userRepository.findAll(); // Placeholder for actual user retrieval logic
     }
 
-    public User getUserById(Long id) {
+    public User findById(Long id) {
         // This method would typically interact with a database to retrieve a user by ID.
         // For simplicity, we can return null or a predefined user.
         return userRepository.findById(id); // Placeholder for actual user retrieval logic

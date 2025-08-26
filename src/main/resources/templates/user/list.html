@@ -24,6 +24,7 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.age}"></td>
+                <td><a th:href="@{/user/{id}(id=${user.id})}">Show</a></td>
             </tr>
             </tbody>
         </table>

@@ -5,9 +5,7 @@ import com.example.thymeleafdemo1.user.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
 
@@ -18,6 +16,7 @@ import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
  */
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     /**
@@ -67,6 +66,26 @@ public class UserController {
         return VIEW_INPUT; // Refers to input.html
     }
 
+
+    /**
+     * This method displays the user form for user input.
+     *
+     * @param viewModel
+     * @return
+     */
+    @GetMapping("/{id}")
+    public String findById( @PathVariable String id, Model viewModel) {
+
+        // Find the user via the UserService.
+        User user = userService.findById(Long.parseLong(id));
+
+        // Add the attributes to the view model so it can be accessed in the view.
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "User");
+        viewModel.addAttribute(VIEW_ATTR_USER, user);
+
+        // Return the name of the view to be rendered.
+        return VIEW_SHOW; // Refers to show.html
+    }
     /**
      * This method handles the form submission.
      *
@@ -74,7 +93,7 @@ public class UserController {
      * @param viewModel
      * @return
      */
-    @PostMapping("/submit")
+    @PostMapping()
     public String saveUser(@ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
 
         // Save the user using the UserService.
@@ -90,7 +109,7 @@ public class UserController {
      * @param viewModel
      * @return
      */
-    @GetMapping("/users")
+    @GetMapping()
     public String listUsers(Model viewModel) {
 
         // Return all the users to the result page.
@@ -107,7 +126,7 @@ public class UserController {
     private String listAllUsers(Model viewModel) {
 
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "User Listing");
-        viewModel.addAttribute(VIEW_ATTR_USERS, userService.getAllUsers());
+        viewModel.addAttribute(VIEW_ATTR_USERS, userService.findAll());
 
         // Return the name of the view to be rendered.
         return VIEW_LIST; // Refers to list.html

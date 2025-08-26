@@ -23,7 +23,7 @@ public class UserRepository {
      */
     public List<User> findAll() {
         // Logic to retrieve all users (e.g., from a database)
-        return users; // Placeholder implementation
+        return users;
     }
 
     /**

@@ -17,6 +17,7 @@ public class ThymeleafDemo1Application {
     public final static String VIEW_HOME = "home/index";
     public final static String VIEW_INPUT = "user/input";
     public final static String VIEW_LIST = "user/list";
+    public final static String VIEW_SHOW = "user/show";
 
     /**
      * The view model attributes used in the application, to parse data to a view model.
