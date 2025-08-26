@@ -1,6 +1,5 @@
 package com.example.thymeleafdemo1.user.model;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,8 +7,8 @@ import java.util.List;
 
 /**
  * This class serves as a repository for managing user data.
- *  This class operations would typically interact with a database to retrieve all users.
- *  For simplicity, we can return an empty list or a predefined list of users.
+ * This class operations would typically interact with a database to retrieve all users.
+ * For simplicity, we can return an empty list or a predefined list of users.
  */
 @Repository
 public class UserRepository {
