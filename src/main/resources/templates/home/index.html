@@ -8,61 +8,98 @@
 <main>
     <div class="container">
 
-        <h2>Welcome to the Spring Thymeleaf Demo!</h2>
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
 
         <div class="m-2 p-2">
 
-            <div class="mvc-column">
-                <h3>Model - Business Logic & Data</h3>
-                <p>Includes services-, repositories- and entity classes.</p>
-                <b>Service - Encapsulates business logic</b>
-                <ul>
-                    <li>Handles business logic and has access to data entities, via repositories, and returns a response to the requesting controller.</li>
-                </ul>
-                <b>Repository - Encapsulates data</b>
-                <ul>
-                    <li>Handles creating, saving and finding data entities, from a database. Only the repository knows about the database implementation.</li>
-                </ul>
-                <b>Entity - Is the data</b>
-                <ul>
-                    <li>Represents a database object (a row in a database table).</li>
-                </ul>
+            <div class="jumbotron">
+                <h1 class="display-4">Model - Business Logic & Data</h1>
+                <p class="lead">Includes services-, repositories- and entity classes.</p>
+                <div class="row">
+                    <div class="col-4">
+                        <b>Service - Encapsulates business logic</b>
+                        <ul>
+                            <li>Handles business logic and access data via repositories, and returns a
+                                response to the requesting controller.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>Repository - Encapsulates data</b>
+                        <ul>
+                            <li>Handles CRUD: create, read, update, delete and find data entities, in a database. Only the repository
+                                knows about the database implementation.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>Entity - Is the data</b>
+                        <ul>
+                            <li>Represents a database object (a row in a database table).</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <hr>
-            <div class="mvc-column">
-                <h3>View - User Interface (UI)</h3>
-                <p>Includes HTML-, CSS- and javaScript files.</p>
-                <b>HTML - Structures the view</b>
-                <ul>
-                    <li>Defines the main structure of elements on a web page.</li>
-                </ul>
-                <b>CSS - Styles a view</b>
-                <ul>
-                    <li>Defines the look and feel style of the page elements.</li>
-                </ul>
-                <b>Javascript - Programmatic interaction with views</b>
-                <ul>
-                    <li>A script language used to manipulate the structure and data on a web page and fetch data from external sources/services, via programming.</li>
-                </ul>
+            <div class="jumbotron">
+                <h1 class="display-4">View - User Interface (UI)</h1>
+                <p class="lead">Includes HTML-, CSS- and javaScript files.</p>
+                <div class="row">
+                    <div class="col-4">
+                        <b>HTML - Structures the view</b>
+                        <ul>
+                            <li>Defines the main structure of elements on a web page.</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>CSS - Styles a view</b>
+                        <ul>
+                            <li>Defines the look and feel style of the page elements. like colors, position, text fonts and styles, animation...</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>Javascript - Programmatic interaction with views</b>
+                        <ul>
+                            <li>A script language used to manipulate the structure and data on a web page and fetch data from
+                                external sources/services, via programming.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <hr>
-            <div class="mvc-column">
-                <h3>Controller - Links UI request to business logic and data responses</h3>
-                <p>Gets incoming web requests from views and response with a result view.</p>
-                <b>Delegate - Gets requests from a UI view</b>
-                <ul>
-                    <li>Validates and delegates the requests to the targeted service.</li>
-                </ul>
-                <b>Response - Gets response data from their controller request</b>
-                <ul>
-                    <li>Returns a path to a proper view (html page) and shares, data supplied by the service, with the
-                        view, by
-                        adding view model attributes.
-                    </li>
-                </ul>
+            <div class="jumbotron">
+                <h1 class="display-4">Controller - Delegates requests to services</h1>
+                <p class="lead">Gets incoming web requests from views and response with a result view.</p>
+                <div class="row">
+                    <div class="col-4">
+                        <b>Delegate - Gets requests from a UI view</b>
+                        <ul>
+                            <li>Validates and delegates the requests to the targeted service.</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>Response - Returns response data from the business service</b>
+                        <ul>
+                            <li>Returns a path to a view (html page) and shares data supplied by the service, with the
+                                view, by
+                                adding view model attributes.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <b>Formatting - Returns the external data in the callers preferred format (JSON, XML, CSV...)</b>
+                        <ul>
+                            <li>Gets the raw data from the service and convert it on the fly.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
             </div>
+
+
         </div>
     </div>
 </main>
