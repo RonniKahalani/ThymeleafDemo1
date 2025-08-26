@@ -101,7 +101,7 @@ public class UserController {
     public String saveUser(@ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
 
         // Save the user using the UserService.
-        userService.saveUser(user);
+        userService.save(user);
 
         // Return the name of the view to be rendered.
         return listAllUsers(viewModel);

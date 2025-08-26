@@ -23,26 +23,22 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        // This method would typically interact with a database to retrieve a user by ID.
-        // For simplicity, we can return null or a predefined user.
-        return userRepository.findById(id); // Placeholder for actual user retrieval logic
+        return userRepository.findById(id);
     }
 
-    public void saveUser(User user) {
-        // This method would typically interact with a database to save a user.
-        // For simplicity, we can just print the user's name or perform some other action.
-        validateUser(user);
-        userRepository.save(user); // Placeholder for actual user saving logic
+    public void save(User user) {
+        validate(user);
+        userRepository.save(user);
     }
 
-    private void validateUser(User user) {
-        // Perform validation on the user object
+    private void validate(User user) {
+
+        // Perform validation on the user object.
         if (user.getName() == null || user.getName().isEmpty()) {
             throw new IllegalArgumentException("User name cannot be empty");
         }
         if (user.getAge() < 18) {
             throw new IllegalArgumentException("User age cannot be less than 18 years of age.");
         }
-        // Additional validation logic can be added here
     }
 }
