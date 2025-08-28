@@ -19,27 +19,30 @@ import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
 public class UserController {
 
     private static final String TITLE_USER_CREATE = "Create User";
-    private static final String TITLE_USER_SHOW = "Show User";
+    private static final String TITLE_USER_READ = "Show User";
+    private static final String TITLE_USER_UPDATE = "Update User";
+    private static final String TITLE_USER_DELETE = "Delete User";
     private static final String TITLE_USER_LIST = "List Users";
 
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
      */
-    @Value( "${user.name.length.max}" )
+    @Value("${user.name.length.max}")
     private int userNameLengthMax;
 
-    @Value( "${user.email.length.max}" )
+    @Value("${user.email.length.max}")
     private int userEmailLengthMax;
 
-    @Value( "${user.age.limit.min}" )
+    @Value("${user.age.limit.min}")
     private int userAgeLimitMin;
 
-    @Value( "${user.age.limit.max}" )
+    @Value("${user.age.limit.max}")
     private int userAgeLimitMax;
 
     /**
      * Reference to the UserService for handling user-related operations
      * In the old days we would use something like this, regarding dependency injection, but now you use implicit constructor injection.
+     *
      * @Autowired
      */
     private final UserService userService;
@@ -55,24 +58,52 @@ public class UserController {
      * @param viewModel
      * @return
      */
-    @GetMapping("/form")
-    public String showInputForm(Model viewModel) {
+    @GetMapping("/create")
+    public String createForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User( "", "", userAgeLimitMin);
+        User user = new User("", "", userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_CREATE);
+        setupEditModelAttributes(viewModel);
+        viewModel.addAttribute(VIEW_ATTR_USER, user);
+
+        // Return the name of the view to be rendered.
+        return VIEW_USER_CREATE; // Refers to create.html
+    }
+
+    /**
+     * This method displays the user form for user input.
+     *
+     * @param viewModel
+     * @return
+     */
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable String id, Model viewModel) {
+
+        validateUserId(id);
+        User user = userService.findById(Long.parseLong(id));
+        if (user == null) {
+            throw new IllegalArgumentException("User not found for id: " + id);
+        }
+
+        // Add the attributes to the view model so it can be accessed in the view.
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_UPDATE);
+        setupEditModelAttributes(viewModel);
+        viewModel.addAttribute(VIEW_ATTR_USER, user);
+
+        // Return the name of the view to be rendered.
+        return VIEW_USER_UPDATE;
+    }
+
+
+    private void setupEditModelAttributes(Model viewModel) {
         viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MAX, userNameLengthMax);
         viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MAX, userEmailLengthMax);
         viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MIN, userAgeLimitMin);
         viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MAX, userAgeLimitMax);
-        viewModel.addAttribute(VIEW_ATTR_USER, user);
-
-        // Return the name of the view to be rendered.
-        return VIEW_INPUT; // Refers to input.html
     }
-
 
     /**
      * This method displays the user form for user input.
@@ -81,27 +112,39 @@ public class UserController {
      * @return
      */
     @GetMapping("/{id}")
-    public String findById( @PathVariable String id, Model viewModel) {
+    public String findById(@PathVariable String id, Model viewModel) {
 
         // Validate the id before using it.
-        if (id == null || id.isEmpty() || !id.matches("\\d+")) {
-            throw new IllegalArgumentException("Invalid user id: " + id);
-        }
+        validateUserId(id);
 
         // Find the user via the UserService.
         User user = userService.findById(Long.parseLong(id));
 
-        if(user == null) {
+        if (user == null) {
             throw new IllegalArgumentException("User not found for id: " + id);
         }
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_SHOW);
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_READ);
         viewModel.addAttribute(VIEW_ATTR_USER, user);
 
         // Return the name of the view to be rendered.
-        return VIEW_SHOW; // Refers to show.html
+        return VIEW_USER_READ; // Refers to read.html
     }
+
+    /**
+     * Validate the user id.
+     *
+     * @param id
+     */
+    private void validateUserId(String id) {
+        // Validate the id before using it.
+        if (id == null || id.isEmpty() || !id.matches("\\d+")) {
+            throw new IllegalArgumentException("Invalid user id: " + id);
+        }
+    }
+
+
     /**
      * This method handles the form submission.
      *
@@ -110,7 +153,24 @@ public class UserController {
      * @return
      */
     @PostMapping()
-    public String saveUser(@ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
+    public String createUser(@ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
+
+        // Save the user using the UserService.
+        userService.save(user);
+
+        // Return the name of the view to be rendered.
+        return listAllUsers(viewModel);
+    }
+
+    /**
+     * This method handles the form submission.
+     *
+     * @param user
+     * @param viewModel
+     * @return
+     */
+    @PostMapping("/{id}")
+    public String updateUser(@PathVariable String id, @ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
 
         // Save the user using the UserService.
         userService.save(user);
@@ -145,6 +205,6 @@ public class UserController {
         viewModel.addAttribute(VIEW_ATTR_USERS, userService.findAll());
 
         // Return the name of the view to be rendered.
-        return VIEW_LIST; // Refers to list.html
+        return VIEW_USER_LIST; // Refers to list.html
     }
 }

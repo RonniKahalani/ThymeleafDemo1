@@ -59,10 +59,18 @@ public class UserRepository {
 
         // Logic to save the user (e.g., to a database)
         if (user.getId() == null) {
-            user.setId((long) (users.size() + 1)); // Assign a new ID
+            user.setId((long) (users.size() + 1)); // Assign a new id
+            users.add(user);
+        } else {
+            // Update existing user
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getId().equals(user.getId())) {
+                    users.set(i, user);
+                    return;
+                }
+            }
         }
 
-        users.add(user);
         System.out.println("User saved: " + user.getName());
     }
 }

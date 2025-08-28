@@ -15,9 +15,12 @@ public class ThymeleafDemo1Application {
      * The view names used in the application. Refers to html pages/views (without the html extension).
      */
     public final static String VIEW_HOME = "home/index";
-    public final static String VIEW_INPUT = "user/input";
-    public final static String VIEW_LIST = "user/list";
-    public final static String VIEW_SHOW = "user/show";
+    public final static String VIEW_USER_CREATE = "user/create";
+    public final static String VIEW_USER_READ = "user/read";
+    public final static String VIEW_USER_UPDATE = "user/update";
+    public final static String VIEW_USER_DELETE = "user/delete";
+    public final static String VIEW_USER_LIST = "user/list";
+
 
     /**
      * The view model attributes used in the application, to parse data to a view model.

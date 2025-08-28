@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{/fragments :: head}">
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+<header th:include="~{/fragments :: header}"></header>
+<main>
+    <div class="container">
+
+        <h2 th:text="${user.name}"></h2>
+        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
+        <a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}">Edit</a>
+
+    </div>
+</main>
+<footer th:include="~{/fragments :: footer}"></footer>
+</body>
+</html>
+
