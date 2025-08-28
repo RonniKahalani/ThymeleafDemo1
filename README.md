@@ -3,11 +3,11 @@ Shows how a modern server-side Java template engine for web and standalone envir
 
 Using 
 - Controllers
-- Model components like data entities, repositories.
-- Services to encapsulate and distributes business logic.
-- Thymeleaf html templates
+- Model components like services, repositories and data entities.
+- Thymeleaf HTML templates.
 - Bootstrap 5.3.3 with jQuery 1.7.3
 - Bootstrap Icons 1.10.5
+- Local CSS and JavaScript files.
 
 Controllers
 - Home - HTTP GET /
