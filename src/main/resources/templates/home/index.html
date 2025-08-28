@@ -19,25 +19,23 @@
                 <div class="row">
                     <div class="col-4">
                         <b>Service - Encapsulates business logic</b>
-                        <ul>
-                            <li>Handles business logic and access data via repositories, and returns a
+                        <p>
+                            Handles business logic and access data via repositories, and returns a
                                 response to the requesting controller.
-                            </li>
-                        </ul>
+                        </p>
                     </div>
                     <div class="col-4">
                         <b>Repository - Encapsulates data</b>
-                        <ul>
-                            <li>Handles CRUD: create, read, update, delete and find data entities, in a database. Only the repository
+                        <p>
+                            Handles CRUD: create, read, update, delete and find data entities, in a database. Only the repository
                                 knows about the database implementation.
-                            </li>
-                        </ul>
+                        </p>
                     </div>
                     <div class="col-4">
                         <b>Entity - Is the data</b>
-                        <ul>
-                            <li>Represents a database object (a row in a database table).</li>
-                        </ul>
+                        <p>
+                            Represents a database object (a row in a database table).
+                        </p>
                     </div>
                 </div>
             </div>
@@ -48,23 +46,22 @@
                 <div class="row">
                     <div class="col-4">
                         <b>HTML - Structures the view</b>
-                        <ul>
-                            <li>Defines the main structure of elements on a web page. The elements are event driven placeholders for content, with attribute for styling, events etc.</li>
-                        </ul>
+                        <p>
+                            Defines the main structure of elements on a web page. The elements are event driven placeholders for content, with attribute for styling, events etc.
+                        </p>
                     </div>
                     <div class="col-4">
                         <b>CSS - Styles a view</b>
-                        <ul>
-                            <li>Defines the look and feel style of the page elements. like colors, position, text fonts and styles, animation...</li>
-                        </ul>
+                        <p>
+                            Defines the look and feel style of the page elements. like colors, position, text fonts and styles, animation...
+                        </p>
                     </div>
                     <div class="col-4">
                         <b>JavaScript - Programmatic interaction with views</b>
-                        <ul>
-                            <li>A script language used to manipulate the structure and data on a web page and fetch data from
+                        <p>
+                            A script language used to manipulate the structure and data on a web page and fetch data from
                                 external sources/services, via programming.
-                            </li>
-                        </ul>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -75,31 +72,26 @@
                 <div class="row">
                     <div class="col-4">
                         <b>Delegate - Gets requests from a UI view</b>
-                        <ul>
-                            <li>Validates and delegates the requests to the targeted service.</li>
-                        </ul>
+                        <p>
+                            Validates and delegates the requests to the targeted service.
+                        </p>
                     </div>
                     <div class="col-4">
-                        <b>Response - Returns response data from the business service</b>
-                        <ul>
-                            <li>Returns a path to a view (html page) and shares data supplied by the service, with the
-                                view, by
-                                adding view model attributes.
-                            </li>
-                        </ul>
+                        <b>Response - Returns data from the service request.</b>
+                        <p>
+                            Returns a path to a view (html page) and shares data supplied by the service, with the
+                                view, by adding view model attributes.
+                        </p>
                     </div>
                     <div class="col-4">
-                        <b>Formatting - Returns the external data in the callers preferred format (JSON, XML, CSV...)</b>
-                        <ul>
-                            <li>Gets the raw data from the service and convert it on the fly.
-                            </li>
-                        </ul>
+                        <b>Formatting - Returns data in requested format.</b>
+                        <p>
+                            Gets raw data from the service and convert it on the fly to formats like JSON, XML, CSV...
+                        </p>
                     </div>
                 </div>
                 <hr>
             </div>
-
-
         </div>
     </div>
 </main>
