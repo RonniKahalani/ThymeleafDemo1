@@ -7,6 +7,7 @@ Using
 - Services to encapsulate and distributes business logic.
 - Thymeleaf html templates
 - Bootstrap 5.3.3 with jQuery 1.7.3
+- Bootstrap Icons 1.10.5
 
 Controllers
 - Home - HTTP GET /
