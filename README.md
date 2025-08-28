@@ -6,6 +6,7 @@ Using
 - Model components like data entities, repositories.
 - Services to encapsulate and distributes business logic.
 - Thymeleaf html templates
+- Bootstrap 5.3.3 with jQuery 1.7.3
 
 Controllers
 - Home - HTTP GET /
