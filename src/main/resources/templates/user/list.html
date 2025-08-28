@@ -10,26 +10,25 @@
 
         <h2>Users</h2>
         <div th:if="${users.size() > 0}">
-            <p>No users found.</p>
-        <table class="user-list">
-            <thead>
-            <tr>
-                <th class="user-id">Id</th>
-                <th class="user-name">Name</th>
-                <th class="user-email">Email</th>
-                <th class="user-age">Age</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="user : ${users}">
-                <td th:text="${user.id}"></td>
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.email}"></td>
-                <td th:text="${user.age}"></td>
-                <td><a th:href="@{/user/{id}(id=${user.id})}">Show</a></td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="user-list">
+                <thead>
+                <tr>
+                    <th class="user-id">Id</th>
+                    <th class="user-name">Name</th>
+                    <th class="user-email">Email</th>
+                    <th class="user-age">Age</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td><a th:href="@{/user/{id}(id=${user.id})}">Show</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div th:if="${users.size() == 0}">
             <p>No users found.</p>

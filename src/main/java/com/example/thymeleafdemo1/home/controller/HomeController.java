@@ -15,7 +15,7 @@ import static com.example.thymeleafdemo1.ThymeleafDemo1Application.VIEW_HOME;
 public class HomeController {
 
     @Value("${spring.application.name}")
-    private String APP_NAME;
+    private String TITLE_APP_NAME;
     /**
      * This is the controller that handles the root URL and returns the start page.
      *
@@ -23,7 +23,7 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index(Model viewModel) {
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, APP_NAME);
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_APP_NAME);
         return VIEW_HOME;
     }
 }

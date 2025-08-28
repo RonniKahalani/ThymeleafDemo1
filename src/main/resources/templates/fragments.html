@@ -1,3 +1,6 @@
+<--
+ This fragment is used as the head-tag in all HTML pages.
+-->
 <head th:fragment="head">
 
     <meta charset="UTF-8">
@@ -27,6 +30,9 @@
 
 </head>
 
+<--
+This fragment is used as the header-tag in all HTML pages.
+-->
 <header th:fragment="header">
     <div id="title" th:if="${pageTitle}" class="row">
         <i class="bi-stars col-1" style="width:auto;"></i>
@@ -40,7 +46,9 @@
     </ul>
 </header>
 
-
+<--
+This fragment is used as the footer-tag in all HTML pages.
+-->
 <footer th:fragment="footer">
     Copyright &copy; 2025 IT Nerds.
 </footer>

@@ -14,10 +14,13 @@ import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
  *
  * @return the name of the template to render
  */
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    private static final String TITLE_USER_CREATE = "Create User";
+    private static final String TITLE_USER_SHOW = "Show User";
+    private static final String TITLE_USER_LIST = "List Users";
 
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
@@ -59,7 +62,7 @@ public class UserController {
         User user = new User( "", "", userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "Create User");
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_CREATE);
         viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MAX, userNameLengthMax);
         viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MAX, userEmailLengthMax);
         viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MIN, userAgeLimitMin);
@@ -84,7 +87,7 @@ public class UserController {
         User user = userService.findById(Long.parseLong(id));
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "User");
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_SHOW);
         viewModel.addAttribute(VIEW_ATTR_USER, user);
 
         // Return the name of the view to be rendered.
@@ -129,7 +132,7 @@ public class UserController {
      */
     private String listAllUsers(Model viewModel) {
 
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, "User Listing");
+        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_LIST);
         viewModel.addAttribute(VIEW_ATTR_USERS, userService.findAll());
 
         // Return the name of the view to be rendered.
