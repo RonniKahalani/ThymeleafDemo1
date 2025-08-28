@@ -8,7 +8,7 @@ Using
 - Thymeleaf html templates
 
 Controllers
-- / = The main home page
-- /form = A form to submit user data.
-- /submit = A page to create post/send new user data.
-- /users = A page to list all users.
+- Home - HTTP GET /
+- List Users - HTTP GET - /user 
+- Create User - HTTP POST - /user
+- Show User - HTTP GET - /user/{id}
