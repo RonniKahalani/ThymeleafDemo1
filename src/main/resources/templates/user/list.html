@@ -23,10 +23,11 @@
                 <tr th:each="user : ${users}">
                     <td th:text="${user.id}"></td>
                     <td th:text="${user.name}"></td>
-                    <td th:text="${user.email}"></td>
+                    <td><a th:text="${user.email}"></a></td>
                     <td th:text="${user.age}"></td>
-                    <td><a class="btn btn-primary btn-small" th:href="@{/user/{id}(id=${user.id})}">Show</a></td>
-                    <td><a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}">Edit</a></td>
+                    <td><a class="btn btn-primary btn-small" th:href="@{/user/{id}(id=${user.id})}" title="Show User">Show</a></td>
+                    <td><a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}" title="Edit User">Edit</a></td>
+                    <td><a class="btn btn-primary btn-small" th:href="@{mailto:{email}(email=${user.email})}" title="Email User">Email</a></td>
                 </tr>
                 </tbody>
             </table>

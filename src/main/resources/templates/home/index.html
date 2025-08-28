@@ -23,19 +23,16 @@
                 <div class="row">
 
                     <div class="col-4">
-                        <b>Service - Encapsulates business logic</b>
+                        <b>Services is business logic</b>
                         <p>
-                            Handles business logic and access data via repositories, and returns a
-                            response to the requesting controller.
+                            Handles business logic and access data via repositories.
                         </p>
                     </div>
 
                     <div class="col-4">
-                        <b>Repository - Encapsulates data</b>
+                        <b>Repositories supply data</b>
                         <p>
-                            Handles CRUD: Create, Read, Update, Delete and querying data entities, in a database. Only
-                            the repository
-                            knows about the database implementation.
+                            Handles CRUD: Create, Read, Update, Delete and querying data.
                         </p>
                     </div>
 
@@ -53,25 +50,21 @@
                 <p class="lead">Includes HTML-, CSS- and JavaScript files.</p>
                 <div class="row">
                     <div class="col-4">
-                        <b>HTML - Structures the view</b>
+                        <b>HTML structures a view</b>
                         <p>
-                            Defines the main structure of elements on a web page. The elements are event driven
-                            placeholders for content, with attribute for styling, events etc.
+                            Defines the structure of event-driven elements on a web page.
                         </p>
                     </div>
                     <div class="col-4">
-                        <b>CSS - Styles a view</b>
+                        <b>CSS styles a view</b>
                         <p>
-                            Defines the look and feel style of the page elements. like colors, position, text fonts and
-                            styles, animation...
+                            Defines the look and feel style of the page elements.
                         </p>
                     </div>
                     <div class="col-4">
-                        <b>JavaScript - Programmatic interaction with views</b>
+                        <b>JavaScript makes views dynamic</b>
                         <p>
-                            A script language used to manipulate the structure and data on a web page and fetch data
-                            from
-                            external sources/services, via programming.
+                            Manipulates view structure, data, style and user interaction.
                         </p>
                     </div>
                 </div>
@@ -82,22 +75,21 @@
                 <p class="lead">Gets incoming web requests from views and response with a result view.</p>
                 <div class="row">
                     <div class="col-4">
-                        <b>Delegate - Gets requests from a UI view</b>
+                        <b>Delegates requests from a view</b>
                         <p>
                             Validates and delegates the requests to the targeted service.
                         </p>
                     </div>
                     <div class="col-4">
-                        <b>Response - Returns data from the service request.</b>
+                        <b>Respond with data from services</b>
                         <p>
-                            Returns a path to a view (html page) and shares data supplied by the service, with the
-                            view, by adding view model attributes.
+                            Returns a view and including data from the service.
                         </p>
                     </div>
                     <div class="col-4">
-                        <b>Formatting - Returns data in requested format.</b>
+                        <b>Controls all communication</b>
                         <p>
-                            Gets raw data from the service and convert it on the fly to formats like JSON, XML, CSV...
+                            Can convert data on the fly, because it controls all in- and outgoing data.
                         </p>
                     </div>
                 </div>

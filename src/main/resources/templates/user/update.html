@@ -7,7 +7,7 @@
 <header th:include="~{/fragments :: header}"></header>
 <main>
     <div class="container">
-        <form th:action="@{/user/{id}(id=${user.id})}" th:object="${user}" method="post" class="form">
+        <form th:action="@{/user/{id}(id=${user.id})}" th:object="${user}" method="post" class="form" autocomplete="on">
             <h2>Update User</h2>
 
             <div class="row">
@@ -60,7 +60,7 @@
             </div>
 
             <div class="form-group text-end">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" title="Update User">Submit</button>
             </div>
 
         </form>
