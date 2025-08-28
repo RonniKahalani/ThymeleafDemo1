@@ -8,11 +8,15 @@
 <main>
     <div class="container">
 
+        <div class="text-center">
+            <img id="logo" src="/img/logo.png" alt="Logo">
+            <h1 class="display-4">Spring & Thymeleaf</h1>
+        </div>
+
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
 
         <div class="m-2 p-2">
-
             <div class="jumbotron">
                 <h1 class="display-6">Model - Business Logic & Data</h1>
                 <p class="lead">Includes services-, repositories- and entity classes.</p>
@@ -22,15 +26,16 @@
                         <b>Service - Encapsulates business logic</b>
                         <p>
                             Handles business logic and access data via repositories, and returns a
-                                response to the requesting controller.
+                            response to the requesting controller.
                         </p>
                     </div>
 
                     <div class="col-4">
                         <b>Repository - Encapsulates data</b>
                         <p>
-                            Handles CRUD: Create, Read, Update, Delete and querying data entities, in a database. Only the repository
-                                knows about the database implementation.
+                            Handles CRUD: Create, Read, Update, Delete and querying data entities, in a database. Only
+                            the repository
+                            knows about the database implementation.
                         </p>
                     </div>
 
@@ -50,20 +55,23 @@
                     <div class="col-4">
                         <b>HTML - Structures the view</b>
                         <p>
-                            Defines the main structure of elements on a web page. The elements are event driven placeholders for content, with attribute for styling, events etc.
+                            Defines the main structure of elements on a web page. The elements are event driven
+                            placeholders for content, with attribute for styling, events etc.
                         </p>
                     </div>
                     <div class="col-4">
                         <b>CSS - Styles a view</b>
                         <p>
-                            Defines the look and feel style of the page elements. like colors, position, text fonts and styles, animation...
+                            Defines the look and feel style of the page elements. like colors, position, text fonts and
+                            styles, animation...
                         </p>
                     </div>
                     <div class="col-4">
                         <b>JavaScript - Programmatic interaction with views</b>
                         <p>
-                            A script language used to manipulate the structure and data on a web page and fetch data from
-                                external sources/services, via programming.
+                            A script language used to manipulate the structure and data on a web page and fetch data
+                            from
+                            external sources/services, via programming.
                         </p>
                     </div>
                 </div>
@@ -83,7 +91,7 @@
                         <b>Response - Returns data from the service request.</b>
                         <p>
                             Returns a path to a view (html page) and shares data supplied by the service, with the
-                                view, by adding view model attributes.
+                            view, by adding view model attributes.
                         </p>
                     </div>
                     <div class="col-4">

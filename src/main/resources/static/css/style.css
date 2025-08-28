@@ -3,14 +3,6 @@ body {
     font-family: Arial, serif;
 }
 
-#title {
-    font-size: 3em;
-    color: #333;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-}
-
 header {
     flex: auto;
     flex-wrap: wrap;
@@ -21,6 +13,21 @@ header {
     padding-bottom: 5px;
     margin-bottom: 4px;
     border-bottom: 1px solid #FFFFFF;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.header-icon {
+    width:auto;
+}
+
+#title {
+    font-size: 3em;
+    text-align: left;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
@@ -78,4 +85,9 @@ footer {
 
 #app-icon {
     width: auto;
+}
+
+#logo {
+    width: 200px;
+    text-align: center;
 }
