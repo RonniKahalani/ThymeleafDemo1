@@ -1,5 +1,5 @@
 body {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: Arial, serif;
 }
 
@@ -8,7 +8,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     background-color: #000000;
-    color:white;
+    color: white;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 4px;
@@ -20,7 +20,7 @@ header {
 }
 
 .header-icon {
-    width:auto;
+    width: auto;
 }
 
 #title {
@@ -44,6 +44,7 @@ footer {
 label {
     font-weight: bold;
 }
+
 .container {
     margin-top: 20px;
     padding: 10px;
@@ -107,9 +108,43 @@ label {
     text-align: center;
 }
 
-.nav {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid black;
+.navigation {
     background-color: black;
     opacity: 75%;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid darkgray;
+    vertical-align: middle;
+}
+
+.nav-icon {
+    font-size: 1.2em;
+    color: white;
+    vertical-align: middle;
+}
+
+.wrapper {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    padding: 10px;
+
+}
+
+.marquee p {
+    display: inline-block;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
