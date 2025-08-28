@@ -133,7 +133,6 @@ label {
     display: inline-block;
     animation: marquee 10s linear infinite;
     padding: 10px;
-
 }
 
 .marquee p {
@@ -147,4 +146,8 @@ label {
     100% {
         transform: translate3d(-50%, 0, 0);
     }
+}
+
+.icon-text {
+    font-size: .6em
 }
