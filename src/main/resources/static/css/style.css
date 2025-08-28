@@ -40,26 +40,35 @@ footer {
     text-align: center;
     vertical-align: middle;
 }
+
+label {
+    font-weight: bold;
+}
 .container {
     margin-top: 20px;
     padding: 10px;
     width: 90%;
     min-height: 80vh;
 }
+
 .user-list {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
+
 .user-id {
     width: 10%;
 }
+
 .user-name {
     width: 40%;
 }
+
 .user-email {
     width: 40%;
 }
+
 .user-age {
     width: 10%;
 }
@@ -92,4 +101,15 @@ footer {
 #logo {
     width: 200px;
     text-align: center;
+}
+
+.error-page {
+    text-align: center;
+}
+
+.nav {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid black;
+    background-color: black;
+    opacity: 75%;
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * This class serves as a repository for managing user data.
@@ -32,8 +33,20 @@ public class UserRepository {
      * @return the user with the specified ID, or null if not found
      */
     public User findById(Long id) {
-        // Logic to find a user by ID (e.g., from a database)
-        return users.stream().filter(user -> user.getId() == id ).findFirst().get(); // Placeholder implementation
+        // Logic to find a user by ID (e.g., from a database in real life). This example uses a list as the repository.
+        // Here are two ways to do it: The old way or with streams and functional programming.
+        // The old way with for loop
+        //
+        // for (User u : users) {
+        //   if( u.getId().equals(id) ) {
+        //     return u;
+        //   }
+        // }
+        // return null;
+
+        // The new way since Java 8+ with functional programming, stream and filter approach
+        Optional<User> user = users.stream().filter(u -> u.getId().equals(id)).findFirst();
+        return user.orElse(null);
     }
 
     /**

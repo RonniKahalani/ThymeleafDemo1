@@ -83,8 +83,17 @@ public class UserController {
     @GetMapping("/{id}")
     public String findById( @PathVariable String id, Model viewModel) {
 
+        // Validate the id before using it.
+        if (id == null || id.isEmpty() || !id.matches("\\d+")) {
+            throw new IllegalArgumentException("Invalid user id: " + id);
+        }
+
         // Find the user via the UserService.
         User user = userService.findById(Long.parseLong(id));
+
+        if(user == null) {
+            throw new IllegalArgumentException("User not found for id: " + id);
+        }
 
         // Add the attributes to the view model so it can be accessed in the view.
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_SHOW);

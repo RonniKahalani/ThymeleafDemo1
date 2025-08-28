@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body class="error-page">
+
+<img alt="Error" height="459" src="/img/error.jpg" width="612"/>
+<div th:if="${message}">
+    <h1 th:text="${message}">Failed to identify the error.</h1>
+</div>
+</body>
+</html>
