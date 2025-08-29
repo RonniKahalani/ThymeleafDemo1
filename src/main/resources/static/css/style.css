@@ -114,6 +114,7 @@ label {
     font-size: 1.2em;
     color: white;
     vertical-align: middle;
+    width:auto;
 }
 
 .wrapper {
@@ -122,6 +123,7 @@ label {
 }
 
 .marquee {
+    color: black;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
