@@ -1,4 +1,4 @@
-body {
+ody {
     font-size: 1.2em;
     font-family: Arial, serif;
 }
@@ -127,7 +127,7 @@ label {
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    animation: marquee 20s linear infinite;
+    animation: marquee 10s linear infinite;
     padding: 10px;
 }
 
@@ -140,8 +140,32 @@ label {
         transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
+}
+
+.marquee-item-introduction {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.marquee-item-promotion {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.marquee-item-product {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .icon-text {
