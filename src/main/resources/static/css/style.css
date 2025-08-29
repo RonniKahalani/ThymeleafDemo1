@@ -185,3 +185,7 @@ label {
     box-shadow: 5px 5px 5px gray;
     cursor: pointer;
 }
+
+#baby {
+    height: 80px;
+}
