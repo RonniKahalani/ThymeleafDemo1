@@ -26,6 +26,7 @@ public class ThymeleafDemo1Application {
      * The view model attributes used in the application, to parse data to a view model.
      */
     public final static String VIEW_ATTR_PAGE_TITLE = "pageTitle";
+    public final static String VIEW_ATTR_MARQUEE = "marquee";
     public final static String VIEW_ATTR_USER_NAME_LENGTH_MAX = "userNameLengthMax";
     public final static String VIEW_ATTR_USER_EMAIL_LENGTH_MAX = "userEmailLengthMax";
     public final static String VIEW_ATTR_USER_AGE_LIMIT_MIN = "userAgeLimitMin";

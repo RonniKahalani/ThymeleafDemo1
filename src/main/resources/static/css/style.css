@@ -127,7 +127,7 @@ label {
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    animation: marquee 10s linear infinite;
+    animation: marquee 20s linear infinite;
     padding: 10px;
 }
 
@@ -140,7 +140,7 @@ label {
         transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
     }
 }
 
