@@ -1,10 +1,12 @@
 package com.example.thymeleafdemo1.view;
 
+import lombok.Getter;
+
 /**
  * Enum representing the view model attributes used in the application,
  * to parse data to a view model.
  */
-
+@Getter
 public enum ViewAttribute {
     PAGE_TITLE("pageTitle"),
     MARQUEE("marquee"),
@@ -15,13 +17,14 @@ public enum ViewAttribute {
     USER("user"),
     USERS("users");
 
+    // The name of the view attribute.
     private final String name;
 
+    /**
+     * Constructor to initialize the enum constant with its associated name.
+     * @param name
+     */
     ViewAttribute(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 }
