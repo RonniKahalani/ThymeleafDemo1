@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initialize() {
 
-    // Getting button elements by their ids.
+    // Getting button elements by their id, in the HTML.
     btnHome = document.querySelector("#btnNavHome");
     btnListUsers = document.querySelector("#btnNavListUsers");
     btnCreateUser = document.querySelector("#btnNavCreateUser");
@@ -32,17 +32,19 @@ function initialize() {
     btnCreateUser.onclick = (ev) => window.location.href = "/user/create";
     btnSettings.onclick = (ev) => underConstruction();
 
-    // Setting button onmouseover event handlers, using => arrow functions.
-    btnHome.onmouseover = (ev) => setFocus(btnHome, true);
-    btnListUsers.onmouseover = (ev) => setFocus(btnListUsers, true);
-    btnCreateUser.onmouseover = (ev) => setFocus(btnCreateUser, true);
-    btnSettings.onmouseover = (ev) => setFocus(btnSettings, true);
+    // Setting button mouse event handlers.
+    setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings);
+}
 
-    // Setting button onmouseout event handlers, using => arrow functions.
-    btnHome.onmouseout = (ev) => setFocus(btnHome, false);
-    btnListUsers.onmouseout = (ev) => setFocus(btnListUsers, false);
-    btnCreateUser.onmouseout = (ev) => setFocus(btnCreateUser, false);
-    btnSettings.onmouseout = (ev) => setFocus(btnSettings, false);
+/**
+ * Set mouse events for an element
+ * @param elements
+ */
+function setMouseEventHandlers(...elements) {
+    for (const element of elements) {
+        element.onmouseover = (ev) => setFocus(element, true);
+        element.onmouseout = (ev) => setFocus(element, false);
+    }
 }
 
 /**
