@@ -1,14 +1,16 @@
 /**
- * Core JavaScript functions for navigation in the application
+ * Core JavaScript functions for navigation in the application.
+ *
+ * This script handles button clicks and hover effects for navigation buttons and button focus styles.
  */
 
-// Button element placeholders.
+// Button element placeholders. Will be initialized shortly
 let btnHome;
 let btnListUsers;
 let btnCreateUser;
 let btnSettings;
 
-// Wait for the DOM to be fully loaded before initializing.
+// Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function() {
     initialize();
 });
@@ -23,7 +25,6 @@ function initialize() {
     btnListUsers = document.querySelector("#btnNavListUsers");
     btnCreateUser = document.querySelector("#btnNavCreateUser");
     btnSettings = document.querySelector("#btnNavSettings");
-
 
     // Setting button onclick event handlers, using => arrow functions.
     btnHome.onclick = (ev) => window.location.href = "/";
