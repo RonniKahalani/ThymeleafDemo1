@@ -29,7 +29,7 @@ btnListUsers.onclick = (ev)=> {
 }
 
 // With an arrow function definition calling another function.
-btnCreateUser.onclick = (ev)=> openUrl("/user/create");
+btnCreateUser.onclick = (ev) => openUrl("/user/create");
 
 // With a direct function reference.
 btnSettings.onclick = underConstruction;
@@ -39,7 +39,7 @@ function openUrl(url) {
 }
  */
 
-// This is how I would do it
+// This is how I would do it using => arrow functions. Its cleaner and more concise.
 btnHome.onclick = (ev) => openUrl("/");
 btnListUsers.onclick = (ev)=> open("/user");
 btnCreateUser.onclick = (ev)=> openUrl("/user/create");
