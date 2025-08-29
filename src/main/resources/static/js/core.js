@@ -15,7 +15,7 @@ const btnListUsers = document.querySelector("#btnNavListUsers");
 const btnCreateUser = document.querySelector("#btnNavCreateUser");
 const btnSettings = document.querySelector("#btnNavSettings");
 
-// Using => arrow functions to set button event handlers. Its cleaner and more concise.
+// Using => arrow functions to set button event handlers.
 btnHome.onclick = (ev) => window.location.href = "/";
 btnListUsers.onclick = (ev)=> window.location.href = "/user";
 btnCreateUser.onclick = (ev)=> window.location.href = "/user/create";
