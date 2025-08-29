@@ -2,83 +2,73 @@
  * Core JavaScript functions for navigation in the application
  */
 
+// Button element placeholders.
+let btnHome;
+let btnListUsers;
+let btnCreateUser;
+let btnSettings;
+
+// Wait for the DOM to be fully loaded before initializing.
+document.addEventListener('DOMContentLoaded', function() {
+    initialize();
+});
+
 /**
- // Another way to select elements.
-const btnHome = document.getElementById('btnNavHome');
-const btnListUsers = document.getElementById('btnNavListUsers');
-const btnCreateUser = document.getElementById('btnNavCreateUser');
-const btnSettings = document.getElementById('btnNavSettings');
-*/
-
-/*
- Setting button elements, using document.querySelector functions.
+ * Initialize event handlers.
  */
-const btnHome = document.querySelector("#btnNavHome");
-const btnListUsers = document.querySelector("#btnNavListUsers");
-const btnCreateUser = document.querySelector("#btnNavCreateUser");
-const btnSettings = document.querySelector("#btnNavSettings");
+function initialize() {
 
-/*
- Setting button onclick event handlers, using => arrow functions.
- */
-btnHome.onclick = (ev) => window.location.href = "/";
-btnListUsers.onclick = (ev)=> window.location.href = "/user";
-btnCreateUser.onclick = (ev)=> window.location.href = "/user/create";
-btnSettings.onclick = (ev) => underConstruction();
+    // Getting button elements by their ids.
+    btnHome = document.querySelector("#btnNavHome");
+    btnListUsers = document.querySelector("#btnNavListUsers");
+    btnCreateUser = document.querySelector("#btnNavCreateUser");
+    btnSettings = document.querySelector("#btnNavSettings");
 
-/*
- Setting button onmouseover event handlers, using => arrow functions.
- */
-btnHome.onmouseover = (ev) => setFocus(btnHome, true);
-btnListUsers.onmouseover = (ev) => setFocus(btnListUsers, true);
-btnCreateUser.onmouseover = (ev) => setFocus(btnCreateUser, true);
-btnSettings.onmouseover = (ev) => setFocus(btnSettings, true);
 
-/*
- Setting button onmouseout event handlers, using => arrow functions.
- */
-btnHome.onmouseout = (ev) => setFocus(btnHome, false);
-btnListUsers.onmouseout = (ev) => setFocus(btnListUsers, false);
-btnCreateUser.onmouseout = (ev) => setFocus(btnCreateUser, false);
-btnSettings.onmouseout = (ev) => setFocus(btnSettings, false);
+    // Setting button onclick event handlers, using => arrow functions.
+    btnHome.onclick = (ev) => window.location.href = "/";
+    btnListUsers.onclick = (ev) => window.location.href = "/user";
+    btnCreateUser.onclick = (ev) => window.location.href = "/user/create";
+    btnSettings.onclick = (ev) => underConstruction();
 
-const audio = document.querySelector("#audio");
-const video = document.querySelector("#video");
+    // Setting button onmouseover event handlers, using => arrow functions.
+    btnHome.onmouseover = (ev) => setFocus(btnHome, true);
+    btnListUsers.onmouseover = (ev) => setFocus(btnListUsers, true);
+    btnCreateUser.onmouseover = (ev) => setFocus(btnCreateUser, true);
+    btnSettings.onmouseover = (ev) => setFocus(btnSettings, true);
 
-function toggleAudio() {
-    if(audio.paused) {
-        playAudio();
-    } else {
-        stopAudio();
-    }
+    // Setting button onmouseout event handlers, using => arrow functions.
+    btnHome.onmouseout = (ev) => setFocus(btnHome, false);
+    btnListUsers.onmouseout = (ev) => setFocus(btnListUsers, false);
+    btnCreateUser.onmouseout = (ev) => setFocus(btnCreateUser, false);
+    btnSettings.onmouseout = (ev) => setFocus(btnSettings, false);
 }
-function playAudio() {
-    audio.play().catch(error => {
-        console.error("Error playing audio:", error);
+
+/**
+ * Toggle media play/stop
+ * @param media
+ */
+function toggleMedia(media) {
+    media.paused ? playMedia(media) : stopMedia(media);
+}
+
+/**
+ * Play media
+ * @param media
+ */
+function playMedia(media) {
+    media.play().catch(error => {
+        console.error("Error playing media:", error);
     });
 }
 
-function stopAudio() {
-    audio.pause();
-    audio.currentTime = 0; // Reset to the beginning
-}
-
-function toggleVideo() {
-    if(video.paused) {
-        playVideo();
-    } else {
-        stopVideo();
-    }
-}
-function playVideo() {
-    video.play().catch(error => {
-        console.error("Error playing cideo:", error);
-    });
-}
-
-function stopVideo() {
-    video.pause();
-    video.currentTime = 0; // Reset to the beginning
+/**
+ * Stop media
+ * @param media
+ */
+function stopMedia(media) {
+    media.pause();
+    media.currentTime = 0; // Reset to the beginning
 }
 
 /**
@@ -86,8 +76,8 @@ function stopVideo() {
  * @param element
  * @param focus
  */
-function setFocus(element, focus=true) {
-    if(!focus) {
+function setFocus(element, focus = true) {
+    if (!focus) {
         element.style.removeProperty("background-color");
         element.style.removeProperty("color");
         return;
@@ -102,6 +92,7 @@ function setFocus(element, focus=true) {
 function underConstruction() {
     alert("This feature is under construction.");
 }
+
 /**
  * Confirm user deletion
  * @param userId
