@@ -31,7 +31,7 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index(Model viewModel) throws FileNotFoundException {
-        viewModel.addAttribute(VIEW_ATTR_MARQUEE, String.join(" - ", marquees));
+        viewModel.addAttribute(VIEW_ATTR_MARQUEE, String.join(" ", marquees));
         viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_APP_NAME);
         return VIEW_HOME;
     }
