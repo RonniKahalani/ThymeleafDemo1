@@ -52,6 +52,14 @@ public class UserService {
     }
 
     /**
+     * Deletes a user by their id.
+     * @param id
+     */
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    /**
      * Validates the user data before saving.
      * This validation is also done on the client side using HTML5 form validation attributes.
      * @param user the user to validate

@@ -19,3 +19,7 @@ btnHome.onclick = ()=> window.location.href = "/";
 btnListUsers.onclick = ()=> window.location.href = "/user";
 btnCreateUser.onclick = ()=> window.location.href = "/user/create";
 btnSettings.onclick = ()=> alert("Settings page is under construction.");
+
+function confirmDelete(userId) {
+    return confirm(`You are about to delete user with ID:${userId}.\nAre you sure you want to continue?`);
+}

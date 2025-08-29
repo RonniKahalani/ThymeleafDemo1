@@ -59,18 +59,29 @@ public class UserRepository {
 
         // Logic to save the user (e.g., to a database)
         if (user.getId() == null) {
-            user.setId((long) (users.size() + 1)); // Assign a new id
+            user.setId(getNextId()); // Assign a new id
             users.add(user);
         } else {
             // Update existing user
-            for (int i = 0; i < users.size(); i++) {
-                if (users.get(i).getId().equals(user.getId())) {
-                    users.set(i, user);
-                    return;
-                }
+            User existingUser = findById(user.getId());
+            if (existingUser != null) {
+                users.set(users.indexOf(existingUser), user);
+            } else {
+                throw new IllegalArgumentException("User with ID " + user.getId() + " not found.");
             }
         }
 
         System.out.println("User saved: " + user.getName());
+    }
+
+    public long getNextId() {
+        return (long) users.size() + 1;
+    }
+
+    public void deleteById(Long id) {
+        boolean success = users.removeIf(user -> user.getId().equals(id));
+        if(!success) {
+            throw new IllegalArgumentException("User with ID " + id + " not found.");
+        }
     }
 }

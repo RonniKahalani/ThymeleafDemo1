@@ -4,14 +4,8 @@ body {
 }
 
 header {
-    flex: auto;
-    flex-wrap: wrap;
-    justify-content: center;
     background-color: #000000;
     color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 4px;
     border-bottom: 1px solid #FFFFFF;
     background-image: url(../img/background.jpg);
     background-size: cover;

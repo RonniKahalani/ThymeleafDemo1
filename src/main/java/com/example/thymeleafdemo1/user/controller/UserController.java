@@ -180,6 +180,22 @@ public class UserController {
     }
 
     /**
+     * This method deletes a user.
+     * @param id
+     * @param user
+     * @param viewModel
+     * @return
+     */
+    @GetMapping("/{id}/delete")
+    public String deleteUser(@PathVariable String id, Model viewModel) {
+
+        userService.deleteById(Long.parseLong(id));
+
+        // Return the name of the view to be rendered.
+        return listAllUsers(viewModel);
+    }
+
+    /**
      * This method displays all users.
      *
      * @param viewModel

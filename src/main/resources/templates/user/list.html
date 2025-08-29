@@ -28,6 +28,7 @@
                     <td><a class="btn btn-primary btn-small" th:href="@{/user/{id}(id=${user.id})}" title="Show User">Show</a></td>
                     <td><a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}" title="Edit User">Edit</a></td>
                     <td><a class="btn btn-primary btn-small" th:href="@{mailto:{email}(email=${user.email})}" title="Email User">Email</a></td>
+                    <td><a class="btn btn-danger btn-small" th:href="@{/user/{id}/delete(id=${user.id})}" title="Delete User" th:onclick="'return confirmDelete(\'' +${user.id} +'\')'">Delete</a></td>
                 </tr>
                 </tbody>
             </table>
