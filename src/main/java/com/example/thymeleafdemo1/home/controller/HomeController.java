@@ -1,5 +1,7 @@
 package com.example.thymeleafdemo1.home.controller;
 
+import com.example.thymeleafdemo1.view.ViewAttribute;
+import com.example.thymeleafdemo1.view.ViewName;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,9 +33,9 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index(Model viewModel) throws FileNotFoundException {
-        viewModel.addAttribute(VIEW_ATTR_MARQUEE, String.join(" ", marquees));
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_APP_NAME);
-        return VIEW_HOME;
+        viewModel.addAttribute(ViewAttribute.MARQUEE.getName(), String.join(" ", marquees));
+        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_APP_NAME);
+        return ViewName.HOME.getPath();
     }
 
 }

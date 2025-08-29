@@ -2,6 +2,8 @@ package com.example.thymeleafdemo1.user.controller;
 
 import com.example.thymeleafdemo1.user.model.User;
 import com.example.thymeleafdemo1.user.service.UserService;
+import com.example.thymeleafdemo1.view.ViewAttribute;
+import com.example.thymeleafdemo1.view.ViewName;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,12 +67,12 @@ public class UserController {
         User user = new User("", "", userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_CREATE);
+        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_CREATE);
         setupEditModelAttributes(viewModel);
-        viewModel.addAttribute(VIEW_ATTR_USER, user);
+        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
 
         // Return the name of the view to be rendered.
-        return VIEW_USER_CREATE; // Refers to create.html
+        return ViewName.USER_CREATE.getPath(); // Refers to create.html
     }
 
     /**
@@ -89,20 +91,20 @@ public class UserController {
         }
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_UPDATE);
+        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_UPDATE);
         setupEditModelAttributes(viewModel);
-        viewModel.addAttribute(VIEW_ATTR_USER, user);
+        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
 
         // Return the name of the view to be rendered.
-        return VIEW_USER_UPDATE;
+        return ViewName.USER_UPDATE.getPath(); // Refers to update.html
     }
 
 
     private void setupEditModelAttributes(Model viewModel) {
-        viewModel.addAttribute(VIEW_ATTR_USER_NAME_LENGTH_MAX, userNameLengthMax);
-        viewModel.addAttribute(VIEW_ATTR_USER_EMAIL_LENGTH_MAX, userEmailLengthMax);
-        viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MIN, userAgeLimitMin);
-        viewModel.addAttribute(VIEW_ATTR_USER_AGE_LIMIT_MAX, userAgeLimitMax);
+        viewModel.addAttribute(ViewAttribute.USER_NAME_LENGTH_MAX.getName(), userNameLengthMax);
+        viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getName(), userEmailLengthMax);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getName(), userAgeLimitMin);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getName(), userAgeLimitMax);
     }
 
     /**
@@ -125,11 +127,11 @@ public class UserController {
         }
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_READ);
-        viewModel.addAttribute(VIEW_ATTR_USER, user);
+        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_READ);
+        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
 
         // Return the name of the view to be rendered.
-        return VIEW_USER_READ; // Refers to read.html
+        return ViewName.USER_READ.getPath(); // Refers to read.html
     }
 
     /**
@@ -153,7 +155,7 @@ public class UserController {
      * @return
      */
     @PostMapping()
-    public String createUser(@ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
+    public String createUser(@ModelAttribute("user") User user, Model viewModel) {
 
         // Save the user using the UserService.
         userService.save(user);
@@ -170,7 +172,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/{id}")
-    public String updateUser(@PathVariable String id, @ModelAttribute(VIEW_ATTR_USER) User user, Model viewModel) {
+    public String updateUser(@PathVariable String id, @ModelAttribute("user") User user, Model viewModel) {
 
         // Save the user using the UserService.
         userService.save(user);
@@ -182,7 +184,6 @@ public class UserController {
     /**
      * This method deletes a user.
      * @param id
-     * @param user
      * @param viewModel
      * @return
      */
@@ -217,10 +218,10 @@ public class UserController {
      */
     private String listAllUsers(Model viewModel) {
 
-        viewModel.addAttribute(VIEW_ATTR_PAGE_TITLE, TITLE_USER_LIST);
-        viewModel.addAttribute(VIEW_ATTR_USERS, userService.findAll());
+        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_LIST);
+        viewModel.addAttribute(ViewAttribute.USERS.getName(), userService.findAll());
 
         // Return the name of the view to be rendered.
-        return VIEW_USER_LIST; // Refers to list.html
+        return ViewName.USER_LIST.getPath(); // Refers to list.html
     }
 }
