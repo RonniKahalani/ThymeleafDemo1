@@ -42,6 +42,45 @@ btnListUsers.onmouseout = (ev) => setFocus(btnListUsers, false);
 btnCreateUser.onmouseout = (ev) => setFocus(btnCreateUser, false);
 btnSettings.onmouseout = (ev) => setFocus(btnSettings, false);
 
+const audio = document.querySelector("#audio");
+const video = document.querySelector("#video");
+
+function toggleAudio() {
+    if(audio.paused) {
+        playAudio();
+    } else {
+        stopAudio();
+    }
+}
+function playAudio() {
+    audio.play().catch(error => {
+        console.error("Error playing audio:", error);
+    });
+}
+
+function stopAudio() {
+    audio.pause();
+    audio.currentTime = 0; // Reset to the beginning
+}
+
+function toggleVideo() {
+    if(video.paused) {
+        playVideo();
+    } else {
+        stopVideo();
+    }
+}
+function playVideo() {
+    video.play().catch(error => {
+        console.error("Error playing cideo:", error);
+    });
+}
+
+function stopVideo() {
+    video.pause();
+    video.currentTime = 0; // Reset to the beginning
+}
+
 /**
  * Set focus style on element
  * @param element

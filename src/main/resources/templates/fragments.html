@@ -43,7 +43,12 @@ This fragment is used as the header-tag in all HTML pages.
                     <img src="/img/baby.jpeg" height="80"/></div>
                 <div class="col-11">
                     <div style="font-size:.75em;margin-top:5px;">Listen to what our CEO has to say...</div>
-                    <div><audio src="/audio/baby-crying.mp3" style="width: 200px;height: 40px;vertical-align: middle;margin-top:10px;" controls></audio></div>
+                    <div>
+                        <audio id="audio" src="/audio/baby-crying.mp3"></audio>
+                        <button class="btn btn-sm" onclick="toggleAudio()">
+                        <i class="bi-play-circle" style="font-size:1.5em;"></i> Play Audio
+                    </button>
+                    </div>
                 </div>
             </div>
 

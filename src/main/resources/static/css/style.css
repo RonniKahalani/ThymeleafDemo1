@@ -177,3 +177,11 @@ label {
     margin-right:10px;
     vertical-align: middle;
 }
+
+#video {
+    text-align: center;
+    width: 100%;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px gray;
+    cursor: pointer;
+}
