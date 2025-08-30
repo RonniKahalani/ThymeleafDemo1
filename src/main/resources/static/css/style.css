@@ -226,7 +226,3 @@ label {
 .modal-dialog {
     color: black;
 }
-
-.modal-backdrop {
-    opacity: 50%;
-}
