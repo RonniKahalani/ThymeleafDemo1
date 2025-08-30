@@ -35,6 +35,7 @@ footer {
     text-align: center;
     vertical-align: middle;
     color: white;
+    opacity: 75%;
 }
 
 label {
@@ -225,4 +226,22 @@ label {
 
 .modal-dialog {
     color: black;
+    opacity: 100;
+}
+.toast-header {
+    background-color: blue;
+    color: white;
+    border-bottom: 1px solid white;
+    opacity: 75%;
+}
+
+.modal-header {
+    background-color: blue;
+    color: white;
+    border-bottom: 1px solid white;
+    opacity: 75%;
+}
+
+.btn-close {
+    color: white;
 }

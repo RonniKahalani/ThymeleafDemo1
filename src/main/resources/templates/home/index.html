@@ -6,7 +6,7 @@
 </head>
 
 <!-- Body onload event to hide the spinner -->
-<body>
+<body onload="showWelcomeToast()">
 
 <!-- Dynamic header -->
 <header th:replace="~{/fragments :: header}"></header>
@@ -114,6 +114,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Toast and Modal fragments -->
+    <div th:replace="~{/fragments :: toast}"></div>
+    <div th:replace="~{/fragments :: modal}"></div>
 </main>
 
 <!-- Dynamic footer -->

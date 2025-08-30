@@ -50,8 +50,7 @@ function initialize() {
     // Setting button mouse event handlers.
     setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio);
 
-    hideSpinner();
-    showWelcomeToast();
+    toggleSpinner();
 }
 
 /**
@@ -124,17 +123,25 @@ function confirmDelete(userId) {
 }
 
 /**
- * Hide spinner
+ * Toggle spinner
  */
-function hideSpinner() {
-    spinner.style.display = 'none';
+function toggleSpinner() {
+    spinner.style.display = isVisible(spinner) ? 'none' : 'block';
 }
 
 /**
- * Show spinner
+ * Returns true if spinner is visible
+ *
+ * @param element
+ * @returns {boolean}
  */
-function showSpinner() {
-    spinner.style.display = 'block';
+function isVisible(element) {
+    const computedStyle = window.getComputedStyle(element);
+    return !(
+        computedStyle.display === 'none' ||
+        computedStyle.visibility === 'hidden' ||
+        computedStyle.opacity === '0'
+    );
 }
 
 /**
@@ -162,6 +169,11 @@ function showToast(message, icon) {
     toast.show();
 }
 
+/**
+ * Show modal dialog
+ * @param title
+ * @param body
+ */
 function showModalDialog(title, body) {
 
     modalExampleTitle.innerHTML = title;
@@ -173,12 +185,15 @@ function showModalDialog(title, body) {
     myModal.show();
 }
 
+/**
+ * Close modal dialog
+ */
 function closeModalDialog() {
     const modalInstance = bootstrap.Modal.getInstance(modalExample);
     if (modalInstance) {
         modalInstance.hide();
         setTimeout(() => {
-            alert("You clicked OK");
+            console.log("User clicked Ok button in modal dialog.");
         }, 100);
     }
 }

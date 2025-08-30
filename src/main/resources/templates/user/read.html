@@ -12,10 +12,14 @@
         <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
         <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
         <div class="form-group text-end">
-            <a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}" title="Edit User">Edit</a>
+            <a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}"
+               title="Edit User">Edit</a>
         </div>
-
     </div>
+
+    <!-- Toast and Modal fragments -->
+    <div th:replace="~{/fragments :: toast}"></div>
+    <div th:replace="~{/fragments :: modal}"></div>
 </main>
 <footer th:replace="~{/fragments :: footer}"></footer>
 </body>

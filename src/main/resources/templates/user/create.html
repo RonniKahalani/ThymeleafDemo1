@@ -7,8 +7,8 @@
 <header th:replace="~{/fragments :: header}"></header>
 <main>
     <div class="container">
-        <form th:action="@{/user}" th:object="${user}" method="post" class="form" autocomplete="on">
 
+        <form th:action="@{/user}" th:object="${user}" method="post" class="form" autocomplete="on">
             <h2>Create User</h2>
 
             <div class="row">
@@ -59,9 +59,12 @@
             <div class="form-group text-end">
                 <button type="submit" class="btn btn-primary" title="Create User">Submit</button>
             </div>
-
         </form>
     </div>
+
+    <!-- Toast and Modal fragments -->
+    <div th:replace="~{/fragments :: toast}"></div>
+    <div th:replace="~{/fragments :: modal}"></div>
 </main>
 <footer th:replace="~{/fragments :: footer}"></footer>
 </body>

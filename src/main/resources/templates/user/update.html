@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="user-input col-6">
                     <div class="form-group m-2 p-2">
-                        <label for="id" >Id</label>
+                        <label for="id">Id</label>
                         <input type="text" id="id" class="form-control"
                                th:field="*{id}"
                                disabled/>
@@ -66,9 +66,12 @@
             <div class="form-group text-end">
                 <button type="submit" class="btn btn-primary" title="Update User">Submit</button>
             </div>
-
         </form>
     </div>
+
+    <!-- Toast and Modal fragments -->
+    <div th:replace="~{/fragments :: toast}"></div>
+    <div th:replace="~{/fragments :: modal}"></div>
 </main>
 <footer th:replace="~{/fragments :: footer}"></footer>
 </body>

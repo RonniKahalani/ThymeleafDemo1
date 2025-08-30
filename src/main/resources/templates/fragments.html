@@ -73,7 +73,8 @@ This fragment is used as the header-tag in all HTML pages.
                 <span class="icon-text">Create</span>
             </button>
 
-            <button id="btn-nav-settings" title="Settings" class="btn btn-sm nav-icon" data-bs-toggle="modal" data-bs-target="#modal-example">
+            <button id="btn-nav-settings" title="Settings" class="btn btn-sm nav-icon" data-bs-toggle="modal"
+                    data-bs-target="#modal-example">
                 <span class="bi-gear" style="display: block"></span>
                 <span class="icon-text">Settings</span>
             </button>
@@ -86,44 +87,43 @@ This fragment is used as the footer-tag in all HTML pages.
 -->
 <footer th:fragment="footer">
     Copyright &copy; 2025 IT Nerds.
-    <!-- Toast notification -->
+</footer>
+
+<!-- Toast notification -->
+<div th:fragment="toast">
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="toast-view" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <i id="toast-icon" class="rounded me-2 bi bi-info-circle"></i>
                 <strong class="me-auto">Bootstrap</strong>
                 <small>11 mins ago</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">X</button>
             </div>
             <div class="toast-body">
                 Hello, world! This is a toast message.
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Launch static backdrop modal
-    </button>
-
-    <!-- Modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-example">
-        Launch demo modal</button>
-    <div class="modal fade" id="modal-example" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="model-example-label" aria-hidden="true">
+<!-- Modal Dialog Example -->
+<div th:fragment="modal">
+    <div class="modal fade" id="modal-example" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="model-example-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="modal-example-label">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div id="modal-example-body" class="modal-body">
                     ...
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="btn-modal-example-ok" type="button" class="btn btn-primary">Understood</button>
+                    <button id="btn-modal-example-ok" type="button" class="btn btn-primary">Ok</button>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
