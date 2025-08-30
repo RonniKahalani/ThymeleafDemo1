@@ -45,7 +45,7 @@ function initialize() {
     btnListUsers.onclick = (ev) => window.location.href = "/user";
     btnCreateUser.onclick = (ev) => window.location.href = "/user/create";
     btnSettings.onclick = (ev) => showModalDialog("Settings", "Settings are under construction.");
-    btnModalExampleOk.onclick = (ev) => closeModalDialog();
+    btnModalExampleOk.onclick = (ev) => clickedOkInModalDialog();
 
     // Setting button mouse event handlers.
     setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio);
@@ -148,15 +148,20 @@ function isVisible(element) {
  * Show welcome toast
  */
 function showWelcomeToast() {
-    showToast(`Hello and welcome to this site.<br>Here is a link for you to click on<br><a href="http://dr.dk">Link</a>`, "house");
+    showToast("Welcome", `Hello and welcome to this site.<br>Here is a link for you to click on<br><a href="http://dr.dk">Link</a>`, "house");
 }
 
 /**
  * Show toast message
+ *
+ * @param title
  * @param message
  * @param icon
  */
-function showToast(message, icon) {
+function showToast(title, message, icon) {
+    const toastTitle = toastView.querySelector('.toast-title');
+    toastTitle.innerHTML = title;
+
     const toastBody = toastView.querySelector('.toast-body');
     toastBody.innerHTML = message;
 
@@ -188,12 +193,10 @@ function showModalDialog(title, body) {
 /**
  * Close modal dialog
  */
-function closeModalDialog() {
+function clickedOkInModalDialog() {
     const modalInstance = bootstrap.Modal.getInstance(modalExample);
     if (modalInstance) {
         modalInstance.hide();
-        setTimeout(() => {
-            console.log("User clicked Ok button in modal dialog.");
-        }, 100);
+        showToast("Modal dialog closed", "You just clicked Ok in a mosal dialog, congratulation.", "check-circle");
     }
 }

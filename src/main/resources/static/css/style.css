@@ -8,7 +8,7 @@ header {
     background-color: #000000;
     color: white;
     border-bottom: 1px solid #FFFFFF;
-    background-image: url(../img/background.jpg);
+    background-image: url(/img/background.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -244,4 +244,11 @@ label {
 
 .btn-close {
     color: white;
+}
+
+.audio-control {
+    text-align: left;
+}
+
+.toast-title {
 }

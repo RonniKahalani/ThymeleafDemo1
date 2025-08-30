@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
-
 /*
  * This is the controller that handles the user form display and submission.
  *
@@ -23,7 +21,6 @@ public class UserController {
     private static final String TITLE_USER_CREATE = "Create User";
     private static final String TITLE_USER_READ = "Show User";
     private static final String TITLE_USER_UPDATE = "Update User";
-    private static final String TITLE_USER_DELETE = "Delete User";
     private static final String TITLE_USER_LIST = "List Users";
 
     /**
@@ -57,8 +54,8 @@ public class UserController {
     /**
      * This method displays the user form for user input.
      *
-     * @param viewModel
-     * @return
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @GetMapping("/create")
     public String createForm(Model viewModel) {
@@ -67,9 +64,8 @@ public class UserController {
         User user = new User("", "", userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_CREATE);
         setupEditModelAttributes(viewModel);
-        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
+        viewModel.addAttribute(ViewAttribute.USER.getAttributeName(), user);
 
         // Return the name of the view to be rendered.
         return ViewName.USER_CREATE.getPath(); // Refers to create.html
@@ -78,8 +74,9 @@ public class UserController {
     /**
      * This method displays the user form for user input.
      *
-     * @param viewModel
-     * @return
+     * @param id the id of the user to be updated
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @GetMapping("/update/{id}")
     public String updateForm(@PathVariable String id, Model viewModel) {
@@ -91,27 +88,31 @@ public class UserController {
         }
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_UPDATE);
         setupEditModelAttributes(viewModel);
-        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
+        viewModel.addAttribute(ViewAttribute.USER.getAttributeName(), user);
 
         // Return the name of the view to be rendered.
         return ViewName.USER_UPDATE.getPath(); // Refers to update.html
     }
 
-
+    /**
+     * Sets up the common model attributes for the create and update views.
+     *
+     * @param viewModel holds the model attributes for the view
+     */
     private void setupEditModelAttributes(Model viewModel) {
-        viewModel.addAttribute(ViewAttribute.USER_NAME_LENGTH_MAX.getName(), userNameLengthMax);
-        viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getName(), userEmailLengthMax);
-        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getName(), userAgeLimitMin);
-        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getName(), userAgeLimitMax);
+        viewModel.addAttribute(ViewAttribute.USER_NAME_LENGTH_MAX.getAttributeName(), userNameLengthMax);
+        viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getAttributeName(), userEmailLengthMax);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getAttributeName(), userAgeLimitMin);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getAttributeName(), userAgeLimitMax);
     }
 
     /**
      * This method displays the user form for user input.
      *
-     * @param viewModel
-     * @return
+     * @param id the id of the user to be displayed
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @GetMapping("/{id}")
     public String findById(@PathVariable String id, Model viewModel) {
@@ -127,8 +128,7 @@ public class UserController {
         }
 
         // Add the attributes to the view model so it can be accessed in the view.
-        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_READ);
-        viewModel.addAttribute(ViewAttribute.USER.getName(), user);
+        viewModel.addAttribute(ViewAttribute.USER.getAttributeName(), user);
 
         // Return the name of the view to be rendered.
         return ViewName.USER_READ.getPath(); // Refers to read.html
@@ -146,13 +146,12 @@ public class UserController {
         }
     }
 
-
     /**
-     * This method handles the form submission.
+     * This method handles creating a user, via form submission.
      *
-     * @param user
-     * @param viewModel
-     * @return
+     * @param user the user to be created
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @PostMapping()
     public String createUser(@ModelAttribute("user") User user, Model viewModel) {
@@ -165,11 +164,11 @@ public class UserController {
     }
 
     /**
-     * This method handles the form submission.
+     * This method handles updating a user, via form submission.
      *
-     * @param user
-     * @param viewModel
-     * @return
+     * @param user the user to be created
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @PostMapping("/{id}")
     public String updateUser(@PathVariable String id, @ModelAttribute("user") User user, Model viewModel) {
@@ -183,9 +182,10 @@ public class UserController {
 
     /**
      * This method deletes a user.
-     * @param id
-     * @param viewModel
-     * @return
+     *
+     * @param id the id of the user to be deleted
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @GetMapping("/{id}/delete")
     public String deleteUser(@PathVariable String id, Model viewModel) {
@@ -199,8 +199,8 @@ public class UserController {
     /**
      * This method displays all users.
      *
-     * @param viewModel
-     * @return
+     * @param viewModel holds the model attributes for the view
+     * @return the name of the view to be rendered
      */
     @GetMapping()
     public String listUsers(Model viewModel) {
@@ -213,13 +213,12 @@ public class UserController {
      * This method fetches all users and adds them to the view model.
      * It is used to display the result page with all users.
      *
-     * @param viewModel
+     * @param viewModel holds the model attributes for the view
      * @return the name of the view to be rendered
      */
     private String listAllUsers(Model viewModel) {
 
-        viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_USER_LIST);
-        viewModel.addAttribute(ViewAttribute.USERS.getName(), userService.findAll());
+        viewModel.addAttribute(ViewAttribute.USERS.getAttributeName(), userService.findAll());
 
         // Return the name of the view to be rendered.
         return ViewName.USER_LIST.getPath(); // Refers to list.html

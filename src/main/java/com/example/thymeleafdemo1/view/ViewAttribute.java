@@ -8,7 +8,6 @@ import lombok.Getter;
  */
 @Getter
 public enum ViewAttribute {
-    PAGE_TITLE("pageTitle"),
     MARQUEE("marquee"),
     USER_NAME_LENGTH_MAX("userNameLengthMax"),
     USER_EMAIL_LENGTH_MAX("userEmailLengthMax"),
@@ -18,13 +17,13 @@ public enum ViewAttribute {
     USERS("users");
 
     // The name of the view attribute.
-    private final String name;
+    private final String attributeName;
 
     /**
-     * Constructor to initialize the enum constant with its associated name.
-     * @param name
+     * Constructor to initialize the enum constant with its associated attribute name.
+     * @param attributeName
      */
-    ViewAttribute(String name) {
-        this.name = name;
+    ViewAttribute(String attributeName) {
+        this.attributeName = attributeName;
     }
 }
