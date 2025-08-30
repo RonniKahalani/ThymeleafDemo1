@@ -11,11 +11,14 @@ let btnCreateUser;
 let btnSettings;
 let btnAudio;
 let toastView;
-let spinner;
+let toastTitle;
+let toastBody;
+let toastIcon;
 let modalExample;
 let modalExampleTitle;
 let modalExampleBody;
 let btnModalExampleOk;
+let spinner;
 
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function () {
@@ -33,11 +36,6 @@ function initialize() {
     btnCreateUser = document.querySelector("#btn-nav-create-user");
     btnSettings = document.querySelector("#btn-nav-settings");
     btnAudio = document.querySelector("#btn-audio");
-    toastView = document.querySelector("#toast-view");
-    spinner = document.querySelector("#spinner");
-    modalExample = document.querySelector("#modal-example");
-    modalExampleTitle = document.querySelector("#modal-example-label");
-    modalExampleBody = document.querySelector("#modal-example-body");
     btnModalExampleOk = document.querySelector("#btn-modal-example-ok");
 
     // Setting button onclick event handlers, using => arrow functions.
@@ -50,6 +48,19 @@ function initialize() {
     // Setting button mouse event handlers.
     setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio);
 
+    // Setting toast elements
+    toastView = document.querySelector("#toast-view");
+    toastTitle = toastView.querySelector('.toast-title');
+    toastBody = toastView.querySelector('.toast-body');
+    toastIcon = toastView.querySelector('#toast-icon');
+
+    // Setting modal dialog elements
+    modalExample = document.querySelector("#modal-example");
+    modalExampleTitle = document.querySelector("#modal-example-label");
+    modalExampleBody = document.querySelector("#modal-example-body");
+
+    // Setting spinner element
+    spinner = document.querySelector("#spinner");
     toggleSpinner();
 }
 
@@ -148,7 +159,7 @@ function isVisible(element) {
  * Show welcome toast
  */
 function showWelcomeToast() {
-    showToast("Welcome", `Hello and welcome to this site.<br>Here is a link for you to click on<br><a href="http://dr.dk">Link</a>`, "house");
+    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a href="http://github.com/RonniKahalani>GitHub</a>`, "house");
 }
 
 /**
@@ -159,14 +170,10 @@ function showWelcomeToast() {
  * @param icon
  */
 function showToast(title, message, icon) {
-    const toastTitle = toastView.querySelector('.toast-title');
     toastTitle.innerHTML = title;
-
-    const toastBody = toastView.querySelector('.toast-body');
     toastBody.innerHTML = message;
 
     if (icon) {
-        const toastIcon = toastView.querySelector('#toast-icon');
         toastIcon.className = "rounded me-2 toast-icon bi bi-" + icon;
     }
 

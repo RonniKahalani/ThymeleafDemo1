@@ -38,7 +38,9 @@
                         <input type="text" id="name" class="form-control"
                                th:maxlength="${userNameLengthMax}"
                                th:field="*{name}"
-                               placeholder="Enter name" required/>
+                               placeholder="Enter name"
+                               autocomplete="true"
+                               required/>
                     </div>
 
                     <div class="form-group m-2 p-2">
@@ -48,6 +50,7 @@
                                th:field="*{email}"
                                aria-describedby="emailHelp"
                                placeholder="Enter Email"
+                               autocomplete="true"
                                required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small>
@@ -60,11 +63,11 @@
                                th:max="${userAgeLimitMax}"
                                th:field="*{age}"
                                placeholder="Enter Age"
-                               style="width: 15%;"
+                               style="min-width: 50px;max-width: 100px;"
                                required/>
                     </div>
-
                 </div>
+
                 <div class="input-desc col-6">
                     <p>This form has 3 input fields</p>
                     <ul>
