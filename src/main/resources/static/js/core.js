@@ -9,6 +9,8 @@ let btnHome;
 let btnListUsers;
 let btnCreateUser;
 let btnSettings;
+let btnAudio;
+let btnVideo;
 
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,6 +27,8 @@ function initialize() {
     btnListUsers = document.querySelector("#btnNavListUsers");
     btnCreateUser = document.querySelector("#btnNavCreateUser");
     btnSettings = document.querySelector("#btnNavSettings");
+    btnAudio = document.querySelector("#btnAudio");
+    btnVideo = document.querySelector("#btnVideo");
 
     // Setting button onclick event handlers, using => arrow functions.
     btnHome.onclick = (ev) => window.location.href = "/";
@@ -33,7 +37,7 @@ function initialize() {
     btnSettings.onclick = (ev) => underConstruction();
 
     // Setting button mouse event handlers.
-    setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings);
+    setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio, btnVideo);
 }
 
 /**

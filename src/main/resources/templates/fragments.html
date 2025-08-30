@@ -38,18 +38,16 @@ This fragment is used as the header-tag in all HTML pages.
     <div class="navigation mr-3">
         <div class="row navigation-row">
 
-            <div class="col-sm row" style="vertical-align: middle">
+            <div class="col-sm row">
                 <div class="col">
                     <img id="baby" src="/img/baby.jpeg" alt="Baby Boss"/>
                 </div>
                 <div class="col-11">
-                    <div style="font-size:.75em;margin-top:5px;">Listen to what our CEO has to say...</div>
-                    <div>
+                    <div class="audio-intro">Listen to what our CEO has to say...</div>
+                    <button id="btnAudio" class="btn btn-sm" onclick="toggleMedia(document.querySelector('#audio'))">
                         <audio id="audio" src="/audio/baby-crying.mp3"></audio>
-                        <button class="btn btn-sm" onclick="toggleMedia(document.querySelector('#audio'))">
-                        <i class="bi-play-circle" style="font-size:1.5em;"></i> Toggle Audio
+                        <i class="bi-play-circle audio-icon"></i> Toggle Audio
                     </button>
-                    </div>
                 </div>
             </div>
 

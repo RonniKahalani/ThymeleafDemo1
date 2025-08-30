@@ -7,10 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.FileNotFoundException;
 import java.util.List;
-
-import static com.example.thymeleafdemo1.ThymeleafDemo1Application.*;
 
 /**
  * This is the controller that handles the root URL and returns the start page.
@@ -32,7 +29,7 @@ public class HomeController {
      * @return the name of the template to render
      */
     @RequestMapping("/")
-    public String index(Model viewModel) throws FileNotFoundException {
+    public String index(Model viewModel) {
         viewModel.addAttribute(ViewAttribute.MARQUEE.getName(), String.join(" ", marquees));
         viewModel.addAttribute(ViewAttribute.PAGE_TITLE.getName(), TITLE_APP_NAME);
         return ViewName.HOME.getPath();

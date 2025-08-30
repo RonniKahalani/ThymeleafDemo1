@@ -189,3 +189,23 @@ label {
 #baby {
     height: 80px;
 }
+
+.audio-intro {
+    font-size:.75em;
+    margin-top:10px;
+}
+
+.audio-icon {
+    font-size:1.5em;
+}
+
+#btnAudio {
+
+}
+
+#btnVideo {
+}
+
+.video-icon {
+    font-size:1.5em;
+}
