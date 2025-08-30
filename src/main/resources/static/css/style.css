@@ -85,7 +85,7 @@ label {
 }
 
 .mvc-subject {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
     vertical-align: top;
     padding: 0;
@@ -224,22 +224,33 @@ label {
     font-size:1.5em;
 }
 
-.modal-dialog {
-    color: black;
-    opacity: 100;
+.toast-title {
 }
+
+.toast-body {
+    color: black;
+    opacity: 100%;
+}
+
+
+
 .toast-header {
     background-color: blue;
     color: white;
     border-bottom: 1px solid white;
-    opacity: 75%;
+    opacity: 100%;
+}
+
+.modal-dialog {
+    color: black;
+    opacity: 100;
 }
 
 .modal-header {
     background-color: blue;
     color: white;
     border-bottom: 1px solid white;
-    opacity: 75%;
+    opacity: 100%;
 }
 
 .btn-close {
@@ -250,5 +261,9 @@ label {
     text-align: left;
 }
 
-.toast-title {
+.badge {
+    font-size: .5em;
+    vertical-align: top;
+    background-color: black;
+    color: white;
 }
