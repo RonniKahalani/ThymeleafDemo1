@@ -32,7 +32,14 @@ This fragment is used as the header-tag in all HTML pages.
 <header th:fragment="header">
     <div id="title" th:if="${pageTitle}" class="row">
         <i class="bi-stars col-1 header-icon"></i>
-        <span th:text="${pageTitle}" class="col-11"></span>
+        <span th:text="${pageTitle}" class="col-10"></span>
+
+        <!-- Loading spinner -->
+        <div class="text-end col-sm">
+            <div id="spinner" class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </div>
 
     <div class="navigation mr-3">
@@ -42,32 +49,31 @@ This fragment is used as the header-tag in all HTML pages.
                 <div class="col">
                     <img id="baby" src="/img/baby.jpeg" alt="Baby Boss"/>
                 </div>
-                <div class="col-11">
+                <div class="col-10">
                     <div class="audio-intro">Listen to what our CEO has to say...</div>
-                    <button id="btnAudio" class="btn btn-sm" onclick="toggleMedia(document.querySelector('#audio'))">
+                    <button id="btn-audio" class="btn btn-sm" onclick="toggleMedia(document.querySelector('#audio'))">
                         <audio id="audio" src="/audio/baby-crying.mp3"></audio>
                         <i class="bi-play-circle audio-icon"></i> Toggle Audio
                     </button>
                 </div>
             </div>
 
-
-            <button id="btnNavHome" title="Home" class="btn nav-icon">
+            <button id="btn-nav-home" title="Home" class="btn nav-icon">
                 <span class="bi-house" style="display: block"></span>
                 <span class="icon-text">Home</span>
             </button>
 
-            <button id="btnNavListUsers" title="List Users" class="btn btn-sm nav-icon">
+            <button id="btn-nav-list-users" title="List Users" class="btn btn-sm nav-icon">
                 <span class="bi-people" style="display: block"></span>
                 <span class="icon-text">Users</span>
             </button>
 
-            <button id="btnNavCreateUser" title="Create User" class="btn btn-sm nav-icon">
+            <button id="btn-nav-create-user" title="Create User" class="btn btn-sm nav-icon">
                 <span class="bi-person-plus" style="display: block"></span>
                 <span class="icon-text">Create</span>
             </button>
 
-            <button id="btnNavSettings" title="Settings" class="btn btn-sm nav-icon">
+            <button id="btn-nav-settings" title="Settings" class="btn btn-sm nav-icon" data-bs-toggle="modal" data-bs-target="#modal-example">
                 <span class="bi-gear" style="display: block"></span>
                 <span class="icon-text">Settings</span>
             </button>
@@ -80,4 +86,44 @@ This fragment is used as the footer-tag in all HTML pages.
 -->
 <footer th:fragment="footer">
     Copyright &copy; 2025 IT Nerds.
+    <!-- Toast notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast-view" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i id="toast-icon" class="rounded me-2 bi bi-info-circle"></i>
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Launch static backdrop modal
+    </button>
+
+    <!-- Modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-example">
+        Launch demo modal</button>
+    <div class="modal fade" id="modal-example" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="model-example-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modal-example-label">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-example-body" class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="btn-modal-example-ok" type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>

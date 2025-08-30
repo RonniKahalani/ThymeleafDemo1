@@ -10,12 +10,15 @@ let btnListUsers;
 let btnCreateUser;
 let btnSettings;
 let btnAudio;
-let btnVideo;
-
+let toastView;
 let spinner;
+let modalExample;
+let modalExampleTitle;
+let modalExampleBody;
+let btnModalExampleOk;
 
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initialize();
 });
 
@@ -25,22 +28,30 @@ document.addEventListener('DOMContentLoaded', function() {
 function initialize() {
 
     // Getting button elements by their id, in the HTML.
-    btnHome = document.querySelector("#btnNavHome");
-    btnListUsers = document.querySelector("#btnNavListUsers");
-    btnCreateUser = document.querySelector("#btnNavCreateUser");
-    btnSettings = document.querySelector("#btnNavSettings");
-    btnAudio = document.querySelector("#btnAudio");
-    btnVideo = document.querySelector("#btnVideo");
-    spinner = document.querySelector('#spinner')
+    btnHome = document.querySelector("#btn-nav-home");
+    btnListUsers = document.querySelector("#btn-nav-list-users");
+    btnCreateUser = document.querySelector("#btn-nav-create-user");
+    btnSettings = document.querySelector("#btn-nav-settings");
+    btnAudio = document.querySelector("#btn-audio");
+    toastView = document.querySelector("#toast-view");
+    spinner = document.querySelector("#spinner");
+    modalExample = document.querySelector("#modal-example");
+    modalExampleTitle = document.querySelector("#modal-example-label");
+    modalExampleBody = document.querySelector("#modal-example-body");
+    btnModalExampleOk = document.querySelector("#btn-modal-example-ok");
 
     // Setting button onclick event handlers, using => arrow functions.
     btnHome.onclick = (ev) => window.location.href = "/";
     btnListUsers.onclick = (ev) => window.location.href = "/user";
     btnCreateUser.onclick = (ev) => window.location.href = "/user/create";
-    btnSettings.onclick = (ev) => underConstruction();
+    btnSettings.onclick = (ev) => showModalDialog("Settings", "Settings are under construction.");
+    btnModalExampleOk.onclick = (ev) => closeModalDialog();
 
     // Setting button mouse event handlers.
-    setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio, btnVideo);
+    setMouseEventHandlers(btnHome, btnListUsers, btnCreateUser, btnSettings, btnAudio);
+
+    hideSpinner();
+    showWelcomeToast();
 }
 
 /**
@@ -112,6 +123,62 @@ function confirmDelete(userId) {
     return confirm(`You are about to delete user with ID:${userId}.\nAre you sure you want to continue?`);
 }
 
+/**
+ * Hide spinner
+ */
 function hideSpinner() {
-    spinner.style.display='none';
+    spinner.style.display = 'none';
+}
+
+/**
+ * Show spinner
+ */
+function showSpinner() {
+    spinner.style.display = 'block';
+}
+
+/**
+ * Show welcome toast
+ */
+function showWelcomeToast() {
+    showToast(`Hello and welcome to this site.<br>Here is a link for you to click on<br><a href="http://dr.dk">Link</a>`, "house");
+}
+
+/**
+ * Show toast message
+ * @param message
+ * @param icon
+ */
+function showToast(message, icon) {
+    const toastBody = toastView.querySelector('.toast-body');
+    toastBody.innerHTML = message;
+
+    if (icon) {
+        const toastIcon = toastView.querySelector('#toast-icon');
+        toastIcon.className = "rounded me-2 toast-icon bi bi-" + icon;
+    }
+
+    const toast = new bootstrap.Toast(toastView);
+    toast.show();
+}
+
+function showModalDialog(title, body) {
+
+    modalExampleTitle.innerHTML = title;
+    modalExampleBody.innerHTML = body;
+
+    const myModal = new bootstrap.Modal(modalExample, {
+        keyboard: false
+    });
+    myModal.show();
+}
+
+function closeModalDialog() {
+    const modalInstance = bootstrap.Modal.getInstance(modalExample);
+    if (modalInstance) {
+        modalInstance.hide();
+        setTimeout(() => {
+            alert("You clicked OK");
+        }, 100);
+    }
 }

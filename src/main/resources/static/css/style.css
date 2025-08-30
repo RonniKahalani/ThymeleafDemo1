@@ -1,6 +1,7 @@
 body {
     font-size: 1.2em;
     font-family: Arial, serif;
+    color: black;
 }
 
 header {
@@ -212,4 +213,20 @@ label {
 
 #spinner {
 
+}
+
+#toast-view {
+    color:black;
+}
+
+#toast-icon {
+    font-size:1.5em;
+}
+
+.modal-dialog {
+    color: black;
+}
+
+.modal-backdrop {
+    opacity: 50%;
 }
