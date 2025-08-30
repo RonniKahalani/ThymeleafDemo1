@@ -4,15 +4,30 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/style.css"/>
     <title th:text="${pageTitle}"></title>
 </head>
-<body>
+
+<!-- Body onload event to hide the spinner -->
+<body onload="hideSpinner()">
+
+<!-- Dynamic header -->
 <header th:include="~{/fragments :: header}"></header>
 <main>
+    <!-- Main container -->
     <div class="container">
+
+        <!-- Loading spinner -->
+        <div class="text-center">
+            <div id="spinner" class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Marquee -->
         <div class="wrapper">
             <div class="marquee" th:utext="${marquee}">
             </div>
         </div>
 
+        <!-- Logo and title -->
         <div class="text-center">
             <img id="logo" src="/img/logo.png" alt="Spring & Thymeleaf Logo" title="Spring & Thymeleaf Logo">
             <h1 class="display-4">Spring & Thymeleaf</h1>
@@ -21,12 +36,15 @@
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
 
+        <!-- Button to toggle video -->
         <button id="btnVideo" class="btn btn-sm" onclick="toggleMedia(document.querySelector('#video'))">
             <video id="video" src="/video/video.mp4" controls></video>
             <i class="bi-play-circle video-icon"></i> Toggle Video
         </button>
 
+        <!-- Content sections -->
         <div class="m-2 p-2">
+
             <div class="jumbotron">
                 <h1 class="mvc-subject">Model - Business Logic & Data</h1>
                 <p class="lead">Includes services-, repositories- and entity classes.</p>
@@ -55,6 +73,7 @@
                 </div>
             </div>
             <hr>
+
             <div class="jumbotron">
                 <h1 class="mvc-subject">View - User Interface (UI)</h1>
                 <p class="lead">Includes HTML-, CSS- and JavaScript files.</p>
@@ -80,6 +99,7 @@
                 </div>
             </div>
             <hr>
+
             <div class="jumbotron">
                 <h1 class="mvc-subject">Controller - Delegates requests to services</h1>
                 <p class="lead">Gets incoming web requests from views and response with a result view.</p>
@@ -108,6 +128,8 @@
         </div>
     </div>
 </main>
+
+<!-- Dynamic footer -->
 <footer th:include="~{/fragments :: footer}"></footer>
 </body>
 </html>

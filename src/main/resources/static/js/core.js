@@ -12,6 +12,8 @@ let btnSettings;
 let btnAudio;
 let btnVideo;
 
+let spinner;
+
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function() {
     initialize();
@@ -29,6 +31,7 @@ function initialize() {
     btnSettings = document.querySelector("#btnNavSettings");
     btnAudio = document.querySelector("#btnAudio");
     btnVideo = document.querySelector("#btnVideo");
+    spinner = document.querySelector('#spinner')
 
     // Setting button onclick event handlers, using => arrow functions.
     btnHome.onclick = (ev) => window.location.href = "/";
@@ -107,4 +110,8 @@ function underConstruction() {
  */
 function confirmDelete(userId) {
     return confirm(`You are about to delete user with ID:${userId}.\nAre you sure you want to continue?`);
+}
+
+function hideSpinner() {
+    spinner.style.display='none';
 }
