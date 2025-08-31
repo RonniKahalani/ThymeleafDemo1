@@ -33,16 +33,29 @@
     <div class="container">
 
         <h2 th:text="${user.name}"></h2>
-        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-        <p><strong>Profession:</strong> <span th:text="${user.profession}"></span></p>
-        <p><strong>Hobbies:</strong> <span th:text="${#strings.listJoin(user.hobbies, ',')}"></span></p>
-        <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
+        <div class="row">
+            <div class="row col-md-6">
+
+                <p><strong>Description:</strong> <span th:text="${user.description}"></span></p>
+                <p><strong>Phone:</strong> <span th:text="${user.phone}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+                <p><strong>Profession:</strong> <span th:text="${user.profession}"></span></p>
+                <p><strong>Hobbies:</strong> <span th:text="${#strings.listJoin(user.hobbies, ',')}"></span></p>
+                <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
+            </div>
+            <div class="row col-md-6 text-end">
+                <img th:if="${!#strings.isEmpty(user.image)}" th:src="@{${user.image}}" alt="User Image" class="img-thumbnail"
+                     style="">
+
+            </div>
+        </div>
         <hr>
-        <div class="form-group float-end">
+        <div class="form-group text-end">
             <button type="button" class="btn btn-secondary" title="Back" onclick="history.go(-1)">Back</button>
             <a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}"
                title="Edit User">Edit</a>
         </div>
+
     </div>
 
     <!-- Toast Notification Fragment -->

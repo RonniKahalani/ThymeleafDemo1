@@ -4,6 +4,8 @@
  * This script handles button clicks and hover effects for navigation buttons and button focus styles.
  */
 
+const MAX_UPLOAD_FILE_SIZE = 1 * 1024 * 1024; // 1 MB
+
 // Button element placeholders. Will be initialized shortly
 let btnHome;
 let btnListUsers;
@@ -224,7 +226,16 @@ function clickedOkInModalDialog() {
 
 
 async function setFiles(files) {
-    const data = await loadFile(files[0])
+    const file = files[0];
+
+    if (file.size > MAX_UPLOAD_FILE_SIZE)
+    {
+        const megaBytes = MAX_UPLOAD_FILE_SIZE / (1024 * 1024);
+        showToast("File too large", `The selected file is too large. Maximum allowed size is ${megaBytes} MB.`, "exclamation-triangle");
+        uploadData.value = ""; // Clear the input
+        return;
+    }
+    const data = await loadFile(file)
     imageData.value = data;
     imageDemo.src = data
 }

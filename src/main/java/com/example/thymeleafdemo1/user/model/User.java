@@ -17,6 +17,8 @@ public class User {
 
     private Long id;
     private String name;
+    private String description;
+    private String phone;
     private String email;
     private String profession;
     private List<String> hobbies;
@@ -28,13 +30,18 @@ public class User {
      * A user id is automatically generated when the user is added via the UserRepository.
      *
      * @param name the name of the user
+     * @param description the description of the user
+     * @param phone the phone of the user
      * @param email the email of the user
      * @param profession the profession of the user
      * @param hobbies the hobbies of the user
+     * @param image the image of the user
      * @param age  the age of the user
      */
-    public User(String name, String email, String profession, List<String> hobbies, String image, int age) {
+    public User(String name, String description, String phone, String email, String profession, List<String> hobbies, String image, int age) {
         this.name = name;
+        this.description = description;
+        this.phone = phone;
         this.email = email;
         this.profession = profession;
         this.hobbies = hobbies;

@@ -68,7 +68,7 @@ public class UserController {
     public String createForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User("", "", "", new ArrayList<String>(),null, userAgeLimitMin);
+        User user = new User("", "", "", "", "", new ArrayList<String>(),null, userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
         setupEditModelAttributes(viewModel);

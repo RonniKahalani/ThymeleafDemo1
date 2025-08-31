@@ -175,6 +175,29 @@ This fragment is used as the footer-tag in all HTML pages.
         </div>
 
         <div class="form-group m-2 p-2">
+            <label for="description">Description</label>
+            <textarea th:field="*{description}"
+                   id="description"
+                   name="description"
+                   class="form-control"
+                   placeholder="Enter description"
+                   autocomplete="true"
+                   required></textarea>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="phone">Phone</label>
+            <input th:field="*{phone}"
+                   id="phone"
+                   name="phone"
+                   class="form-control"
+                   type="text"
+                   placeholder="Enter Phone Number"
+                   autocomplete="true"
+                   required/>
+        </div>
+
+        <div class="form-group m-2 p-2">
             <label for="email" th:text="|Email: (max ${userEmailLengthMax} chars)|"></label>
             <input th:field="*{email}"
                    th:maxlength="${userEmailLengthMax}"
@@ -234,20 +257,23 @@ This fragment is used as the footer-tag in all HTML pages.
                    required/>
         </div>
 
+        <img th:if="${!#strings.isEmpty(user.image)}" id="image-demo" th:src="${user.image}" alt="Photo Image">
+        <img th:if="${#strings.isEmpty(user.image)}" id="image-demo" src="/img/baby.jpg" alt="Photo Image">
 
-        <img id="image-demo" src="..." alt="">
         <div class="form-group m-2 p-2">
-            <label for="image" >Image</label>
+            <label for="image">Image</label>
             <input th:field="*{image}"
                    id="image"
                    name="image"
                    class="form-control"
-                   type="text"/>
+                   type="text"
+                   style="display: none"
+                   />
         </div>
         <div class="form-group m-2 p-2">
             <input id="upload"
                    name="upload"
-                   class="form-control-file"
+                   class="form-control-file btn btn-primary"
                    type="file"
                    accept="image/*"
             />
