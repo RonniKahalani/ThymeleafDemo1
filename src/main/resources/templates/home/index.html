@@ -10,6 +10,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <!-- jQuery library -->
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -43,160 +46,169 @@
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
 
-        <div th:if="${articles.size() > 0}" class="row">
-            <div th:each="article : ${articles}" class="card" style="width: 18rem;">
-                <img th:src="${article.imageUrl}" class="card-img" th:alt="${article.title}" th:title="${article.title}">
+        <p class="mvc-subject">Latest Articles</p>
+
+
+        <div th:if="${articles.size() > 0}" class="w-100">
+            <div class="row">
+
+                <div th:each="article : ${articles}" class="card mx-auto class=" col-md-4
+                "" style="width: 18rem;">
+                <img th:src="${article.imageUrl}" class="card-img" th:alt="${article.title}"
+                     th:title="${article.title}">
                 <div class="card-body">
                     <h5 th:text="${article.title}" class="card-title">Card title</h5>
                     <p th:utext="${article.content}" class="card-text">Card text</p>
-                    <a th:href="${article.linkUrl}" th:text="${article.buttonText}" target="_blank" class="btn btn-primary card-link">Go somewhere</a>
+                    <a th:href="${article.linkUrl}" th:text="${article.buttonText}" target="_blank"
+                       class="btn btn-primary card-link">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div th:if="${articles.size() == 0}">
-            <p>No articles found.</p>
+    </div>
+    <div th:if="${articles.size() == 0}">
+        <p>No articles found.</p>
+    </div>
+
+    <p class="mvc-subject">MVC Tabs</p>
+
+    <!-- MVC Tabs -->
+    <ul class="nav nav-tabs" id="mvc-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="model-tab" data-bs-toggle="tab" data-bs-target="#model"
+                    type="button" role="tab" aria-controls="model" aria-selected="true">Model
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="view-tab" data-bs-toggle="tab" data-bs-target="#view" type="button"
+                    role="tab" aria-controls="view" aria-selected="false">View
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="controller-tab" data-bs-toggle="tab" data-bs-target="#controller"
+                    type="button" role="tab" aria-controls="controller" aria-selected="false">Controller
+            </button>
+        </li>
+    </ul>
+
+    <!-- MVC Tab Content -->
+    <div class="tab-content mt-3" id="mvc-tab-content">
+        <div class="tab-pane fade show active" id="model" role="tabpanel" aria-labelledby="model-tab">
+
+            <!-- Model Tab Content -->
+            <div class="jumbotron m-3">
+                <div class="mvc-subject">Business Logic & Data</div>
+                <p class="lead">Includes services-, repositories- and entity classes.</p>
+                <div class="row">
+
+                    <div class="col-4">
+                        <b>Services are business logic</b>
+                        <p>
+                            Handles business logic and access data via repositories.
+                        </p>
+                    </div>
+
+                    <div class="col-4">
+                        <b>Repositories supply data</b>
+                        <p>
+                            Handles CRUD: Create, Read, Update, Delete and querying data.
+                        </p>
+                    </div>
+
+                    <div class="col-4">
+                        <b>Entity is the data</b>
+                        <p>
+                            Represents a database object (a row in a database table).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Tab Content -->
+        <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
+            <div class="jumbotron m-3">
+                <div class="mvc-subject">User Interface (UI)</div>
+                <p class="lead">Includes HTML-, CSS- and JavaScript files.</p>
+                <div class="row">
+                    <div class="col-4">
+                        <b>HTML structures a view</b>
+                        <p>
+                            Defines the structure of event-driven elements on a web page.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <b>CSS styles a view</b>
+                        <p>
+                            Defines the look and feel style of the page elements.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <b>JavaScript makes views dynamic</b>
+                        <p>
+                            Manipulates view structure, data, style and user interaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controller Tab Content -->
+        <div class="tab-pane fade" id="controller" role="tabpanel" aria-labelledby="controller-tab">
+            <div class="jumbotron">
+                <div class="mvc-subject">Request Delegator</div>
+                <p class="lead">Gets incoming web requests from views/users and response with a result view.</p>
+                <div class="row">
+                    <div class="col-4">
+                        <b>Delegates requests from a view</b>
+                        <p>
+                            Validates and delegates the requests to the targeted service.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <b>Respond with data from services</b>
+                        <p>
+                            Returns a view and including data from the service.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <b>Controls all communication</b>
+                        <p>
+                            Can convert data on the fly, because it controls all in- and outgoing data.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr>
-        <p class="mvc-subject">MVC Tabs</p>
 
-        <!-- MVC Tabs -->
-        <ul class="nav nav-tabs" id="mvc-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="model-tab" data-bs-toggle="tab" data-bs-target="#model"
-                        type="button" role="tab" aria-controls="model" aria-selected="true">Model
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="view-tab" data-bs-toggle="tab" data-bs-target="#view" type="button"
-                        role="tab" aria-controls="view" aria-selected="false">View
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="controller-tab" data-bs-toggle="tab" data-bs-target="#controller"
-                        type="button" role="tab" aria-controls="controller" aria-selected="false">Controller
-                </button>
-            </li>
-        </ul>
-
-        <!-- MVC Tab Content -->
-        <div class="tab-content mt-3" id="mvc-tab-content">
-            <div class="tab-pane fade show active" id="model" role="tabpanel" aria-labelledby="model-tab">
-
-                <!-- Model Tab Content -->
-                <div class="jumbotron m-3">
-                    <div class="mvc-subject">Business Logic & Data</div>
-                    <p class="lead">Includes services-, repositories- and entity classes.</p>
-                    <div class="row">
-
-                        <div class="col-4">
-                            <b>Services are business logic</b>
-                            <p>
-                                Handles business logic and access data via repositories.
-                            </p>
-                        </div>
-
-                        <div class="col-4">
-                            <b>Repositories supply data</b>
-                            <p>
-                                Handles CRUD: Create, Read, Update, Delete and querying data.
-                            </p>
-                        </div>
-
-                        <div class="col-4">
-                            <b>Entity is the data</b>
-                            <p>
-                                Represents a database object (a row in a database table).
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View Tab Content -->
-            <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
-                <div class="jumbotron m-3">
-                    <div class="mvc-subject">User Interface (UI)</div>
-                    <p class="lead">Includes HTML-, CSS- and JavaScript files.</p>
-                    <div class="row">
-                        <div class="col-4">
-                            <b>HTML structures a view</b>
-                            <p>
-                                Defines the structure of event-driven elements on a web page.
-                            </p>
-                        </div>
-                        <div class="col-4">
-                            <b>CSS styles a view</b>
-                            <p>
-                                Defines the look and feel style of the page elements.
-                            </p>
-                        </div>
-                        <div class="col-4">
-                            <b>JavaScript makes views dynamic</b>
-                            <p>
-                                Manipulates view structure, data, style and user interaction.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Controller Tab Content -->
-            <div class="tab-pane fade" id="controller" role="tabpanel" aria-labelledby="controller-tab">
-                <div class="jumbotron">
-                    <div class="mvc-subject">Request Delegator</div>
-                    <p class="lead">Gets incoming web requests from views/users and response with a result view.</p>
-                    <div class="row">
-                        <div class="col-4">
-                            <b>Delegates requests from a view</b>
-                            <p>
-                                Validates and delegates the requests to the targeted service.
-                            </p>
-                        </div>
-                        <div class="col-4">
-                            <b>Respond with data from services</b>
-                            <p>
-                                Returns a view and including data from the service.
-                            </p>
-                        </div>
-                        <div class="col-4">
-                            <b>Controls all communication</b>
-                            <p>
-                                Can convert data on the fly, because it controls all in- and outgoing data.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/img/pic1.png" class="d-block w-100 z-index:-1" alt="...">
-                        <span class="carousel-caption d-none d-md-block">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/pic1.png" class="d-block w-100 z-index:-1" alt="...">
+                    <span class="carousel-caption d-none d-md-block">
                             <span class="carousel-title">Spring & Thymeleaf</span><br>
                             <span class="carousel-body">Spring Thymeleaf MVC Example Application</span>
                         </span>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/pic2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/pic3.jpg" class="d-block w-100" alt="...">
-                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div class="carousel-item">
+                    <img src="/img/pic2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/pic3.jpg" class="d-block w-100" alt="...">
+                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </div>
     </div>
 
     <!-- Toast Notification Fragment -->

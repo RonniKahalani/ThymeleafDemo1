@@ -2,6 +2,8 @@
 This fragment is used as the header-tag in all HTML pages.
 -->
 <header th:fragment="header">
+
+    <!-- Top title row -->
     <div id="title" class="row">
         <i class="bi-stars col-1 header-icon"></i>
         <span class="col-10">Thymeleaf Example</span>
@@ -14,9 +16,10 @@ This fragment is used as the header-tag in all HTML pages.
         </div>
     </div>
 
+    <!-- Navigation Bar -->
     <div class="navigation mr-3 bg-dark opacity-75">
         <div class="row navigation-row">
-
+            <!-- Image with audio control -->
             <div class="col-4 row">
                 <div class="audio-control">
                     <button id="btn-audio" class="btn btn-sm" title="Listen to what our CEO has to say...">
@@ -26,8 +29,12 @@ This fragment is used as the header-tag in all HTML pages.
                 </div>
             </div>
 
+            <!-- Navigation buttons -->
             <div class="col-8 row">
+
+                <!-- Spacer column -->
                 <div class="col-sm"></div>
+
                 <button id="btn-nav-home" title="Home" class="btn nav-icon">
                     <span class="bi-house" style="display: block"></span>
                     <span class="icon-text">Home</span>
