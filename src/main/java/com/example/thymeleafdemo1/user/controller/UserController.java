@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * This is the controller that handles the user form display and submission.
  *
@@ -22,6 +25,9 @@ public class UserController {
     private static final String TITLE_USER_READ = "Show User";
     private static final String TITLE_USER_UPDATE = "Update User";
     private static final String TITLE_USER_LIST = "List Users";
+
+    private final List<String> professions = List.of("Developer", "Designer", "Manager", "Other");
+    private final List<String> hobbies = List.of("Sports", "Music", "Traveling", "Reading", "Gaming");
 
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
@@ -61,7 +67,7 @@ public class UserController {
     public String createForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User("", "", userAgeLimitMin);
+        User user = new User("", "", "", new ArrayList<String>(), userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
         setupEditModelAttributes(viewModel);
@@ -105,6 +111,8 @@ public class UserController {
         viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getAttributeName(), userEmailLengthMax);
         viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getAttributeName(), userAgeLimitMin);
         viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getAttributeName(), userAgeLimitMax);
+        viewModel.addAttribute(ViewAttribute.USER_PROFESSIONS.getAttributeName(), professions);
+        viewModel.addAttribute(ViewAttribute.USER_HOBBIES.getAttributeName(), hobbies);
     }
 
     /**

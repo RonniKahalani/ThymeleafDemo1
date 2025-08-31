@@ -33,13 +33,17 @@
 
         <h2>Users <span class='badge bg-dark' th:utext="${users.size()}"></span> </h2>
         <div th:if="${users.size() > 0}">
-            <table class="user-list">
+            <table class="user-list table">
                 <thead>
                 <tr>
                     <th class="user-id">Id</th>
                     <th class="user-name">Name</th>
                     <th class="user-email">Email</th>
                     <th class="user-age">Age</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,11 +67,10 @@
         </div>
         <div th:if="${users.size() == 0}">
             <p>No users found.</p>
+            <hr>
         </div>
-        <hr>
         <div class="form-group float-end">
             <button type="button" class="btn btn-secondary" title="Back" onclick="history.go(-1)">Back</button>
-
             <a class="btn btn-primary btn-small" th:href="@{/user/create}"
                title="Create User">Create</a>
         </div>

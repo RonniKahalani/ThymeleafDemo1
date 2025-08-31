@@ -13,6 +13,8 @@ public enum ViewAttribute {
     USER_EMAIL_LENGTH_MAX("userEmailLengthMax"),
     USER_AGE_LIMIT_MIN("userAgeLimitMin"),
     USER_AGE_LIMIT_MAX("userAgeLimitMax"),
+    USER_PROFESSIONS("professions"),
+    USER_HOBBIES("hobbies"),
     USER("user"),
     USERS("users");
 

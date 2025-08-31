@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /** * Represents a user with a unique identifier, name, and age.
  * This class is used for form binding in Thymeleaf templates.
  */
@@ -15,6 +17,8 @@ public class User {
     private Long id;
     private String name;
     private String email;
+    private String profession;
+    private List<String> hobbies;
     private int age;
 
     /**
@@ -22,11 +26,16 @@ public class User {
      * A user id is automatically generated when the user is added via the UserRepository.
      *
      * @param name the name of the user
+     * @param email the email of the user
+     * @param profession the profession of the user
+     * @param hobbies the hobbies of the user
      * @param age  the age of the user
      */
-    public User(String name, String email, int age) {
+    public User(String name, String email, String profession, List<String> hobbies, int age) {
         this.name = name;
         this.email = email;
+        this.profession = profession;
+        this.hobbies = hobbies;
         this.age = age;
     }
 }

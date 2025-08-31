@@ -60,6 +60,32 @@
                     </div>
 
                     <div class="form-group m-2 p-2">
+                        <label for="profession" >Profession</label>
+                        <select class="form-control" id="profession"
+                                th:field="*{profession}"
+                                placeholder="Select Profession"
+                                required>
+                            <option th:each="prof : ${professions}"
+                                    th:value="${prof}"
+                                    th:text="${prof}"
+                                    th:selected="${prof} == ${user.profession}">
+                        </select>
+                    </div>
+
+                    <div class="form-group m-2 p-2">
+                        <label for="hobbies">Hobbies</label>
+                        <select class="form-control" id="hobbies" multiple
+                                th:field="*{hobbies}"
+                                placeholder="Select Hobbies"
+                                required>
+                            <option th:each="hobby : ${hobbies}"
+                                    th:value="${hobby}"
+                                    th:text="${hobby}"
+                                    th:selected="${hobby} == ${user.hobbies}">
+                        </select>
+                    </div>
+
+                    <div class="form-group m-2 p-2">
                         <label for="age" th:text="|Age: (between ${userAgeLimitMin} and ${userAgeLimitMax})|"></label>
                         <input type="number" id="age" size="4" class="form-control"
                                th:min="${userAgeLimitMin}"
