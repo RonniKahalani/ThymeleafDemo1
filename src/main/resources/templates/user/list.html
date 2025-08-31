@@ -31,7 +31,7 @@
 <main>
     <div class="container">
 
-        <h2 th:utext="'Users &lt;span class=&quot;badge&quot;&gt;' + ${users.size()} + '&lt;/span&gt;'"></h2>
+        <h2>Users <span class='badge bg-dark' th:utext="${users.size()}"></span> </h2>
         <div th:if="${users.size() > 0}">
             <table class="user-list">
                 <thead>
@@ -64,8 +64,10 @@
         <div th:if="${users.size() == 0}">
             <p>No users found.</p>
         </div>
+        <hr>
+        <div class="form-group float-end">
+            <button type="button" class="btn btn-secondary" title="Back" onclick="history.go(-1)">Back</button>
 
-        <div class="form-group text-end">
             <a class="btn btn-primary btn-small" th:href="@{/user/create}"
                title="Create User">Create</a>
         </div>

@@ -17,10 +17,10 @@ import java.util.List;
 public class HomeController {
 
     private final List<Article> articles = List.of(
-            new Article("Spring and Thymeleaf", "Introduction to Spring with Thymeleaf.<br>Playing with the MVC pattern and view fragments.", "Me", new Date(), "http://dr.dk", "/img/baby.jpg", "Information", 100, 20, "Read More"),
-            new Article("Missed the opportunity?", "Great offers, don't miss out! Check our website for more details. ", "Me", new Date(), "http://dr.dk", "/img/pic1.png", "Promotion", 100, 20, "View  More"),
-            new Article("Did you see the latest?!", "New arrivals just in! Explore our latest collections. Find something you love.", "Me", new Date(), "http://dr.dk", "/img/pic2.jpg", "Product", 100, 20, "Buy Now"),
-            new Article("What's up?!", "Check out these wierd new places. Soooo nice!", "Me", new Date(), "http://dr.dk", "/img/pic3.jpg", "Product", 100, 20, "I'm Hooked")
+            new Article("Spring and Thymeleaf", "Introduction to Spring, Thymeleaf, MVC pattern and views.", "Me", new Date(), "https://www.youtube.com/results?search_query=Spring+and+Thymeleaf+introduction", "/img/baby.jpg", "Information", 100, 20, "Read More"),
+            new Article("Missed the opportunity?", "Great offers, don't miss out! Check our website for more details. ", "Me", new Date(), "https://www.youtube.com/results?search_query=Spring+and+Thymeleaf+introduction", "/img/pic1.png", "Promotion", 100, 20, "View  More"),
+            new Article("Did you see the latest?!", "New arrivals just in! Explore our latest collections.", "Me", new Date(), "https://www.youtube.com/results?search_query=Spring+and+Thymeleaf+introduction", "/img/pic2.jpg", "Product", 100, 20, "Buy Now"),
+            new Article("What's up?!", "Check out these wierd new places. Soooo nice!", "Me", new Date(), "https://www.youtube.com/results?search_query=Spring+and+Thymeleaf+introduction", "/img/pic3.jpg", "Product", 100, 20, "I'm Hooked")
     );
 
     /**

@@ -35,7 +35,9 @@
         <h2 th:text="${user.name}"></h2>
         <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
         <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
-        <div class="form-group text-end">
+        <hr>
+        <div class="form-group float-end">
+            <button type="button" class="btn btn-secondary" title="Back" onclick="history.go(-1)">Back</button>
             <a class="btn btn-primary btn-small" th:href="@{/user/update/{id}(id=${user.id})}"
                title="Edit User">Edit</a>
         </div>
