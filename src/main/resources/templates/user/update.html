@@ -25,7 +25,10 @@
 </head>
 
 <body>
+
+<!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
+
 <main>
     <div class="container">
         <form th:action="@{/user/{id}(id=${user.id})}" th:object="${user}" method="post" class="form" autocomplete="on">
@@ -90,10 +93,16 @@
         </form>
     </div>
 
-    <!-- Toast and Modal fragments -->
+    <!-- Toast Notification Fragment -->
     <div th:replace="~{/fragments :: toast}"></div>
+
+    <!-- Modal Dialog Fragment -->
     <div th:replace="~{/fragments :: modal}"></div>
+
 </main>
+
+<!-- Footer Fragment -->
 <footer th:replace="~{/fragments :: footer}"></footer>
+
 </body>
 </html>

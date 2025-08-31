@@ -14,44 +14,41 @@ This fragment is used as the header-tag in all HTML pages.
         </div>
     </div>
 
-    <div class="navigation mr-3">
+    <div class="navigation mr-3 bg-dark opacity-75">
         <div class="row navigation-row">
 
-            <div class="col-sm row">
-
-                <div class="col-sm text-end">
-                    <img id="baby" src="/img/baby.jpeg" alt="Baby Boss"/>
-                </div>
-
-                <div class="col-11 audio-control">
-                    <div class="audio-intro">Listen to what our CEO has to say...</div>
-                    <button id="btn-audio" class="btn btn-sm" onclick="toggleMedia(document.querySelector('#audio'))">
+            <div class="col-4 row">
+                <div class="audio-control">
+                    <button id="btn-audio" class="btn btn-sm" title="Listen to what our CEO has to say...">
                         <audio id="audio" src="/audio/baby-crying.mp3"></audio>
-                        <i class="bi-play-circle audio-icon"></i> Toggle Audio
+                        <img id="img-ceo" src="/img/baby.jpg" alt="Audio Icon"/> Play Audio
                     </button>
                 </div>
             </div>
 
-            <button id="btn-nav-home" title="Home" class="btn btn-sm nav-icon">
-                <span class="bi-house" style="display: block"></span>
-                <span class="icon-text">Home</span>
-            </button>
+            <div class="col-8 row">
+                <div class="col-sm"></div>
+                <button id="btn-nav-home" title="Home" class="btn nav-icon">
+                    <span class="bi-house" style="display: block"></span>
+                    <span class="icon-text">Home</span>
+                </button>
 
-            <button id="btn-nav-list-users" title="List Users" class="btn btn-sm nav-icon">
-                <span class="bi-people" style="display: block"></span>
-                <span class="icon-text">Users</span>
-            </button>
+                <button id="btn-nav-list-users" title="List Users" class="btn nav-icon">
+                    <span class="bi-people" style="display: block"></span>
+                    <span class="icon-text">Users</span>
+                </button>
 
-            <button id="btn-nav-create-user" title="Create User" class="btn btn-sm nav-icon">
-                <span class="bi-person-plus" style="display: block"></span>
-                <span class="icon-text">Create</span>
-            </button>
+                <button id="btn-nav-create-user" title="Create User" class="btn nav-icon">
+                    <span class="bi-person-plus" style="display: block"></span>
+                    <span class="icon-text">Create</span>
+                </button>
 
-            <button id="btn-nav-settings" title="Settings" class="btn btn-sm nav-icon" data-bs-toggle="modal"
-                    data-bs-target="#modal-example">
-                <span class="bi-gear" style="display: block"></span>
-                <span class="icon-text">Settings</span>
-            </button>
+                <button id="btn-nav-settings" title="Settings" class="btn nav-icon" data-bs-toggle="modal"
+                        data-bs-target="#modal-example">
+                    <span class="bi-gear" style="display: block"></span>
+                    <span class="icon-text">Settings</span>
+                </button>
+            </div>
         </div>
     </div>
 </header>
@@ -59,44 +56,88 @@ This fragment is used as the header-tag in all HTML pages.
 <--
 This fragment is used as the footer-tag in all HTML pages.
 -->
-<footer th:fragment="footer">
-    Copyright &copy; 2025 IT Nerds.
+<footer th:fragment="footer" class="bg-dark text-white py-5">
+    <div class="row m-0">
+        <!-- Company Info -->
+        <div class="col-md-4 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-3">About Us</h5>
+            <p class="text-start mx-5">
+                We rock the world by focusing on true north and our purpose to extend consciousness throughout the
+                universe. We're on a mission based on conscientiousness (hard work) and love of life.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+                <li><a href="/" class="text-white text-decoration-none">Home</a></li>
+                <li><a href="/" class="text-white text-decoration-none">About</a></li>
+                <li><a href="/" class="text-white text-decoration-none">Services</a></li>
+                <li><a href="/" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4">
+            <h5 class="text-uppercase mb-3">Contact</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-geo-alt me-2"></i><a target="_blank"
+                                                         href="https://maps.app.goo.gl/KkXfU2BDkGxdvvMp8">340 University
+                    Ave, Palo Alto</a></li>
+                <li><i class="bi bi-telephone me-2"></i><a target="_blank" href="tel:+1234567890">+123 456 7890</a></li>
+                <li><i class="bi bi-envelope me-2"></i><a target="_blank" href="mailto:email@example.com">email@example.com</a>
+                </li>
+            </ul>
+            <!-- Social Media Icons -->
+            <div class="mt-3">
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-4">
+        <div class="col text-center">
+            <p class="mb-0">&copy; 2025 IT Nerds Inc. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
 
-<!-- Toast notification -->
-<div th:fragment="toast">
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="toast-view" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i id="toast-icon" class="rounded me-2 bi bi-info-circle"></i>
-                <strong class="me-auto toast-title">Bootstrap</strong>
-                <small>2 secs ago</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">X</button>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
+<!-- Toast Notification -->
+<div th:fragment="toast" class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toast-view" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i id="toast-icon" class="rounded me-2 bi bi-info-circle"></i>
+            <strong class="me-auto toast-title">Bootstrap</strong>
+            <small>2 secs ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">X</button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
         </div>
     </div>
 </div>
 
-<!-- Modal Dialog Example -->
-<div th:fragment="modal">
-    <div class="modal fade" id="modal-example" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1"
-         aria-labelledby="model-example-label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modal-example-label">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                </div>
-                <div id="modal-example-body" class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="btn-modal-example-ok" type="button" class="btn btn-primary">Ok</button>
-                </div>
+<!-- Modal Dialog -->
+<div th:fragment="modal" class="modal fade" id="modal-example" data-bs-backdrop="false" data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="model-example-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modal-example-label">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div id="modal-example-body" class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="btn-modal-example-ok" type="button" class="btn btn-primary">Ok</button>
             </div>
         </div>
     </div>

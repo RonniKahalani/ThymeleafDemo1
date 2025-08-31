@@ -24,7 +24,10 @@
 </head>
 
 <body>
+
+<!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
+
 <main>
     <div class="container">
 
@@ -45,7 +48,8 @@
                     <td th:text="${user.name}"></td>
                     <td><a th:text="${user.email}"></a></td>
                     <td th:text="${user.age}"></td>
-                    <td><a class="btn btn-primary btn-sm" th:href="@{/user/{id}(id=${user.id})}" title="Show User">Show</a>
+                    <td><a class="btn btn-primary btn-sm" th:href="@{/user/{id}(id=${user.id})}"
+                           title="Show User">Show</a>
                     </td>
                     <td><a class="btn btn-primary btn-sm" th:href="@{/user/update/{id}(id=${user.id})}"
                            title="Edit User">Edit</a></td>
@@ -67,11 +71,15 @@
         </div>
     </div>
 
-    <!-- Toast and Modal fragments -->
+    <!-- Toast Notification Fragment -->
     <div th:replace="~{/fragments :: toast}"></div>
+
+    <!-- Modal Dialog Fragment -->
     <div th:replace="~{/fragments :: modal}"></div>
+
 </main>
+
+<!-- Footer Fragment -->
 <footer th:replace="~{/fragments :: footer}"></footer>
 </body>
 </html>
-

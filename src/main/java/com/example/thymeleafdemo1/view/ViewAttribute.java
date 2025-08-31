@@ -8,7 +8,7 @@ import lombok.Getter;
  */
 @Getter
 public enum ViewAttribute {
-    MARQUEE("marquee"),
+    ARTICLES("articles"),
     USER_NAME_LENGTH_MAX("userNameLengthMax"),
     USER_EMAIL_LENGTH_MAX("userEmailLengthMax"),
     USER_AGE_LIMIT_MIN("userAgeLimitMin"),

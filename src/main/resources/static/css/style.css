@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i|Roboto');
+
 body {
     font-size: 1.2em;
-    font-family: Arial, serif;
+    font-family: Roboto, Arial, serif;
     color: black;
 }
 
@@ -8,7 +10,7 @@ header {
     background-color: #000000;
     color: white;
     border-bottom: 1px solid #FFFFFF;
-    background-image: url(/img/background.jpg);
+    background-image: url("/img/background.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -27,14 +29,11 @@ header {
 
 footer {
     width: 100%;
-    height: 50px;
-    background-color: #000000;
-    padding-top: 12px;
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid darkgray;
     text-align: center;
     vertical-align: middle;
     color: white;
-    opacity: 75%;
+    background-size: cover;
 }
 
 label {
@@ -48,6 +47,41 @@ label {
     min-height: 80vh;
 }
 
+#img-ceo {
+    border-radius: 50%;
+}
+
+<!-- Card -->
+.card {
+    width: 18rem;
+    padding-top: 5px;
+    margin:auto
+}
+
+.card-title {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.card-text {
+    min-height: 10vh;
+}
+
+.card-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.card-img {
+    margin: 10px auto auto;
+    border-radius: 50%;
+    border: 5px solid lightgray;
+    width: 150px;
+    height: 150px;
+}
+<!-- User -->
 .user-list {
     width: 100%;
     border-collapse: collapse;
@@ -104,9 +138,9 @@ label {
     text-align: center;
 }
 
+<!-- Navigation Bar -->
 .navigation {
     background-color: black;
-    opacity: 75%;
     border-top: 1px solid gray;
     border-bottom: 1px solid darkgray;
     vertical-align: middle;
@@ -119,57 +153,6 @@ label {
     width:auto;
 }
 
-.wrapper {
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.marquee {
-    color: black;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    animation: marquee 10s linear infinite;
-    padding: 10px;
-}
-
-.marquee p {
-    display: inline-block;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0);
-    }
-}
-
-.marquee-item-introduction {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.marquee-item-promotion {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.marquee-item-product {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 .icon-text {
     font-size: .6em
 }
@@ -179,18 +162,7 @@ label {
     vertical-align: middle;
 }
 
-#video {
-    text-align: center;
-    width: 100%;
-    border: 1px solid gray;
-    box-shadow: 5px 5px 5px gray;
-    cursor: pointer;
-}
-
-#baby {
-    height: 80px;
-}
-
+<!-- Audio -->
 .audio-intro {
     font-size:.75em;
     margin-top:10px;
@@ -200,24 +172,24 @@ label {
     font-size:1.5em;
 }
 
-#btnAudio {
+#btn-audio {
 
 }
 
-#btnVideo {
+.audio-control {
+
 }
 
-.video-icon {
-    font-size:1.5em;
-}
-
+<!-- Spinner -->
 #spinner {
 
 }
 
+<!-- Toast -->
 #toast-view {
     color:black;
     opacity: 100%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 #toast-icon {
@@ -229,41 +201,35 @@ label {
 
 .toast-body {
     color: black;
-    opacity: 100%;
+    background-color: white;
 }
 
 .toast-header {
-    background-color: blue;
+    background-color:black;
     color: white;
     border-bottom: 1px solid white;
-    opacity: 100%;
 }
 
+<!-- Modal Dialog -->
 .modal-dialog {
     color: black;
-    opacity: 100%;
 }
 
 .modal-header {
-    background-color: blue;
+    background-color: black;
     color: white;
     border-bottom: 1px solid white;
-    opacity: 100%;
 }
 
 .modal-body {
     color: black;
-    opacity: 100%;
 }
 
 .btn-close {
     color: white;
 }
 
-.audio-control {
-    text-align: left;
-}
-
+<!-- Badge -->
 .badge {
     font-size: .5em;
     vertical-align: top;
@@ -271,7 +237,23 @@ label {
     color: white;
 }
 
+<!-- Carousel -->
 .carousel {
-    width: 800px;
-    height: 600px;
+    width: 100%;
+}
+
+.carousel-caption {
+    color: white;
+}
+
+.carousel-title {
+    background-color: black;
+    margin: 10px;
+    padding: 5px;
+}
+
+.carousel-body {
+    background-color: black;
+    margin: 10px;
+    padding: 5px;
 }

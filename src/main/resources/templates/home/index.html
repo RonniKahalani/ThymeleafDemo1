@@ -24,20 +24,15 @@
     <script defer src="/js/core.js"></script>
 </head>
 
-<!-- Body onload event to hide the spinner -->
+<!-- Body onload event to show a welcome toast message popup -->
 <body onload="showWelcomeToast()">
 
-<!-- Dynamic header -->
+<!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
+
 <main>
     <!-- Main container -->
     <div class="container">
-
-        <!-- Marquee -->
-        <div class="wrapper">
-            <div class="marquee" th:utext="${marquee}">
-            </div>
-        </div>
 
         <!-- Logo, title and description -->
         <div class="text-center">
@@ -47,6 +42,20 @@
 
         <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
             entry and a list of users.</p>
+
+        <div th:if="${articles.size() > 0}" class="row">
+            <div th:each="article : ${articles}" class="card" style="width: 18rem;">
+                <img th:src="${article.imageUrl}" class="card-img" th:alt="${article.title}" th:title="${article.title}">
+                <div class="card-body">
+                    <h5 th:text="${article.title}" class="card-title">Card title</h5>
+                    <p th:utext="${article.content}" class="card-text">Card text</p>
+                    <a th:href="${article.linkUrl}" th:text="${article.buttonText}" target="_blank" class="btn btn-primary card-link">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div th:if="${articles.size() == 0}">
+            <p>No articles found.</p>
+        </div>
 
         <!-- MVC Tabs -->
         <ul class="nav nav-tabs" id="mvc-tab" role="tablist">
@@ -161,7 +170,11 @@
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/img/pic1.png" class="d-block w-100" alt="...">
+                        <img src="/img/pic1.png" class="d-block w-100 z-index:-1" alt="...">
+                        <span class="carousel-caption d-none d-md-block">
+                            <span class="carousel-title">Spring & Thymeleaf</span><br>
+                            <span class="carousel-body">Spring Thymeleaf MVC Example Application</span>
+                        </span>
                     </div>
                     <div class="carousel-item">
                         <img src="/img/pic2.jpg" class="d-block w-100" alt="...">
@@ -184,12 +197,16 @@
         </div>
     </div>
 
-    <!-- Toast and Modal fragments -->
+    <!-- Toast Notification Fragment -->
     <div th:replace="~{/fragments :: toast}"></div>
+
+    <!-- Modal Dialog Fragment -->
     <div th:replace="~{/fragments :: modal}"></div>
+
 </main>
 
-<!-- Dynamic footer -->
+<!-- Footer Fragment -->
 <footer th:replace="~{/fragments :: footer}"></footer>
+
 </body>
 </html>

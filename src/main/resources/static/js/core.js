@@ -19,6 +19,7 @@ let modalExampleTitle;
 let modalExampleBody;
 let btnModalExampleOk;
 let spinner;
+let audio;
 
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
  * Initialize event handlers.
  */
 function initialize() {
+
+    // Getting audio element by its id, in the HTML.
+    audio = document.querySelector("#audio");
 
     // Getting button elements by their id, in the HTML.
     btnHome = document.querySelector("#btn-nav-home");
@@ -43,6 +47,7 @@ function initialize() {
     btnListUsers.onclick = (ev) => window.location.href = "/user";
     btnCreateUser.onclick = (ev) => window.location.href = "/user/create";
     btnSettings.onclick = (ev) => showModalDialog("Settings", "Settings are under construction.");
+    btnAudio.onclick = (ev) => toggleMedia(audio);
     btnModalExampleOk.onclick = (ev) => clickedOkInModalDialog();
 
     // Setting button mouse event handlers.
@@ -159,7 +164,7 @@ function isVisible(element) {
  * Show welcome toast
  */
 function showWelcomeToast() {
-    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a href="http://github.com/RonniKahalani>GitHub</a>`, "house");
+    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a target="_blank" href="http://github.com/RonniKahalani">GitHub</a>`, "house");
 }
 
 /**

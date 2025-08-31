@@ -25,7 +25,10 @@
 </head>
 
 <body class="error-page">
+
+<!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
+
 <main>
     <div class="container">
         <img alt="Error" src="/img/error.jpg"/>
@@ -35,14 +38,20 @@
         </div>
         <h2>AHHH @&#$?&!..D*MN THIS F*CKING APP!</h2>
         <h3>Now I have to stay up late to fix this mess, you did! What did you do?! Why did you do it?!</h3>
-        <h4>Wow what just happened?...I better calm down and just fix this poop. Sorry for the inconvenience, cursing and shouting.</h4>
+        <h4>Wow what just happened?...I better calm down and just fix this poop. Sorry for the inconvenience, cursing
+            and shouting.</h4>
     </div>
-    <!-- Toast and Modal fragments -->
+
+    <!-- Toast Notification Fragment -->
     <div th:replace="~{/fragments :: toast}"></div>
+
+    <!-- Modal Dialog Fragment -->
     <div th:replace="~{/fragments :: modal}"></div>
+
 </main>
 
-<!-- Dynamic footer -->
+<!-- Footer Fragment -->
 <footer th:replace="~{/fragments :: footer}"></footer>
+
 </body>
 </html>
