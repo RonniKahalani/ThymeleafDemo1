@@ -28,7 +28,7 @@
 <header th:replace="~{/fragments :: header}"></header>
 <main>
     <div class="container">
-        <img alt="Error" src="/img/error.jpg"/>
+        <img alt="Error" src="/img/error.jpg" class="error-img"/>
 
         <div th:if="${message}">
             <h1 th:text="${message}">Failed to identify the error.</h1>

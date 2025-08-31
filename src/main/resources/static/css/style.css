@@ -152,6 +152,12 @@ label {
     text-align: center;
 }
 
+.error-img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
 <!-- Navigation Bar -->
 .navigation {
     background-color: black;

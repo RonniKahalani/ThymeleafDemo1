@@ -44,6 +44,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -52,6 +53,10 @@
                     <td th:text="${user.name}"></td>
                     <td><a th:text="${user.email}"></a></td>
                     <td th:text="${user.age}"></td>
+                    <td>
+                        <img th:if="${user.image != null}" th:src="@{${user.image}}" alt="User Image" class="img-thumbnail" style="max-width: 50px; max-height: 50px;">
+                        <span th:if="${user.image == null}">No Image</span>
+                    </td>
                     <td><a class="btn btn-primary btn-sm" th:href="@{/user/{id}(id=${user.id})}"
                            title="Show User">Show</a>
                     </td>

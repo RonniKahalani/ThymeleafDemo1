@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +68,7 @@ public class UserController {
     public String createForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User("", "", "", new ArrayList<String>(), userAgeLimitMin);
+        User user = new User("", "", "", new ArrayList<String>(),null, userAgeLimitMin);
 
         // Add the attributes to the view model so it can be accessed in the view.
         setupEditModelAttributes(viewModel);

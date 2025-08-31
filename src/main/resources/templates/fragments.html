@@ -149,3 +149,108 @@ This fragment is used as the footer-tag in all HTML pages.
         </div>
     </div>
 </div>
+
+<!-- User Form Fragment -->
+<div th:fragment="user-form-input" class="row">
+    <div class="user-input col">
+
+        <div hidden>
+            <label for="id">Id</label>
+            <input th:field="*{id}"
+                   id="id"
+                   type="text"/>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="name" th:text="|Name (max ${userNameLengthMax} chars)|"></label>
+            <input th:field="*{name}"
+                   th:maxlength="${userNameLengthMax}"
+                   id="name"
+                   name="name"
+                   class="form-control"
+                   type="text"
+                   placeholder="Enter name"
+                   autocomplete="true"
+                   required/>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="email" th:text="|Email: (max ${userEmailLengthMax} chars)|"></label>
+            <input th:field="*{email}"
+                   th:maxlength="${userEmailLengthMax}"
+                   id="email"
+                   name="email"
+                   class="form-control"
+                   type="email"
+                   aria-describedby="emailHelp"
+                   placeholder="Enter Email"
+                   autocomplete="true"
+                   required/>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                else.</small>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="profession">Profession</label>
+            <select th:field="*{profession}"
+                    id="profession"
+                    name="profession"
+                    class="form-control"
+                    placeholder="Select Profession"
+                    required>
+                <option th:each="prof : ${professions}"
+                        th:value="${prof}"
+                        th:text="${prof}"
+                        th:selected="${prof} == ${user.profession}">
+            </select>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="hobbies">Hobbies</label>
+            <select th:field="*{hobbies}"
+                    id="hobbies"
+                    name="hobbies"
+                    class="form-control"
+                    placeholder="Select Hobbies"
+                    multiple required>
+                <option th:each="hobby : ${hobbies}"
+                        th:value="${hobby}"
+                        th:text="${hobby}"
+                        th:selected="${user.hobbies.contains(hobby)}">
+            </select>
+        </div>
+
+        <div class="form-group m-2 p-2">
+            <label for="age" th:text="|Age: (between ${userAgeLimitMin} and ${userAgeLimitMax})|"></label>
+            <input th:field="*{age}"
+                   th:min="${userAgeLimitMin}"
+                   th:max="${userAgeLimitMax}"
+                   id="age"
+                   name="age"
+                   class="form-control"
+                   type="number"
+                   size="4"
+                   placeholder="Enter Age"
+                   required/>
+        </div>
+
+
+        <img id="image-demo" src="..." alt="">
+        <div class="form-group m-2 p-2">
+            <label for="image" >Image</label>
+            <input th:field="*{image}"
+                   id="image"
+                   name="image"
+                   class="form-control"
+                   type="text"/>
+        </div>
+        <div class="form-group m-2 p-2">
+            <input id="upload"
+                   name="upload"
+                   class="form-control-file"
+                   type="file"
+                   accept="image/*"
+            />
+        </div>
+    </div>
+</div>

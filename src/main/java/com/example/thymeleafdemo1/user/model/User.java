@@ -3,6 +3,7 @@ package com.example.thymeleafdemo1.user.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class User {
     private String email;
     private String profession;
     private List<String> hobbies;
+    private String image;
     private int age;
 
     /**
@@ -31,11 +33,12 @@ public class User {
      * @param hobbies the hobbies of the user
      * @param age  the age of the user
      */
-    public User(String name, String email, String profession, List<String> hobbies, int age) {
+    public User(String name, String email, String profession, List<String> hobbies, String image, int age) {
         this.name = name;
         this.email = email;
         this.profession = profession;
         this.hobbies = hobbies;
+        this.image = image;
         this.age = age;
     }
 }

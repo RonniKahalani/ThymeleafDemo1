@@ -20,6 +20,9 @@ let modalExampleBody;
 let btnModalExampleOk;
 let spinner;
 let audio;
+let uploadData;
+let imageData;
+let imageDemo;
 
 // Wait for the DOM (Document Object Model) to be fully loaded before initializing.
 document.addEventListener('DOMContentLoaded', function () {
@@ -41,6 +44,12 @@ function initialize() {
     btnSettings = document.querySelector("#btn-nav-settings");
     btnAudio = document.querySelector("#btn-audio");
     btnModalExampleOk = document.querySelector("#btn-modal-example-ok");
+    imageData = document.querySelector("#image");
+    imageDemo = document.querySelector("#image-demo");
+    uploadData = document.querySelector("#upload");
+    if (uploadData) {
+        uploadData.onchange = (ev) => setFiles(ev.target.files);
+    }
 
     // Setting button onclick event handlers, using => arrow functions.
     btnHome.onclick = (ev) => window.location.href = "/";
@@ -211,4 +220,31 @@ function clickedOkInModalDialog() {
         modalInstance.hide();
         showToast("Modal dialog closed", "You just clicked Ok in a mosal dialog, congratulation.", "check-circle");
     }
+}
+
+
+async function setFiles(files) {
+    const data = await loadFile(files[0])
+    imageData.value = data;
+    imageDemo.src = data
+}
+
+/**
+ * Loads a file, from a file upload input element.
+ */
+function loadFile(file) {
+
+    return new Promise((resolve, reject) => {
+
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+
+        fileReader.onload = () => {
+            resolve(fileReader.result);
+        };
+
+        fileReader.onerror = (error) => {
+            reject(error);
+        };
+    });
 }

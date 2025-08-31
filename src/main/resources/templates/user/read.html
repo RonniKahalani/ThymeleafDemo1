@@ -34,6 +34,8 @@
 
         <h2 th:text="${user.name}"></h2>
         <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Profession:</strong> <span th:text="${user.profession}"></span></p>
+        <p><strong>Hobbies:</strong> <span th:text="${#strings.listJoin(user.hobbies, ',')}"></span></p>
         <p><strong>Age:</strong> <span th:text="${user.age}"></span></p>
         <hr>
         <div class="form-group float-end">
