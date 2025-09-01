@@ -89,6 +89,12 @@ label {
     width: 150px;
     height: 150px;
 }
+
+.small-icon-button {
+    font-size: 1em;
+    color: white;
+}
+
 <!-- User -->
 .user-list {
     width: 100%;
@@ -272,4 +278,10 @@ label {
     background-color: black;
     margin: 10px;
     padding: 5px;
+}
+
+#image-demo {
+    min-width: 200px;
+    max-width: 400px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }

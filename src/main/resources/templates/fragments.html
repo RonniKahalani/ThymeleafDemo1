@@ -173,19 +173,20 @@ This fragment is used as the footer-tag in all HTML pages.
                    autocomplete="true"
                    aria-describedby="nameHelp"
                    required/>
-            <span id="nameHelp" class="form-text text-muted input-help" th:text="|Max ${userNameLengthMax} chars.|"></span>
+            <span id="nameHelp" class="form-text text-muted input-help"
+                  th:text="|Max ${userNameLengthMax} chars.|"></span>
 
         </div>
 
         <div class="form-group m-2 p-2">
             <label for="description">Description</label>
             <textarea th:field="*{description}"
-                   id="description"
-                   name="description"
-                   class="form-control"
-                   placeholder="Enter description"
-                   autocomplete="true"
-                   required></textarea>
+                      id="description"
+                      name="description"
+                      class="form-control"
+                      placeholder="Enter description"
+                      autocomplete="true"
+                      required></textarea>
         </div>
 
         <div class="form-group m-2 p-2">
@@ -258,29 +259,37 @@ This fragment is used as the footer-tag in all HTML pages.
                    size="4"
                    placeholder="Enter Age"
                    required/>
-            <span id="ageHelp" class="form-text text-muted input-help" th:text="|Between ${userAgeLimitMin} and ${userAgeLimitMax}.|"></span>
-
+            <span id="ageHelp" class="form-text text-muted input-help"
+                  th:text="|Between ${userAgeLimitMin} and ${userAgeLimitMax}.|"></span>
         </div>
 
-        <img th:if="${!#strings.isEmpty(user.image)}" id="image-demo" th:src="${user.image}" alt="Photo Image">
-        <img th:if="${#strings.isEmpty(user.image)}" id="image-demo" src="/img/baby.jpg" alt="Photo Image">
+        <div class="text-center">
+            <label for="image-demo">Image</label><br>
+            <img id="image-demo" th:src="${#strings.isEmpty(user.image)} ? '/img/baby.jpg' : ${user.image}"
+                 alt="Photo Image" class="mb-4">
+            <div class="text-center">
+                <button type="button" class="btn btn-primary btn-sm" onclick="document.querySelector('#upload').click()">Upload Image
+                </button>
+            </div>
+        </div>
 
         <div class="form-group m-2 p-2">
-            <label for="image">Image</label>
             <input th:field="*{image}"
                    id="image"
                    name="image"
                    class="form-control"
                    type="text"
                    style="display: none"
-                   />
+            />
         </div>
+
         <div class="form-group m-2 p-2">
             <input id="upload"
                    name="upload"
                    class="form-control-file btn btn-primary"
                    type="file"
                    accept="image/*"
+                   style="display: none"
             />
         </div>
     </div>

@@ -15,51 +15,8 @@ import java.util.Optional;
 @Repository
 public class UserRepository {
 
-    private static final List<User> users = new ArrayList<>();
-/*
-            List.of(
+    private static final List<User> users = UserFactory.getTestUsers();
 
-            new User("Alice Johnson",
-                    "Enthusiastic learner and team player",
-                    "555-0123",
-                    "alice.johnson@example.com",
-                    "Designer",
-                    Arrays.asList("hiking", "reading", "painting"),
-                    "",
-                    28
-            ),
-            new User(
-                    "Bob Smith",
-                    "Passionate about technology and music",
-                    "555-9876",
-                    "bob.smith@example.com",
-                    "Designer",
-                    Arrays.asList("guitar", "cycling", "photography"),
-                    "",
-                    34
-            ),
-            new User(
-                    "Clara Lee",
-                    "Dedicated to helping others and exploring new cultures",
-                    "555-4567",
-                    "clara.lee@example.com",
-                    "Developer",
-                    Arrays.asList("traveling", "cooking", "yoga"),
-                    "",
-                    25
-            ),
-            new User(
-                    "David Brown",
-                    "Problem solver with a love for adventure",
-                    "555-3210",
-                    "david.brown@example.com",
-                    "Manager",
-                    Arrays.asList("rock climbing", "chess", "gardening"),
-                    "",
-                    41
-            )
-    );
-*/
     /**
      * This method retrieves all users from the repository.
      *
@@ -101,7 +58,7 @@ public class UserRepository {
      */
     public void save(User user) {
 
-        if(user == null) {
+        if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
 

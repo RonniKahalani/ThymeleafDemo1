@@ -27,8 +27,8 @@ public class UserController {
     private static final String TITLE_USER_UPDATE = "Update User";
     private static final String TITLE_USER_LIST = "List Users";
 
-    private final List<String> professions = List.of("Developer", "Designer", "Manager", "Other");
-    private final List<String> hobbies = List.of("Sports", "Music", "Traveling", "Reading", "Gaming");
+    private final List<String> professions = List.of("Manager", "Designer", "Developer", "Other");
+    private final List<String> hobbies = List.of("Cycling","Gaming", "Guitar", "Music", "Photography", "Reading", "Sports", "Traveling" );
 
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.

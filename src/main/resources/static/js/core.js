@@ -4,7 +4,8 @@
  * This script handles button clicks and hover effects for navigation buttons and button focus styles.
  */
 
-const MAX_UPLOAD_FILE_SIZE = 1024 * 1024; // 1 MB
+const MB_1 = 1024 * 1024; // 1 MB in bytes
+const MAX_UPLOAD_FILE_SIZE = MB_1;
 
 const ICON_EXCLAMATION_TRIANGLE = "exclamation-triangle";
 const ICON_HOUSE = "house";
@@ -228,14 +229,17 @@ function clickedOkInModalDialog() {
     }
 }
 
-
+/**
+ * Set files from file input element
+ * @param files
+ * @returns {Promise<void>}
+ */
 async function setFiles(files) {
     const file = files[0];
 
     if (file.size > MAX_UPLOAD_FILE_SIZE)
     {
-        const megaBytes = MAX_UPLOAD_FILE_SIZE / (1024 * 1024);
-        showToast("Upload", `The selected file is too large. Maximum allowed size is ${megaBytes} MB.`, ICON_EXCLAMATION_TRIANGLE);
+        showToast("Upload", `The selected file is too large. Maximum allowed size is ${MAX_UPLOAD_FILE_SIZE / MB_1} MB.`, ICON_EXCLAMATION_TRIANGLE);
         uploadData.value = ""; // Clear the input
         return;
     }

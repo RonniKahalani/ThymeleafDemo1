@@ -48,4 +48,8 @@ public class User {
         this.image = image;
         this.age = age;
     }
+    public User(Long id, String name, String description, String phone, String email, String profession, List<String> hobbies, String image, int age) {
+        this(name, description, phone, email, profession, hobbies, image, age);
+        this.id = id;
+    }
 }
