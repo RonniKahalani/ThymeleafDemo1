@@ -37,7 +37,8 @@
             <div class="row my-5">
 
                 <div th:each="user : ${users}" class="card shadow col-md-3 mx-auto mb-2" steyle="width: 18rem;">
-                    <img th:src="${#strings.isEmpty(user.image)} ? '/img/baby.jpg' : ${user.image}" class="card-img" th:alt="${user.name}"
+                    <img th:src="${#strings.isEmpty(user.image)} ? '/img/baby.jpg' : ${user.image}" class="card-img"
+                         th:alt="${user.name}"
                          th:title="${user.name}">
 
                     <div class="card-body">
@@ -49,17 +50,23 @@
                         <div th:text="${#strings.listJoin(user.hobbies, ', ')}">Card text</div>
                     </div>
 
-                    <div class="row m-2">
-                    <a class="btn btn-secondary btn-sm mb-1" th:href="@{/user/{id}(id=${user.id})}"
-                           title="Show User">Show</a>
-                    <a class="btn btn-secondary btn-sm mb-1" th:href="@{/user/update/{id}(id=${user.id})}"
-                           title="Edit User">Edit</a>
-                        <a class="btn btn-secondary btn-sm mb-1" th:href="${'tel:' + user.phone}"
-                           th:title="${'Call User: ' + user.phone}">Call</a>
-                    <a class="btn btn-secondary btn-sm mb-1" th:href="@{mailto:{email}(email=${user.email})}"
-                       th:title="${'Email User: ' + user.email}">Email</a>
-                    <a class="btn btn-danger btn-sm mb-1" th:href="@{/user/{id}/delete(id=${user.id})}"
-                           title="Delete User" th:onclick="'return confirmDelete(\'' +${user.id} +'\')'">Delete</a>
+                    <div class="row m-2 text-center">
+                        <a class="btn btn-primary btn-sm bi bi-eye col-2 m-1"
+                           th:href="@{/user/{id}(id=${user.id})}"
+                           title="Show User"></a>
+                        <a class="btn btn-primary btn-sm bi bi-pencil col-2 m-1"
+                           th:href="@{/user/update/{id}(id=${user.id})}"
+                           title="Edit User"></a>
+                        <a class="btn btn-primary btn-sm bi bi-telephone col-2 m-1"
+                           th:href="${'tel:' + user.phone}"
+                           th:title="${'Call User: ' + user.phone}"></a>
+                        <a class="btn btn-primary btn-sm bi bi-envelope col-2 m-1"
+                           th:href="@{mailto:{email}(email=${user.email})}"
+                           th:title="${'Email User: ' + user.email}"></a>
+                        <a class="btn btn-primary btn-sm bi bi-trash col-2 m-1"
+                           th:href="@{/user/{id}/delete(id=${user.id})}"
+                           title="Delete User" th:onclick="'return confirmDelete(\'' +${user.id} +'\')'"></a>
+                        <span class="col-2"></span>
                     </div>
 
                 </div>
