@@ -4,7 +4,11 @@
  * This script handles button clicks and hover effects for navigation buttons and button focus styles.
  */
 
-const MAX_UPLOAD_FILE_SIZE = 1 * 1024 * 1024; // 1 MB
+const MAX_UPLOAD_FILE_SIZE = 1024 * 1024; // 1 MB
+
+const ICON_EXCLAMATION_TRIANGLE = "exclamation-triangle";
+const ICON_HOUSE = "house";
+const ICON_CHECK_CIRCLE = "check-circle";
 
 // Button element placeholders. Will be initialized shortly
 let btnHome;
@@ -175,7 +179,7 @@ function isVisible(element) {
  * Show welcome toast
  */
 function showWelcomeToast() {
-    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a target="_blank" href="http://github.com/RonniKahalani">GitHub</a>`, "house");
+    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a target="_blank" href="http://github.com/RonniKahalani">GitHub</a>`, ICON_HOUSE);
 }
 
 /**
@@ -220,7 +224,7 @@ function clickedOkInModalDialog() {
     const modalInstance = bootstrap.Modal.getInstance(modalExample);
     if (modalInstance) {
         modalInstance.hide();
-        showToast("Modal dialog closed", "You just clicked Ok in a mosal dialog, congratulation.", "check-circle");
+        showToast("Dialog", "You just clicked Ok in a dialog, congratulation.", ICON_CHECK_CIRCLE);
     }
 }
 
@@ -231,7 +235,7 @@ async function setFiles(files) {
     if (file.size > MAX_UPLOAD_FILE_SIZE)
     {
         const megaBytes = MAX_UPLOAD_FILE_SIZE / (1024 * 1024);
-        showToast("File too large", `The selected file is too large. Maximum allowed size is ${megaBytes} MB.`, "exclamation-triangle");
+        showToast("Upload", `The selected file is too large. Maximum allowed size is ${megaBytes} MB.`, ICON_EXCLAMATION_TRIANGLE);
         uploadData.value = ""; // Clear the input
         return;
     }
