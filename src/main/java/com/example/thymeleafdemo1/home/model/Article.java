@@ -3,7 +3,6 @@ package com.example.thymeleafdemo1.home.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor

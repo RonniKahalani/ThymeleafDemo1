@@ -170,7 +170,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    class="form-control"
                    type="text"
                    placeholder="Enter name"
-                   autocomplete="true"
+                   autocomplete="false"
                    aria-describedby="nameHelp"
                    required/>
             <span id="nameHelp" class="form-text text-muted input-help"
@@ -185,7 +185,7 @@ This fragment is used as the footer-tag in all HTML pages.
                       name="description"
                       class="form-control"
                       placeholder="Enter description"
-                      autocomplete="true"
+                      autocomplete="false"
                       required></textarea>
         </div>
 
@@ -197,7 +197,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    class="form-control"
                    type="text"
                    placeholder="Enter Phone Number"
-                   autocomplete="true"
+                   autocomplete="false"
                    required/>
         </div>
 
@@ -211,7 +211,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    type="email"
                    aria-describedby="emailHelp"
                    placeholder="Enter Email"
-                   autocomplete="true"
+                   autocomplete="false"
                    required/>
             <span id="emailHelp" class="form-text text-muted input-help" th:text="|Max ${userEmailLengthMax} chars. We will never share your email with anyone
                 else.|"></span>
