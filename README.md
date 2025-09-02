@@ -5,9 +5,9 @@ It allows you to create dynamic web pages using HTML, XML, and other formats, fo
 ## Using features
 - Controllers (HomeController and UserController).
 - Model components like services, repositories and data entities.
-- Thymeleaf HTML fragment templates, view code is written only once and reused.
-- UI framework Bootstrap 5.3.3 with jQuery 1.7.3.
-- Bootstrap Icons 1.10.5 + Font Awesome Icons 6.0.0.
+- Thymeleaf v3.5.5 with HTML fragment templates, view code is written only once and reused.
+- UI framework Bootstrap v5.3.3 with jQuery v1.7.3.
+- Bootstrap Icons v1.10.5 + Font Awesome Icons v6.0.0.
 - Local CSS and JavaScript files.
 - Using media audio and video.
 - Custom exception handler.
