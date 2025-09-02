@@ -2,13 +2,12 @@ package com.example.thymeleafdemo1.user.controller;
 
 import com.example.thymeleafdemo1.user.model.User;
 import com.example.thymeleafdemo1.user.service.UserService;
+import com.example.thymeleafdemo1.user.service.UserValidator;
 import com.example.thymeleafdemo1.view.ViewAttribute;
 import com.example.thymeleafdemo1.view.ViewName;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,21 +30,6 @@ public class UserController {
     private final List<String> hobbies = List.of("Cycling","Gaming", "Guitar", "Music", "Photography", "Reading", "Sports", "Traveling" );
 
     /**
-     * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
-     */
-    @Value("${user.name.length.max}")
-    private int userNameLengthMax;
-
-    @Value("${user.email.length.max}")
-    private int userEmailLengthMax;
-
-    @Value("${user.age.limit.min}")
-    private int userAgeLimitMin;
-
-    @Value("${user.age.limit.max}")
-    private int userAgeLimitMax;
-
-    /**
      * Reference to the UserService for handling user-related operations
      * In the old days we would use something like this, regarding dependency injection, but now you use implicit constructor injection.
      *
@@ -53,7 +37,10 @@ public class UserController {
      */
     private final UserService userService;
 
-    // Constructor-based dependency injection for UserService
+    /**
+     * Constructor-based dependency injection for UserService
+     * @param userService
+     */
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -68,7 +55,7 @@ public class UserController {
     public String createForm(Model viewModel) {
 
         // Create a new User object with default values.
-        User user = new User("", "", "", "", "", new ArrayList<String>(),null, userAgeLimitMin);
+        User user = new User("", "", "", "", "", new ArrayList<String>(),null, UserValidator.USER_AGE_LIMIT_MIN);
 
         // Add the attributes to the view model so it can be accessed in the view.
         setupEditModelAttributes(viewModel);
@@ -108,10 +95,10 @@ public class UserController {
      * @param viewModel holds the model attributes for the view
      */
     private void setupEditModelAttributes(Model viewModel) {
-        viewModel.addAttribute(ViewAttribute.USER_NAME_LENGTH_MAX.getAttributeName(), userNameLengthMax);
-        viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getAttributeName(), userEmailLengthMax);
-        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getAttributeName(), userAgeLimitMin);
-        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getAttributeName(), userAgeLimitMax);
+        viewModel.addAttribute(ViewAttribute.USER_NAME_LENGTH_MAX.getAttributeName(), UserValidator.USER_NAME_LENGTH_MAX);
+        viewModel.addAttribute(ViewAttribute.USER_EMAIL_LENGTH_MAX.getAttributeName(), UserValidator.USER_EMAIL_LENGTH_MAX);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MIN.getAttributeName(), UserValidator.USER_AGE_LIMIT_MIN);
+        viewModel.addAttribute(ViewAttribute.USER_AGE_LIMIT_MAX.getAttributeName(), UserValidator.USER_AGE_LIMIT_MAX);
         viewModel.addAttribute(ViewAttribute.USER_PROFESSIONS.getAttributeName(), professions);
         viewModel.addAttribute(ViewAttribute.USER_HOBBIES.getAttributeName(), hobbies);
     }
