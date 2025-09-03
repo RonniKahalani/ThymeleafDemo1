@@ -170,7 +170,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    class="form-control"
                    type="text"
                    placeholder="Enter name"
-                   autocomplete="false"
+                   autocomplete="on"
                    aria-describedby="nameHelp"
                    required/>
             <span id="nameHelp" class="form-text text-muted input-help"
@@ -185,7 +185,7 @@ This fragment is used as the footer-tag in all HTML pages.
                       name="description"
                       class="form-control"
                       placeholder="Enter description"
-                      autocomplete="false"
+                      autocomplete="on"
                       required></textarea>
         </div>
 
@@ -197,7 +197,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    class="form-control"
                    type="text"
                    placeholder="Enter Phone Number"
-                   autocomplete="false"
+                   autocomplete="on"
                    required/>
         </div>
 
@@ -211,7 +211,7 @@ This fragment is used as the footer-tag in all HTML pages.
                    type="email"
                    aria-describedby="emailHelp"
                    placeholder="Enter Email"
-                   autocomplete="false"
+                   autocomplete="on"
                    required/>
             <span id="emailHelp" class="form-text text-muted input-help" th:text="|Max ${userEmailLengthMax} chars. We will never share your email with anyone
                 else.|"></span>
@@ -266,8 +266,8 @@ This fragment is used as the footer-tag in all HTML pages.
 
         <div class="text-center">
             <label for="image-demo">Image</label><br>
-            <img id="image-demo" th:src="${#strings.isEmpty(user.image)} ? '/img/baby.jpg' : ${user.image}"
-                 alt="Photo Image" class="mb-4">
+            <img id="image-demo" class="shadow mb-4" th:src="${#strings.isEmpty(user.image)} ? '/img/baby.jpg' : ${user.image}"
+                 alt="Photo Image">
             <div class="text-center">
                 <button type="button" class="btn btn-primary btn-sm" onclick="document.querySelector('#upload').click()">Upload Image
                 </button>
