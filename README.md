@@ -12,6 +12,7 @@ It allows you to create dynamic web pages using HTML, XML, and other formats, fo
 - Using media audio and video.
 - Custom exception handler.
 - Implementing the Spring Controller, Service, Repository and Entity concepts.
+- Shows a feature using multi-language support (i18n), via locale specific messages_xx.properties files.
 
 ## Controllers endpoints
 - Home - HTTP GET /

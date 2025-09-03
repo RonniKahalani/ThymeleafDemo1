@@ -49,10 +49,10 @@
         <p class="mvc-title">Multi Language Support</p>
 
         <!-- Internationalized greeting messages -->
-        <div class="row card shadow">
-            <!--  <div class="display-6 text-center" th:text="'Welcome to our website on ' + ${#temporals.format(${#temporals.createNow()}, #{date.format})}"></div> -->
-            <div class="text-center" th:text="#{welcome}"></div>
-            <div class="text-center" th:text="${#temporals.format(#temporals.createNow())}"></div>
+        <div class="row card shadow p-2">
+
+            <div id="welcome-title" class="text-center" th:text="#{welcome}"></div>
+            <div id="welcome-date" class="text-center" th:text="${#temporals.format(#temporals.createNow())}"></div>
 
             <div class="row p-2 text-center">
                 <!-- Language switcher form -->
@@ -63,6 +63,7 @@
                         <option th:selected="${#locale.language == 'fr'}" value="fr" th:text="#{lang_fr}"></option>
                         <option th:selected="${#locale.language == 'es'}" value="es" th:text="#{lang_es}"></option>
                         <option th:selected="${#locale.language == 'da'}" value="da" th:text="#{lang_da}"></option>
+                        <option th:selected="${#locale.language == 'zh'}" value="zh" th:text="#{lang_zh}"></option>
                     </select>
                 </form>
             </div>

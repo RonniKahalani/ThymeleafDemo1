@@ -91,7 +91,19 @@ label {
     color: white;
 }
 
-<!-- User -->
+#welcome-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#welcome-date {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* User */
 .user-list {
     width: 100%;
     border-collapse: collapse;
@@ -164,7 +176,7 @@ label {
     height: 300px;
 }
 
-<!-- Navigation Bar -->
+/* Navigation Bar */
 .navigation {
     background-color: black;
     border-top: 1px solid gray;
@@ -188,7 +200,7 @@ label {
     vertical-align: middle;
 }
 
-<!-- Audio -->
+/* Audio */
 .audio-intro {
     font-size:.75em;
     margin-top:10px;
@@ -206,12 +218,12 @@ label {
 
 }
 
-<!-- Spinner -->
+/* Spinner */
 #spinner {
 
 }
 
-<!-- Toast -->
+/* Toast */
 #toast-view {
     color:black;
     opacity: 100%;
@@ -236,7 +248,7 @@ label {
     border-bottom: 1px solid white;
 }
 
-<!-- Modal Dialog -->
+/* Modal Dialog */
 .modal-dialog {
     color: black;
 }
@@ -255,7 +267,7 @@ label {
     color: white;
 }
 
-<!-- Carousel -->
+/* Carousel */
 .carousel {
     width: 100%;
 }
