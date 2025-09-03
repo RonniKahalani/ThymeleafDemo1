@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -28,7 +28,7 @@
 </head>
 
 <!-- Body onload event to show a welcome toast message popup -->
-<body onload="showWelcomeToast()">
+<body>
 
 <!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
@@ -42,9 +42,46 @@
             <img id="logo" src="/img/logo.png" alt="Spring & Thymeleaf Logo" title="Spring & Thymeleaf Logo">
             <h1 class="display-4">Spring & Thymeleaf</h1>
         </div>
-
-        <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
+        <p>This app demonstrates how the MVC pattern is used in Spring with Thymeleaf and Bootstrap, using a simple user
+            form for data
             entry and a list of users.</p>
+
+        <p class="mvc-title">Multi Language Support</p>
+
+        <!-- Internationalized greeting messages -->
+        <div class="row card shadow">
+            <!--  <div class="display-6 text-center" th:text="'Welcome to our website on ' + ${#temporals.format(${#temporals.createNow()}, #{date.format})}"></div> -->
+            <div class="text-center" th:text="#{welcome}"></div>
+            <div class="text-center" th:text="${#temporals.format(#temporals.createNow())}"></div>
+
+            <div class="row p-2 text-center">
+                <!-- Language switcher form -->
+                <form class="form text-center" action="/" method="get" autocomplete="on">
+                    <label for="lang" th:text="#{select}"></label>
+                    <select id="lang" class="form-select w-auto mx-auto" name="lang" onchange="this.form.submit()">
+                        <option th:selected="${#locale.language == 'en'}" value="en" th:text="#{lang_en}"></option>
+                        <option th:selected="${#locale.language == 'fr'}" value="fr" th:text="#{lang_fr}"></option>
+                        <option th:selected="${#locale.language == 'es'}" value="es" th:text="#{lang_es}"></option>
+                        <option th:selected="${#locale.language == 'da'}" value="da" th:text="#{lang_da}"></option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div class="m-2">
+            <p>Shows an example of using multiple languages. Select your preferred language
+                from
+                the dropdown below to see the welcome message content in the box change dynamically. Notice the browser
+                address line,
+                you can see the added url param ?lang="language code" change when you select a language.
+
+                This feature is just a demo, in real live all communication texts in the app should be
+                internationalized.
+            </p>
+            <p>Using the different messages_
+                &lt;language code&gt;_
+                &lt;country code&gt;.properties files in the
+                src/main/resources project folder.</p>
+        </div>
 
         <p class="mvc-title">Latest Articles</p>
 
