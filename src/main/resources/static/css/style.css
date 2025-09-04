@@ -288,7 +288,8 @@ label {
 #info-create-user,
 #info-update-user,
 #info-list-users,
-#info-show-user {
+#info-show-user,
+#info-accordion-faq{
     display: none;
 }
 
