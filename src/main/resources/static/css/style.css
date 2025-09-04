@@ -201,10 +201,6 @@ label {
 }
 
 /* Audio */
-.audio-intro {
-    font-size:.75em;
-    margin-top:10px;
-}
 
 .audio-icon {
     font-size:1.5em;
@@ -270,22 +266,6 @@ label {
 /* Carousel */
 .carousel {
     width: 100%;
-}
-
-.carousel-caption {
-    color: white;
-}
-
-.carousel-title {
-    background-color: black;
-    margin: 10px;
-    padding: 5px;
-}
-
-.carousel-body {
-    background-color: black;
-    margin: 10px;
-    padding: 5px;
 }
 
 #image-demo {
