@@ -92,9 +92,9 @@ label {
 }
 
 #welcome-title {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 
@@ -290,4 +290,8 @@ label {
 #info-list-users,
 #info-show-user {
     display: none;
+}
+
+.flag {
+    width:64px;
 }
