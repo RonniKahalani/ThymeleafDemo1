@@ -260,3 +260,8 @@ function loadFile(file) {
         };
     });
 }
+
+function toggleVisibility(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = isVisible(element) ? 'none' : 'block';
+}

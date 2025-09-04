@@ -32,7 +32,16 @@
     <div class="container">
 
         <form th:action="@{/user}" th:object="${user}" method="post" class="form" autocomplete="on">
-            <h2>Create User</h2>
+            <p class="section-title">Create User <i class="bi bi-info-circle info-icon" role="button"
+                                                   title="Click to get info on this feature."
+                                                   onclick="toggleVisibility('info-create-user')"></i></p>
+            <div id="info-create-user" class="m-2">
+                <p>This feature creates a user.</p>
+                <p>Uses the Bootstrap Form Control classes.</p>
+                <p>The validation values for the input fields are passed by the server.</p>
+                <p>The user can upload a local image photo.</p>
+            </div>
+
             <div th:replace="~{/fragments :: user-form-input}"></div>
             <hr>
             <div class="form-group text-end">

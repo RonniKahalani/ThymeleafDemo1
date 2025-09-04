@@ -148,7 +148,7 @@ label {
     margin-bottom: 10px;
 }
 
-.mvc-title {
+.section-title {
     font-size: 1.8em;
     font-weight: bold;
     vertical-align: top;
@@ -291,4 +291,23 @@ label {
 #image-demo {
     min-width: 200px;
     max-width: 400px;
+}
+
+
+/* Info Sections */
+.info-icon {
+    font-size: .8em;
+    color: gray;
+    cursor: pointer;
+}
+
+#info-multi-language,
+#info-latest-articles,
+#info-mvc,
+#info-carousel,
+#info-create-user,
+#info-update-user,
+#info-list-users,
+#info-show-user {
+    display: none;
 }
