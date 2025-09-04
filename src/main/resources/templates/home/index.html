@@ -248,7 +248,7 @@
                                                        onclick="toggleVisibility('info-carousel')"></i></p>
             <div id="info-carousel" class="m-2">
                 <p>This feature uses the Bootstrap Carousel class.</p>
-                <p>Enables the user to browse through a slideshow.</p>
+                <p>Enables the user to browse through a slideshow, by clicking on the left or right side of the image.</p>
             </div>
             <div id="carousel-images" class="carousel slide">
                 <div class="carousel-inner">
@@ -256,10 +256,6 @@
                     <!-- Carousel Items -->
                     <div class="carousel-item active">
                         <img src="/img/pic1.png" class="d-block w-100 z-index:-1" alt="...">
-                        <span class="carousel-caption d-none d-md-block">
-                            <span class="carousel-title">Spring & Thymeleaf</span><br>
-                            <span class="carousel-body">Spring Thymeleaf MVC Example Application</span>
-                    </span>
                     </div>
 
                     <div class="carousel-item">
@@ -273,12 +269,12 @@
 
                 <!-- Carousel Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel-images"
-                        data-bs-slide="prev">
+                        data-bs-slide="prev" title="Previous">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carousel-images"
-                        data-bs-slide="next">
+                        data-bs-slide="next" title="Next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
