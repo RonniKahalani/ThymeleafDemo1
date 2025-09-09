@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -28,7 +28,7 @@
 </head>
 
 <!-- Body onload event to show a welcome toast message popup -->
-<body onload="showWelcomeToast()">
+<body>
 
 <!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
@@ -40,38 +40,97 @@
         <!-- Logo, title and description -->
         <div class="text-center">
             <img id="logo" src="/img/logo.png" alt="Spring & Thymeleaf Logo" title="Spring & Thymeleaf Logo">
-            <h1 class="display-4">Spring & Thymeleaf</h1>
+            <h1 class="display-4">Spring, Thymeleaf & Bootstrap</h1>
         </div>
-
-        <p>This app demonstrates how the MVC pattern is used in Spring Thymeleaf, using a simple user form for data
+        <p>This app demonstrates how the MVC pattern is used in Spring with Thymeleaf and Bootstrap, using a simple user
+            form for data
             entry and a list of users.</p>
 
-        <p class="mvc-title">Latest Articles</p>
+        <!-- Multi Language Support Section -->
+        <p class="section-title">Multi Language Support <i class="bi bi-info-circle info-icon" role="button"
+                                                           title="Click to get info on this feature."
+                                                           onclick="toggleVisibility('info-multi-language')"></i></p>
+        <div id="info-multi-language" class="m-2">
+            <p>This feature uses multi-language support, which is managed via an url parameter, called <b>lang</b>.</p>
+            <p>The texts are defined in <b>messages_
+                &lt;language code&gt;.properties</b> files in the
+                <b>src/main/resources</b> project folder.</p>
 
+            <p>When selecting a language from the dropdown below, the page is updated and showing the welcome message in
+                the
+                selected language.</p>
+            <p>Notice the browser address line, you can see the added url param <b>?lang=&lt;language code&gt;</b>.</p>
 
-        <div th:if="${articles.size() > 0}" class="w-100">
-            <div class="row">
+            <p>This feature is just a simple demo, in real live all texts, in the app, would be
+                internationalized into these messages files.
+            </p>
+        </div>
 
-                <div th:each="article : ${articles}" class="card shadow mx-auto col-md-4" style="width: 18rem;">
-                    <img th:src="${article.imageUrl}" class="card-img" th:alt="${article.title}"
-                         th:title="${article.title}">
-                    <div class="card-body">
-                        <h5 th:text="${article.title}" class="card-title">Card title</h5>
-                        <p th:utext="${article.content}" class="card-text">Card text</p>
-                        <a th:href="${article.linkUrl}" th:text="${article.buttonText}" th:title="${article.buttonText}"
-                           target="_blank"
-                           class="btn btn-primary card-link">Go somewhere</a>
+        <!-- Internationalized greeting messages -->
+        <div class="card shadow m-2 p-2">
+            <img th:src="#{flag}" alt="Hello" title="Hello" class="mx-auto d-block flag">
+            <div id="welcome-title" class="text-center" th:text="#{welcome}"></div>
+            <div id="welcome-date" class="text-center" th:text="${#temporals.format(#temporals.createNow())}"></div>
+
+            <div class="row p-2 text-center">
+                <!-- Language switcher form -->
+                <form class="form text-center" action="/" method="get" autocomplete="on">
+                    <label for="lang" th:text="#{select}"></label>
+                    <select id="lang" class="form-select w-auto mx-auto" name="lang" onchange="this.form.submit()">
+                        <option th:selected="${#locale.language == 'en'}" value="en" th:text="#{lang_en}"></option>
+                        <option th:selected="${#locale.language == 'fr'}" value="fr" th:text="#{lang_fr}"></option>
+                        <option th:selected="${#locale.language == 'es'}" value="es" th:text="#{lang_es}"></option>
+                        <option th:selected="${#locale.language == 'da'}" value="da" th:text="#{lang_da}"></option>
+                        <option th:selected="${#locale.language == 'zh'}" value="zh" th:text="#{lang_zh}"></option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <hr class="m-4">
+
+        <!-- Cards Section -->
+        <p class="section-title">Cards <i class="bi bi-info-circle info-icon" role="button"
+                                          title="Click to get info on this feature."
+                                          onclick="toggleVisibility('info-latest-articles')"></i></p>
+        <div id="info-latest-articles" class="m-2">
+            <p>This feature get the latest articles and renders them using the Bootstrap Card CSS class.</p>
+            <p>The articles are iterated via a users list and each set with the <b>card style</b>.</p>
+
+        </div>
+        <div class="m-2">
+            <div th:if="${articles.size() > 0}" class="w-100">
+                <div class="row">
+                    <div th:each="article : ${articles}" class="card shadow mx-auto col-md-4 mt-2"
+                         style="width: 18rem;">
+                        <img th:src="${article.imageUrl}" class="card-img" th:alt="${article.title}"
+                             th:title="${article.title}">
+                        <div class="card-body">
+                            <h5 th:text="${article.title}" class="card-title">Card title</h5>
+                            <p th:utext="${article.content}" class="card-text">Card text</p>
+                            <a th:href="${article.linkUrl}" th:text="${article.buttonText}"
+                               th:title="${article.buttonText}"
+                               target="_blank"
+                               class="btn btn-primary card-link">Go somewhere</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div th:if="${articles.size() == 0}">
-            <p>No articles found.</p>
+            <div th:if="${articles.size() == 0}">
+                <p>No articles found.</p>
+            </div>
         </div>
 
-        <p class="mvc-title">MVC Tabs</p>
+        <hr class="m-4">
 
-        <!-- MVC Tabs -->
+        <p class="section-title">Navigator Tabs <i class="bi bi-info-circle info-icon" role="button"
+                                                   title="Click to get info on this feature."
+                                                   onclick="toggleVisibility('info-mvc')"></i></p>
+        <div id="info-mvc" class="m-2">
+            <p>This feature uses the Bootstrap Navigator Tabs class.</p>
+        </div>
+
+        <!-- MVC Tabs Section-->
         <ul class="nav nav-tabs" id="mvc-tab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="model-tab" data-bs-toggle="tab" data-bs-target="#model"
@@ -180,17 +239,105 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div id="carouselExample" class="carousel slide">
+
+            <hr class="m-4">
+
+            <!-- FAQ Accordion Section -->
+            <p class="section-title">FAQ Accordion <i class="bi bi-info-circle info-icon" role="button"
+                                                      title="Click to get info on this feature."
+                                                      onclick="toggleVisibility('info-accordion-faq')"></i></p>
+            <div id="info-accordion-faq" class="m-2">
+                <p>This feature uses the Bootstrap Accordion class.</p>
+                <p>Used as a FAQ list.</p>
+            </div>
+
+            <div class="accordion" id="accordion-faq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <strong>What is the purpose of this app?</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion-faq">
+                        <div class="accordion-body">
+                            The purpose of this app is to serve as a example app in computer science classes, showing
+                            what a Spring-, Thymeleaf- and Bootstrap-based app can look like.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <strong>Where can I find the source code?</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                        <div class="accordion-body">
+                            The source code is available on GitHub at: <a target="_blank"
+                                                                          href="https://github.com/RonniKahalani/ThymeleafDemo1">https://github.com/RonniKahalani/ThymeleafDemo1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <strong>Which technologies are used?</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion-faq">
+                        <div class="accordion-body">
+                            Using features
+                            <ul>
+                                <li>Controllers (HomeController and UserController).
+                                <li>Model components like services, repositories and data entities.</li>
+                                <li>Thymeleaf v3.5.5 with HTML fragment templates, view code is written only once and
+                                    reused.
+                                </li>
+                                <li>UI framework Bootstrap v5.3.3 with jQuery v1.7.3.</li>
+                                <li>Bootstrap Icons v1.10.5 + Font Awesome Icons v6.0.0.</li>
+                                <li>Local CSS and JavaScript files.</li>
+                                <li>Using media audio and video.</li>
+                                <li>Custom exception handler.</li>
+                                <li>Implementing the Spring Controller, Service, Repository and Entity concepts.</li>
+                                <li>Shows a feature using multi-language support (i18n), via locale specific
+                                    messages_xx.properties files.
+                                </li>
+                            </ul>
+                            Controller endpoints
+                            <ul>
+                                <li>Home - HTTP GET /</li>
+                                <li>List Users - HTTP GET - /user</li>
+                                <li>Show Create User Form - HTTP GET /create</li>
+                                <li>Save User - HTTP POST - /user</li>
+                                <li>Show User - HTTP GET - /user/{id}</li>
+                                <li>Show Update User Form - HTTP GET /update/{id}</li>
+                                <li>Delete User - HTTP GET /delete/{id}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="m-4">
+
+            <!-- Image Carousel Section -->
+            <p class="section-title">Image Carousel <i class="bi bi-info-circle info-icon" role="button"
+                                                       title="Click to get info on this feature."
+                                                       onclick="toggleVisibility('info-carousel')"></i></p>
+            <div id="info-carousel" class="m-2">
+                <p>This feature uses the Bootstrap Carousel class.</p>
+                <p>Enables the user to browse through a slideshow, by clicking on the left or right side of the
+                    image.</p>
+            </div>
+            <div id="carousel-images" class="carousel slide">
                 <div class="carousel-inner">
 
                     <!-- Carousel Items -->
                     <div class="carousel-item active">
                         <img src="/img/pic1.png" class="d-block w-100 z-index:-1" alt="...">
-                        <span class="carousel-caption d-none d-md-block">
-                            <span class="carousel-title">Spring & Thymeleaf</span><br>
-                            <span class="carousel-body">Spring Thymeleaf MVC Example Application</span>
-                    </span>
                     </div>
 
                     <div class="carousel-item">
@@ -203,13 +350,13 @@
                 </div>
 
                 <!-- Carousel Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-images"
+                        data-bs-slide="prev" title="Previous">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel-images"
+                        data-bs-slide="next" title="Next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>

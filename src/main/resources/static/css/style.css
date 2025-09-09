@@ -59,11 +59,7 @@ label {
     border-radius: 50%;
 }
 
-<!-- Card -->
-.card {
-/*    padding-top: 5px;
-    margin: 10px;*/
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+.messages-file {
 }
 
 .card-title {
@@ -95,7 +91,19 @@ label {
     color: white;
 }
 
-<!-- User -->
+#welcome-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+#welcome-date {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* User */
 .user-list {
     width: 100%;
     border-collapse: collapse;
@@ -140,7 +148,7 @@ label {
     margin-bottom: 10px;
 }
 
-.mvc-title {
+.section-title {
     font-size: 1.8em;
     font-weight: bold;
     vertical-align: top;
@@ -168,7 +176,7 @@ label {
     height: 300px;
 }
 
-<!-- Navigation Bar -->
+/* Navigation Bar */
 .navigation {
     background-color: black;
     border-top: 1px solid gray;
@@ -192,11 +200,7 @@ label {
     vertical-align: middle;
 }
 
-<!-- Audio -->
-.audio-intro {
-    font-size:.75em;
-    margin-top:10px;
-}
+/* Audio */
 
 .audio-icon {
     font-size:1.5em;
@@ -210,12 +214,12 @@ label {
 
 }
 
-<!-- Spinner -->
+/* Spinner */
 #spinner {
 
 }
 
-<!-- Toast -->
+/* Toast */
 #toast-view {
     color:black;
     opacity: 100%;
@@ -240,7 +244,7 @@ label {
     border-bottom: 1px solid white;
 }
 
-<!-- Modal Dialog -->
+/* Modal Dialog */
 .modal-dialog {
     color: black;
 }
@@ -259,29 +263,40 @@ label {
     color: white;
 }
 
-<!-- Carousel -->
+/* Carousel */
 .carousel {
     width: 100%;
-}
-
-.carousel-caption {
-    color: white;
-}
-
-.carousel-title {
-    background-color: black;
-    margin: 10px;
-    padding: 5px;
-}
-
-.carousel-body {
-    background-color: black;
-    margin: 10px;
-    padding: 5px;
 }
 
 #image-demo {
     min-width: 200px;
     max-width: 400px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Info Sections */
+.info-icon {
+    font-size: .8em;
+    color: gray;
+    cursor: pointer;
+}
+
+#info-multi-language,
+#info-latest-articles,
+#info-mvc,
+#info-carousel,
+#info-create-user,
+#info-update-user,
+#info-list-users,
+#info-show-user,
+#info-accordion-faq{
+    display: none;
+}
+
+.flag {
+    width:64px;
+}
+
+.contact-link {
+    color: white;
 }

@@ -47,7 +47,7 @@ public class UserService {
      * @throws IllegalArgumentException if validation fails
      */
     public void save(User user) {
-        validate(user);
+        UserValidator.validate(user);
         userRepository.save(user);
     }
 
@@ -57,21 +57,5 @@ public class UserService {
      */
     public void deleteById(Long id) {
         userRepository.deleteById(id);
-    }
-
-    /**
-     * Validates the user data before saving.
-     * This validation is also done on the client side using HTML5 form validation attributes.
-     * @param user the user to validate
-     * @throws IllegalArgumentException if validation fails
-     */
-    private void validate(User user) {
-
-        if (user.getName() == null || user.getName().isEmpty()) {
-            throw new IllegalArgumentException("User name cannot be empty");
-        }
-        if (user.getAge() < 18) {
-            throw new IllegalArgumentException("User age cannot be less than 18 years of age.");
-        }
     }
 }

@@ -4,7 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Factory class to generate users.
+ */
 public class UserFactory {
+    /**
+     * Generates a list of test users.
+     *
+     * @return a list of User objects
+     */
     public static List<User> getTestUsers() {
 
         List<User> users = new ArrayList<>();

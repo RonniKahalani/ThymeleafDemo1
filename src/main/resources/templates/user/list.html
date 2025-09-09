@@ -31,7 +31,12 @@
 <main>
     <div class="container">
 
-        <h2>Users <span class='badge bg-dark' th:utext="${users.size()}"></span></h2>
+        <p class="section-title">Users <span class='badge bg-dark' th:utext="${users.size()}"></span> <i class="bi bi-info-circle info-icon" role="button"
+                                                                                                         title="Click to get info on this feature."
+                                                                                                         onclick="toggleVisibility('info-list-users')"></i></p>
+        <div id="info-list-users" class="m-2">
+            <p>This feature list all users as Bootstrap Card class style.</p>
+        </div>
 
         <div th:if="${users.size() > 0}" class="w-100">
             <div class="row my-5">

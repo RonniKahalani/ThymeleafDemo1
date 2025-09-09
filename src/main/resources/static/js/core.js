@@ -177,13 +177,6 @@ function isVisible(element) {
 }
 
 /**
- * Show welcome toast
- */
-function showWelcomeToast() {
-    showToast("Welcome", `Hello and welcome to this site.<br>You can find the code here at <a target="_blank" href="http://github.com/RonniKahalani">GitHub</a>`, ICON_HOUSE);
-}
-
-/**
  * Show toast message
  *
  * @param title
@@ -266,4 +259,9 @@ function loadFile(file) {
             reject(error);
         };
     });
+}
+
+function toggleVisibility(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = isVisible(element) ? 'none' : 'block';
 }

@@ -32,10 +32,17 @@
 <main>
     <div class="container">
 
-        <h2 th:text="${user.name}"></h2>
+        <p class="section-title">Show User <i class="bi bi-info-circle info-icon" role="button"
+                                                                     title="Click to get info on this feature."
+                                                                     onclick="toggleVisibility('info-show-user')"></i></p>
+        <div id="info-show-user" class="m-2">
+            <p>This feature shows a user.</p>
+        </div>
+
         <div class="row">
             <div class="row col-md-6">
 
+                <p><strong>Name:</strong> <span th:text="${user.name}"></span></p>
                 <p><strong>Description:</strong> <span th:text="${user.description}"></span></p>
                 <p><strong>Phone:</strong> <span th:text="${user.phone}"></span></p>
                 <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
