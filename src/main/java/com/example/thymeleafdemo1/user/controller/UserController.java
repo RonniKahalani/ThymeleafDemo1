@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * This is the controller that handles the user form display and submission.
  *
  * @return the name of the template to render
