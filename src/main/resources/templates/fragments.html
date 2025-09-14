@@ -17,8 +17,9 @@ This fragment is used as the header-tag in all HTML pages.
     </div>
 
     <!-- Navigation Bar -->
-    <div class="navigation mr-3 bg-dark opacity-75">
-        <div class="row navigation-row">
+    <div class="navigation mr-3 bg-dark opacity-75 align-middle">
+        <div class="row mr-2 align-middle">
+
             <!-- Image with audio control -->
             <div class="col-4 row">
                 <div class="audio-control">
@@ -35,22 +36,22 @@ This fragment is used as the header-tag in all HTML pages.
                 <!-- Spacer column -->
                 <div class="col-sm"></div>
 
-                <button id="btn-nav-home" title="Home" class="btn nav-icon">
+                <button id="btn-nav-home" title="Home" class="btn nav-icon align-middle w-auto">
                     <span class="bi-house" style="display: block"></span>
                     <span class="icon-text">Home</span>
                 </button>
 
-                <button id="btn-nav-list-users" title="List Users" class="btn nav-icon">
+                <button id="btn-nav-list-users" title="List Users" class="btn nav-icon align-middle w-auto">
                     <span class="bi-people" style="display: block"></span>
                     <span class="icon-text">Users</span>
                 </button>
 
-                <button id="btn-nav-create-user" title="Create User" class="btn nav-icon">
+                <button id="btn-nav-create-user" title="Create User" class="btn nav-icon align-middle w-auto">
                     <span class="bi-person-plus" style="display: block"></span>
                     <span class="icon-text">Create</span>
                 </button>
 
-                <button id="btn-nav-settings" title="Settings" class="btn nav-icon" data-bs-toggle="modal"
+                <button id="btn-nav-settings" title="Settings" class="btn nav-icon align-middle w-auto" data-bs-toggle="modal"
                         data-bs-target="#modal-example">
                     <span class="bi-gear" style="display: block"></span>
                     <span class="icon-text">Settings</span>
@@ -116,7 +117,7 @@ Added                <li><i class="bi bi-geo-alt me-2"></i><a class="contact-lin
 
 <!-- Toast Notification -->
 <div th:fragment="toast" class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="toast-view" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="toast-view" class="toast opacity-100 shadow" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
             <i id="toast-icon" class="rounded me-2 bi bi-info-circle"></i>
             <strong class="me-auto toast-title">Bootstrap</strong>
