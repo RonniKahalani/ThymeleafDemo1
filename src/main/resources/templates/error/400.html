@@ -27,13 +27,14 @@
     <script defer src="/js/core.js"></script>
 </head>
 
-<body class="error-page">
+<body>
 
 <!-- Header Fragment -->
 <header th:replace="~{/fragments :: header}"></header>
 
 <main>
-    <div class="container">
+    <div class="container text-center">
+
         <img alt="Error" src="/img/error.jpg" class="error-img"/>
 
         <div th:if="${message}">
