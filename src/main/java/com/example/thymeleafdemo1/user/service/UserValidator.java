@@ -10,10 +10,10 @@ public class UserValidator {
     /**
      * These values fetched from the application.properties file, via the @Value annotations, used as attribute values in the view model.
      */
-    public static int USER_NAME_LENGTH_MAX = 255;
-    public static int USER_EMAIL_LENGTH_MAX = 255;
-    public static int USER_AGE_LIMIT_MIN =  8;
-    public static int USER_AGE_LIMIT_MAX = 130;
+    public static final int USER_NAME_LENGTH_MAX = 255;
+    public static final int USER_EMAIL_LENGTH_MAX = 255;
+    public static final int USER_AGE_LIMIT_MIN =  8;
+    public static final int USER_AGE_LIMIT_MAX = 130;
 
     public static void validate(User user) throws IllegalArgumentException {
 
